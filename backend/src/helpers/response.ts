@@ -1,4 +1,5 @@
-const DadosDoClienteMaisPlanos = (data: any, plano: any) => {
+export const ClientesMaisPlanos = (data: any, plano: any) => {
+  
   return {
     id: data.id,
     nome: data.nome,
@@ -10,9 +11,17 @@ const DadosDoClienteMaisPlanos = (data: any, plano: any) => {
     plano: {
       id: data.planoId,
       tipo: plano.nome,
-      valor: plano.valor,
+      valor: `R$ ${plano.valor},00`,
     }
   }
 }
 
-export default DadosDoClienteMaisPlanos;
+export const PlanosMaisCliente = (data: any) => {
+  
+  return {
+    id: data.id,
+    nome: data.nome,
+    vencimento: data.vencimento?.getFullYear() && data.vencimento?.getFullYear()  > 3000 ? null : data.vencimento?.toLocaleDateString()
+  }
+}
+

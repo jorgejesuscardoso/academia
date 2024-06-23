@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { PlanoDTO, CreatePlanoDTO } from '../../DTO/plano';
 import { ClienteDTO } from '../../DTO/cliente'; 
+import { PlanosMaisCliente } from '../../helpers/response';
+import { response } from 'express';
 
 class PlanoService {
   private prisma: PrismaClient;
@@ -20,7 +22,9 @@ class PlanoService {
       }
     });
 
-    return data;
+    const response = { ...data, clientes: PlanosMaisCliente(data) };
+
+    return response;
   }
 
   async GetPlanos() {
@@ -28,7 +32,14 @@ class PlanoService {
       include: { clientes: true }
     });
 
-    return data;
+    const response = data.map(plano => {
+      const { clientes, ...planoData } = plano;
+      const dataClient = clientes.map(cliente => PlanosMaisCliente(cliente));
+
+      return { ...planoData, clientes: dataClient };
+    });
+    
+    return response;
   }
 
   async GetPlanoById(id: number) {
@@ -37,22 +48,24 @@ class PlanoService {
       include: { clientes: true }
     });
 
-    return data;
+    const response = { ...data, clientes: data && data.clientes.map(cliente => PlanosMaisCliente(cliente))};
+    return response;
   }
 
   async UpdatePlano(id: number, { nome, valor, clientes }: PlanoDTO) {
-    const clienteIds = clientes.map(cliente => ({ id: cliente.id }));
 
     const data = await this.prisma.plano.update({
       where: { id },
       data: {
+        id,
         nome,
-        valor,
-        clientes: { set: clienteIds }
+        valor
       }
     });
 
-    return data;
+    const response = { ...data, clientes: PlanosMaisCliente(data) };
+
+    return response;
   }
   
   async DeletePlano(id: number) {

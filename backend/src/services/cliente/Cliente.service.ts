@@ -3,7 +3,7 @@ import { CreateClienteDTO } from '../../DTO/cliente';
 import plano from '../plano/Plano.service';
 import { PlanoDTO } from '../../DTO/plano';
 import DataPorTipoDePlano from '../../helpers/dateForPlan';
-import DadosDoClienteMaisPlanos from '../../helpers/response';
+import { ClientesMaisPlanos } from '../../helpers/response';
 
 class ClienteService {
   private prisma: PrismaClient;
@@ -15,7 +15,7 @@ class ClienteService {
   }
 
   async CreateCliente(cliente: CreateClienteDTO) {
-    const plano = await this.planoService.GetPlanoById(cliente.planoId) as PlanoDTO;
+    const plano = await this.planoService.GetPlanoById(cliente.planoId);
 
     const endDate = DataPorTipoDePlano(cliente, plano);
 
@@ -31,7 +31,7 @@ class ClienteService {
       }
     });
 
-    const reponseData = DadosDoClienteMaisPlanos(newCliente, plano);
+    const reponseData = ClientesMaisPlanos(newCliente, plano);
 
     return reponseData;
   }
@@ -42,7 +42,7 @@ class ClienteService {
 
     const response = clientes.map(cliente => {
       const plano = planType.find(plano => plano.id === cliente.planoId);
-      return DadosDoClienteMaisPlanos(cliente, plano);
+      return ClientesMaisPlanos(cliente, plano);
     });
 
     return response;  
@@ -58,7 +58,7 @@ class ClienteService {
 
     if (cliente) {
       const plano = planType.find(plano => plano.id === cliente.planoId);
-      const response = DadosDoClienteMaisPlanos(cliente, plano);
+      const response = ClientesMaisPlanos(cliente, plano);
       return response;
     }
 
@@ -79,7 +79,7 @@ class ClienteService {
 
       const response = cliente.map(cliente => {
         const plano = planType.find(plano => plano.id === cliente.planoId);
-        return DadosDoClienteMaisPlanos(cliente, plano);
+        return ClientesMaisPlanos(cliente, plano);
       });
 
       return response;
@@ -99,7 +99,7 @@ class ClienteService {
       const planType = await this.planoService.GetPlanos();
       const plano = planType.find(plano => plano.id === cliente.planoId);
      
-      const response = DadosDoClienteMaisPlanos(cliente, plano);
+      const response = ClientesMaisPlanos(cliente, plano);
       return response;
     }
 
@@ -118,7 +118,7 @@ class ClienteService {
       const planType = await this.planoService.GetPlanos();
       const plano = planType.find(plano => plano.id === cliente.planoId);
      
-      const response = DadosDoClienteMaisPlanos(cliente, plano);
+      const response = ClientesMaisPlanos(cliente, plano);
 
       return response;
     }
