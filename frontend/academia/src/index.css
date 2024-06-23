@@ -7,26 +7,45 @@
 
 :root {
   --text-color: #333;
-  --text-color-success: #038303;
+  --text-color-success: #007700;
   --text-color-error: #ff0000;
   --text-color-black-1: #4400e4;
   --text-color-black-1-hover: #16004b;
+  --menu-button-text-color-2: #ebebeb;
+  --menu-button-background-red: #ff4848;
+  --menu-button-text-color: #fff;
+  --menu-button-text-color2: #000;
+  --menu-button-hover-text-color: #ff0;
+
+
   --background-login: #bbb;
   --background-login-form: #eee;
   --background-login-input: #ddd;
+  --background-menu: #D3D3D3;
+  --background-option: #59cac4;
+
+
   --input-login-outline: rgb(81, 220, 255);
+
+
+  --menu-button-background: #4400e4;
+  --menu-button-hover-background: #16004b;
 }
 
 .success {
-  background-color: rgb(0, 255, 0);
+  background-color: rgb(0, 168, 0);
   color: var(--text-color-success);
 }
 
 .success:hover {
-  background-color: rgb(0, 200, 0);
-  color: var(--text-color-black-1-hover);
+  background-color: rgb(0, 100, 0);
 }
 
 .error {
-  color: var(--text-color-error)
+  color: var(--text-color-error);
+  background-color: rgb(250, 0, 0);
+}
+
+.error:hover {
+   background-color: rgb(150, 0, 0);
 }

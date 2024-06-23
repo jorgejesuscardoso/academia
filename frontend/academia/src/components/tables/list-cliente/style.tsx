@@ -78,6 +78,21 @@ export const TableCell = styled.td`
     color: #007bff;
   }
 
+  p {
+    background: transparent;
+    text-align: start;
+
+    &.success {
+      color: #066806;
+      font-weight: 550;
+    }
+
+    &.error {
+      color: red;
+      font-weight: 550;
+    }
+  }
+
   img {
     width: 20px;
     height: 20px;

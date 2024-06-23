@@ -28,7 +28,7 @@ export const calculateDaysUntil = (date: string) => {
 
     
 
-    return Math.round(days);
+    return Number(Math.round(days));
   } catch (error) {
     console.error(error);
     return NaN; 

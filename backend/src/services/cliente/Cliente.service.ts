@@ -19,12 +19,14 @@ class ClienteService {
 
     const endDate = DataPorTipoDePlano(cliente, plano);
 
+    const birthDate = new Date(cliente.dataNascimento);
+
     const newCliente = await this.prisma.cliente.create({
       data: {
         nome: cliente.nome,
         email: cliente.email,
         telefone: cliente.telefone,
-        dataNascimento: new Date(cliente.dataNascimento),
+        dataNascimento: birthDate,
         dataInicio: new Date(cliente.dataInicio),
         vencimento: new Date(endDate),
         planoId: cliente.planoId,
@@ -107,11 +109,19 @@ class ClienteService {
   } 
 
   async UpdateCliente(id: number, data: CreateClienteDTO) {
+
+    const newData = {
+      ...data,
+      dataNascimento: new Date(data.dataNascimento),
+      dataInicio: new Date(data.dataInicio),
+      vencimento: new Date(data.vencimento)
+    }
+
     const cliente = await this.prisma.cliente.update({
       where: {
         id,
       },
-      data,
+      data: newData,
     });
 
     if (cliente) {

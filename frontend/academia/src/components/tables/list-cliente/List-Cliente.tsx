@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { GetClientes } from '../../../service/clienteApi';
 import { Container, Table, TableHead, TableBody, TableRow, TableCell } from './style';
-import { calculateDaysUntil } from '../../../utils/calculateDate';
-import { ConfigClientList } from '../../menus/cliente/ConfigClientList';
+import { calculateAge, calculateDaysUntil } from '../../../utils/calculateDate';
+import MenuConfigClient from '../../menus/cliente/MenuConfigClient';
 
 type Cliente = {
   id: number,
@@ -26,21 +26,22 @@ type ClienteApi = {
   vencimento: string
 }
 
-const calculateAge = (birthDate: string) => {
-  const [day, month, year] = birthDate.split('/').map(Number);
-  const birth = new Date(year, month - 1, day);
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const monthDiff = today.getMonth() - birth.getMonth();
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-    age--;
-  }
-  return age;
-}
-
 export const ListCliente = () => {
   const [listClients, setListClients] = useState<Cliente[]>([]);
   const [toggleConfig, setToggleConfig] = useState<boolean>(false);
+  const [selectedClient, setSelectedClient] = useState<Cliente>({
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: '',
+    idade: 0,
+    inicio: '',
+    plano: '',
+    diasRestantes: 0
+  
+  });
+
+  const options = ['Dias', 'Aguardando Pagamento', 'Vencido', 'Vitalício']
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,9 +101,13 @@ export const ListCliente = () => {
               <TableCell>{ item.plano }</TableCell>
               <TableCell>
                 <div>
-                  { item.plano !== 'Vitalício' ? `${item.diasRestantes} Dias` : 'Sem Fim' }
+                  { item.diasRestantes > 0 ? `${item.diasRestantes} ${options[0]}` : item.diasRestantes <= 0 ? <p className='error'>{options[2]}. {options[1]}</p> : <p className='success'>{ options[3] }</p>}
                   <button
-                    onClick={handleToggleConfig}                  
+                    onClick={
+                      () => {
+                      handleToggleConfig();
+                      setSelectedClient(item);
+                    }}                
                   >
                     <img src="config_black.png" alt="" />
                   </button>
@@ -112,7 +117,15 @@ export const ListCliente = () => {
           ))}
         </TableBody>
       </Table>
-      {  toggleConfig && <ConfigClientList /> } 
+      {  toggleConfig && <MenuConfigClient
+          id={selectedClient.id}
+          nome={selectedClient.nome}
+          email={selectedClient.email}
+          telefone={selectedClient.telefone}
+          dataInicio={selectedClient.inicio}
+          plano={selectedClient.plano}
+          setToggleConfig={setToggleConfig}          
+      /> } 
     </Container>
   )
 }
