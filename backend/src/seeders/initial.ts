@@ -3,6 +3,16 @@ const prisma = new PrismaClient();
 
 // Planos
 async function main() {
+
+  const user = await prisma.user.create({
+    data: {
+      user: 'Bushido',
+      email: 'test@example.com',
+      senha: '123456',
+      role: 'Admin'
+    },
+  });
+
   const mensal = await prisma.plano.create({
     data: {
       nome: 'Mensal',

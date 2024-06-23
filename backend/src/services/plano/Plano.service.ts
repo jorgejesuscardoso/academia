@@ -73,7 +73,7 @@ class PlanoService {
       where: { id }
     });
 
-    return data;
+    return;
   }
 }
 
