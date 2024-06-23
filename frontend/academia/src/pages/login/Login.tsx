@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { LoginApi } from '../../service/loginApi';
-import { SetLocalStorage } from '../../service/localStorage';
+import { SetLocalStorage } from '../../utils/localStorage';
 import { Container } from './style';
 import { loginLogo } from '../../utils/icons';
 
