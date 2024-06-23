@@ -89,9 +89,9 @@ async function main() {
       nome: 'João Silva',
       email: 'joao.silva@example.com',
       telefone: '1234567890',
-      dataNascimento: '1990-01-01T00:00:00Z',
-      dataInicio: '2021-01-01T00:00:00Z',
-      vencimento: '2021-01-01T00:00:00Z',
+      dataNascimento: '1990-01-01T06:00:00Z',
+      dataInicio: '2022-06-01T06:00:00Z',
+      vencimento: '2024-08-01T06:00:00Z',
       planoId: mensal.id
     },
   });
@@ -101,9 +101,9 @@ async function main() {
       nome: 'Maria Santos',
       email: 'maria.santos@example.com',
       telefone: '0987654321',
-      dataNascimento: '1995-05-15T00:00:00Z',
-      dataInicio: '2021-05-01T00:00:00Z',
-      vencimento: '2021-05-01T00:00:00Z',
+      dataNascimento: '1995-05-15T06:00:00Z',
+      dataInicio: '2023-01-01T06:00:00Z',
+      vencimento: '2024-11-01T06:00:00Z',
       planoId: trimestral.id
     },
   });
@@ -113,10 +113,34 @@ async function main() {
       nome: 'Pedro Oliveira',
       email: 'pedro.oliveira@example.com',
       telefone: '0123456789',
-      dataNascimento: '1988-03-20T00:00:00Z',
-      dataInicio: '2021-03-01T00:00:00Z',
-      vencimento: '2021-03-01T00:00:00Z',
+      dataNascimento: '1988-03-20T06:00:00Z',
+      dataInicio: '2021-12-01T06:00:00Z',
+      vencimento: '2024-12-01T06:00:00Z',
       planoId: anual.id
+    },
+  });
+
+  const cliente4 = await prisma.cliente.create({
+    data: {
+      nome: 'Ana Souza',
+      email: 'ana.souza@example.com',
+      telefone: '9876543210',
+      dataNascimento: '1998-07-30T06:00:00Z',
+      dataInicio: '2022-04-01T06:00:00Z',
+      vencimento: '3500-04-01T06:00:00Z',
+      planoId: vitalicio.id
+    },
+  });
+
+  const cliente5 = await prisma.cliente.create({
+    data: {
+      nome: 'José Santos',
+      email: 'jose.santos@example.com',
+      telefone: '8765432109',
+      dataNascimento: '1990-11-10T06:00:00Z',
+      dataInicio: '2023-06-01T06:00:00Z',
+      vencimento: '2024-10-01T06:00:00Z',
+      planoId: bianual.id
     },
   });
 }
