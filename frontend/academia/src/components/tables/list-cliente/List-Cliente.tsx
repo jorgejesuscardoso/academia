@@ -12,10 +12,11 @@ type Cliente = {
   idade: number,
   inicio: string,
   plano: string,
+  status: string,
   diasRestantes: number
 }
 
-type ClienteApi = {
+export type ClienteApi = {
   id: number,
   nome: string,
   email: string,
@@ -23,6 +24,7 @@ type ClienteApi = {
   dataNascimento: string,
   dataInicio: string,
   plano: string,
+  status: string,
   vencimento: string
 }
 
@@ -37,13 +39,20 @@ export const ListCliente = () => {
     idade: 0,
     inicio: '',
     plano: '',
-    diasRestantes: 0
-  
+    status: '',
+    diasRestantes: 0  
   });
 
   const options = ['Dias', 'Aguardando Pagamento', 'Vencido', 'Vitalício']
 
   useEffect(() => {
+    handleGetList();
+  }, []);
+
+  const handleToggleConfig = () => {
+    setToggleConfig(!toggleConfig);
+  }
+  const handleGetList = () => {
     const fetchData = async () => {
       try {
         const client = await GetClientes();
@@ -58,20 +67,23 @@ export const ListCliente = () => {
             idade: age,
             inicio: item.dataInicio,
             plano: item.plano,
+            status: item.status,
             diasRestantes: daysUntilExpiry
           };
         });
+        
         setListClients(attDate);
       } catch (error) {
         console.error("Erro ao buscar clientes:", error);
       }
     };
     fetchData();
-  }, []);
-
-  const handleToggleConfig = () => {
-    setToggleConfig(!toggleConfig);
   }
+
+  const activeDesactiveClient = () => {
+    console.log('Desativar Cliente');
+  }
+
   return (
     <Container>
       <Table>
@@ -84,6 +96,7 @@ export const ListCliente = () => {
             <th>Idade</th>
             <th>Início</th>
             <th>Plano</th>
+            <th>Status</th>
             <th>Dias Restantes</th>
           </tr>
         </TableHead>
@@ -99,9 +112,10 @@ export const ListCliente = () => {
               <TableCell>{ item.idade }</TableCell>
               <TableCell>{ item.inicio }</TableCell>
               <TableCell>{ item.plano }</TableCell>
+              <TableCell>{ item.status }</TableCell>                
               <TableCell>
                 <div>
-                  { item.diasRestantes > 0 ? `${item.diasRestantes} ${options[0]}` : item.diasRestantes <= 0 ? <p className='error'>{options[2]}. {options[1]}</p> : <p className='success'>{ options[3] }</p>}
+                  { item.diasRestantes > 0 ? `${item.diasRestantes} ${options[0]}` : item.diasRestantes <= 0 ? <p className='error'><span>{ options[2] }.</span> <span>{ options[1] }</span></p> : <p className='success'>{ options[3] }</p>}
                   <button
                     onClick={
                       () => {
@@ -124,7 +138,9 @@ export const ListCliente = () => {
           telefone={selectedClient.telefone}
           dataInicio={selectedClient.inicio}
           plano={selectedClient.plano}
-          setToggleConfig={setToggleConfig}          
+          setToggleConfig={setToggleConfig}
+          handleGetList={handleGetList}
+          activeDesactiveClient={activeDesactiveClient}     
       /> } 
     </Container>
   )

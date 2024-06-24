@@ -8,7 +8,8 @@ export const ClientesMaisPlanos = (data: any, plano: any) => {
     dataNascimento: data.dataNascimento.toLocaleDateString(),
     dataInicio: data.dataInicio.toLocaleDateString(),
     vencimento: data.vencimento?.getFullYear() && data.vencimento?.getFullYear()  > 3000 ? null : data.vencimento?.toLocaleDateString(),
-    plano: plano.nome
+    plano: plano.nome,
+    status: data.status
   }
 }
 

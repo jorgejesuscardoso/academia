@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #f8f9fa;
+  font-size: 14px;
 `;
 
 export const Table = styled.table`
@@ -20,7 +21,6 @@ export const Table = styled.table`
 export const TableHead = styled.thead`
   background-color: #343a40;
   color: #fff;
-  text-align: left;
 
   th {
     text-align: center;
@@ -79,8 +79,11 @@ export const TableCell = styled.td`
   }
 
   p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: transparent;
-    text-align: start;
+    font-size: 12px;
 
     &.success {
       color: #066806;
@@ -88,8 +91,13 @@ export const TableCell = styled.td`
     }
 
     &.error {
+      text-align: start;
       color: red;
       font-weight: 550;
+    }
+
+    &:hover {
+      background-color: transparent;
     }
   }
 

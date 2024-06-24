@@ -4,9 +4,10 @@ export interface UserLoginDTO {
 }
 
 export interface UserDTO {
-  id?: number;
-  user?: string;
-  email?: string;
-  senha?: string;
-  role?: string;
+  id: number;
+  nome: string;
+  user: string;
+  email: string;
+  senha: string;
+  role: string;
 }

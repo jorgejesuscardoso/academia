@@ -1,10 +1,10 @@
-import { ListCliente } from '../../components/tables/list-cliente/List-Cliente'
-
 const Home = () => {
  
   return (
     <div>
-      <ListCliente />
+      <h1>
+        Olá, bem vindo ao React
+      </h1>
     </div>
   )
 }

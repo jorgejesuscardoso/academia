@@ -7,6 +7,7 @@ export interface CreateClienteDTO {
   dataNascimento: Date;
   dataInicio: Date;
   vencimento: Date;
+  status: string;
   planoId: number;
 }
 
@@ -18,5 +19,6 @@ export interface ClienteDTO {
   dataNascimento: Date;
   dataInicio: Date;
   vencimento: Date;
+  status: string;
   planoId: number;
 }

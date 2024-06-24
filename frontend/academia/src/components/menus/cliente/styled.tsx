@@ -10,6 +10,8 @@ export const MenuClienteContainer = styled.div`
   border-radius: 5px;
   width: 20vw;
   height: 50vh;
+  top: 11vh;
+  right: 8vw;
 
     h4 {
       color: var(--menu-title-color);
@@ -24,99 +26,88 @@ export const MenuClienteContainer = styled.div`
       flex-direction: column;
       gap: 4px;
 
-        li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-            button {
-              width: 200px;
-              height: 35px;
-              background-color: var(--menu-button-background);
-              border: none;
-              color: var(--menu-button-text-color);
-              border-radius: 5px;
-              cursor: pointer;
+        button {
+          width: 200px;
+          height: 35px;
+          background-color: var(--menu-button-background);
+          border: none;
+          color: var(--menu-button-text-color);
+          border-radius: 5px;
+          cursor: pointer;
 
-              &:hover {
-                background-color: var(--menu-button-hover-background);
-                color: var(--menu-button-hover-text-color);
-              }
-            }
+          &:hover {
+            background-color: var(--menu-button-hover-background);
+            color: var(--menu-button-hover-text-color);
+          }
         }
+      }
     }
+
+  span {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
 `;
 
-/* EditMenuContaienr */
-
-export const EditMenuContaienr = styled.div`
+export const ConfirmDeleteContainer = styled.div`
   position: absolute;
-  background-color: var(--background-menu);
+  background-color: var(--background-menu-2);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  margin-top: 10px;
-  padding: 20px;
-  width: 20vw;
+  width: 30vw;
+  height: 20vh;
+  gap: 10px;
 
-    h4 {
-      margin-top: 10px;
+    p {
+      text-align: center;
       color: var(--menu-title-color);
+      margin-bottom: 30px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-
-        label {
-          color: var(--menu-title-color);
-          font-size: 0.8rem;
-        }
-
-        input {
-          width: 200px;
-          height: 25px;
-          border: 1px solid var(--menu-button-background);
-          border-radius: 5px;
-          margin-bottom: 10px;
-          padding-left: 5px;
-
-          &:focus {
-            outline: 1px solid var(--menu-button-background);
-          }
-        }
-
-        button {
-          width: 100px;
-          height: 30px;
-          border: none;
-          color: var(--menu-button-text-color-2);
-          font-weight: bold;
-          border-radius: 5px;
-          cursor: pointer;
-        }
-
-        select {
-          width: 200px;
-          height: 25px;
-          border: 1px solid var(--menu-button-background);
-          border-radius: 5px;
-          margin-bottom: 10px;
-          padding-left: 5px;
-
-            option {
-              color: var(--text-color);
-              font-weight: bold;
-              background-color:  white;
-              
-              &:hover {
-                background-color: var(--background-menu);
-                color: var(--menu-button-hover-text-color);
-            }
-          }
-
-        }
+    main {
+      width: 100vw;
+      height: 10vh;
     }
+
+    button {
+      width: 100px;
+      height: 30px;
+      background-color: var(--menu-button-background);
+      border: none;
+      color: var(--menu-button-text-color);
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--menu-button-hover-background);
+        color: var(--menu-button-hover-text-color);
+      }
+    }
+`;
+export const Buttons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  gap: 10px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 30vw;
+  height: 10vh;
 `;

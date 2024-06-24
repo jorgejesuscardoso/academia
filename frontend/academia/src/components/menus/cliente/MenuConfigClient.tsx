@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { EditMenuContaienr, MenuClienteContainer } from './styled';
-import { GetClientes, UpdateCliente } from '../../../service/clienteApi';
+import { Buttons, ConfirmDeleteContainer, Content, MenuClienteContainer } from './styled';
+import { DeleteCliente, UpdateCliente } from '../../../service/clienteApi';
+import { FormUpdate } from '../../foms/clients/FormUpdate';
 
 type MenuConfigClientProps = {
   id: number;
@@ -10,14 +11,24 @@ type MenuConfigClientProps = {
   dataInicio: string;
   plano: string;
   setToggleConfig: (toggle: boolean) => void;
+  handleGetList: () => void;
+  activeDesactiveClient: () => void;
 }
+
+
 const MenuConfigClient = ({
   id,
+  nome,
   setToggleConfig,
+  handleGetList,
 }: MenuConfigClientProps) => {
 
   const refer = useRef<HTMLDivElement>(null);
+  const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
   const [editMenu, setEditMenu] = useState<boolean>(false);
+  const [activeDesactive, setActiveDesactive] = useState<boolean>(false);
+  const [confirmActiveOrDesactive, setConfirmActiveOrDesactive] = useState<boolean>(false);
+  const [typeActiveOrDesactive, setTypeActiveOrDesactive] = useState<string>('');
   const [updateClient, setUpdateClient] = useState({
     id,
     nome: '',
@@ -26,14 +37,15 @@ const MenuConfigClient = ({
     dataNascimento: '',
     dataInicio: '',
     planoId: 1,
-    vencimento: ''
+    vencimento: '',
   });
 
   const handleEditClient = () => {
     setEditMenu(true); 
   };
-  const handleDeleteClient = () => {
-    console.log('Excluir Cliente');
+  const handleDeleteClient = async () => {
+    await DeleteCliente(id);
+    handleGetList();
   };
   const handleDeactivateClient = () => {
     console.log('Desativar Cliente');
@@ -46,10 +58,23 @@ const MenuConfigClient = ({
   };
 
   const handleSubmitUpdate = async () => {
+    if (updateClient.planoId === 6) {
+      const endData = {
+        ...updateClient,
+        vencimento: "3001-12-31",
+      };
+      const update = await UpdateCliente(updateClient.id, endData);
+      setToggleConfig(false);
+      handleGetList();
+      setToggleConfig(false);
+      return update;
+    }
+
     const update = await UpdateCliente(updateClient.id, updateClient);
-    console.log(update);
     setToggleConfig(false);
-    await GetClientes();
+    handleGetList();
+    setToggleConfig(false);
+    return update;
   };
 
   useEffect(() => {
@@ -67,6 +92,11 @@ const MenuConfigClient = ({
   return (
     <MenuClienteContainer ref={ refer }>
       <h4>Configurações do Cliente</h4>
+      <span
+        onClick={() => setToggleConfig(false)}
+      >
+        ❌
+      </span>
       <ul>
         <li>
           <button onClick={() => handleEditClient()}>
@@ -74,13 +104,13 @@ const MenuConfigClient = ({
           </button>
         </li>
         <li>
-          <button onClick={() => handleDeleteClient()}>
+          <button onClick={() => setConfirmDelete(!confirmDelete)}>
             Excluir Cliente
           </button>
         </li>
         <li>
-          <button onClick={() => handleDeactivateClient()}>
-            Desativar Cliente
+          <button onClick={() => setActiveDesactive(!confirmActiveOrDesactive)}>
+            Ativar / Desativar
           </button>
         </li>
         <li>
@@ -94,128 +124,106 @@ const MenuConfigClient = ({
           </button>
         </li>
       </ul>
-
-      {
-        editMenu && (
-          <EditMenuContaienr>
-            <h4>Editar Cliente</h4>
-            <form
-              onSubmit={
-                (e) => {
-                  e.preventDefault();
-                  handleSubmitUpdate();
-                }
-              }
-            >
-              <label htmlFor="nome">Nome:</label>
-              <input
-                type="text"
-                id="nome"
-                placeholder="Nome"
-                value={ updateClient.nome }
-                onChange={
-                  (e) => {
-                    setUpdateClient({ ...updateClient, nome: e.target.value });
-                  }
-                }
-              />
-
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id='email'
-                placeholder="Email"
-                value={ updateClient.email }
-                onChange={
-                  (e) => {
-                    setUpdateClient({ ...updateClient, email: e.target.value });
-                  }
-                }
-              />
-              <label htmlFor="phone"></label>
-              <input
-                type="text"
-                id='phone'
-                placeholder="Telefone"
-                value={ updateClient.telefone }
-                onChange={
-                  (e) => {
-                    setUpdateClient({ ...updateClient, telefone: e.target.value });
-                  }
-                }
-              />
-
-              <label htmlFor="nascimento">Data de Nascimento:</label>
-              <input
-                type="date"
-                id='nascimento'
-                onChange={(e) => {
-                  setUpdateClient({ ...updateClient, dataNascimento: e.target.value });
-                }}
-                value={ 
-                  updateClient.dataNascimento
-                }
-              />
-
-              <label htmlFor="inicio">Data de Início:</label>
-              <input
-                type="date"
-                id='inicio'
-                placeholder="Data de Início"
-                onChange={(e) => {
-                  setUpdateClient({ ...updateClient, dataInicio: e.target.value });
-                }}
-                value={ updateClient.dataInicio }
-              />
-
-              <label htmlFor="plano">Plano:</label>
-              <select 
-                name="plano"
-                id="plano"
-                onChange={(e) => {
-                  setUpdateClient({ ...updateClient, planoId: parseInt(e.target.value) });
-                }}
-                value={ updateClient.planoId }
-              >
-                <option value="1">Mensal</option>
-                <option value="2">Trimestral</option>
-                <option value="3">Semestral</option>
-                <option value="4">Anual</option>
-                <option value="5">Bianual</option>
-                <option value="6">Vitalício</option>
-              </select>
-
-              <label htmlFor="diasRestantes">Dias Restantes:</label>
-              <input
-                type="date"
-                id='diasRestantes'
-                placeholder="Dias Restantes"
-                onChange={
-                  (e) => {
-                    setUpdateClient({ ...updateClient, vencimento: e.target.value });
-                  }
-                }
-                value={ updateClient.vencimento }
-
-              />
-              <div>
-                <button 
-                  type="submit"
-                  className='success'
+      { editMenu &&
+          <FormUpdate
+            updateClient={updateClient}
+            handleSubmitUpdate={handleSubmitUpdate}
+            setUpdateClient={setUpdateClient}
+            setEditMenu={setEditMenu}
+          />
+      }
+      { confirmDelete &&
+        <ConfirmDeleteContainer>
+          <main className='pop-up'>
+            <Content>
+              <p>Deseja realmente excluir o(a) cliente, {nome}?</p>
+              <Buttons>
+                <button
+                  onClick={() => {
+                    handleDeleteClient();
+                    setConfirmDelete(!confirmDelete);
+                    setToggleConfig(false);
+                  }}
                 >
-                    Salvar
+                  Sim
                 </button>
                 <button
-                  type="button"
-                  onClick={() => setEditMenu(false)}
-                  className='error'
+                  onClick={() => {
+                    setConfirmDelete(!confirmDelete);
+                  }}
                 >
-                  Cancelar
+                  Não
                 </button>
-              </div>
-            </form>
-          </EditMenuContaienr>
-        )
+              </Buttons>
+            </Content>
+          </main>
+        </ConfirmDeleteContainer>
+      }
+      {
+        activeDesactive &&
+        <ConfirmDeleteContainer>
+          <main className='pop-up'>
+            <span
+              onClick={() => setActiveDesactive(false)}
+            >
+              ❌
+            </span>
+            <Content>
+              <p>Ativar ou desativar o(a) cliente, {nome}?</p>
+              <Buttons>
+                <button
+                  onClick={() => {
+                    setConfirmActiveOrDesactive(true);
+                    setTypeActiveOrDesactive('active');
+                  }}
+                >
+                  Ativar
+                </button>
+                <button
+                  onClick={() => {
+                    setConfirmActiveOrDesactive(true);
+                    setTypeActiveOrDesactive('desactive');
+                  }}
+                >
+                  Desativar
+                </button>
+              </Buttons>
+            </Content>
+          </main>
+        </ConfirmDeleteContainer>
+      }
+      {
+        confirmActiveOrDesactive &&
+        <ConfirmDeleteContainer>
+          <main className='pop-up'>
+            <span
+              onClick={() => setConfirmActiveOrDesactive(false)}
+            >
+              ❌
+            </span>
+            <Content>
+              <p>Deseja realmente {typeActiveOrDesactive === 'active' ? 'ativar' : 'desativar' } o(a) cliente, {nome}?</p>
+              <Buttons>
+                <button
+                  onClick={() => {
+                    handleDeactivateClient();
+                    setConfirmActiveOrDesactive(false);
+                    setToggleConfig(false);
+                  }}
+                >
+                  Sim
+                </button>
+                <button
+                  onClick={() => {
+                    setConfirmActiveOrDesactive(false);
+                  }}
+                >
+                  Não
+                </button>
+              </Buttons>
+            </Content>
+          </main>
+        </ConfirmDeleteContainer>
       }
     </MenuClienteContainer>
   );

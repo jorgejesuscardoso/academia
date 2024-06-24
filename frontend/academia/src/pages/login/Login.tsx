@@ -21,7 +21,7 @@ const Login = () => {
       setError(login.error);
     }
     
-    SetLocalStorage('login', login);
+    SetLocalStorage('user', login);
 
     if (login.role === 'Admin') {
       setError('');

@@ -22,6 +22,8 @@
   --background-login-form: #eee;
   --background-login-input: #ddd;
   --background-menu: #D3D3D3;
+  --background-menu-2: #919191;
+  --background-menu-3: #6b6b6b;
   --background-option: #59cac4;
 
 
@@ -30,6 +32,10 @@
 
   --menu-button-background: #4400e4;
   --menu-button-hover-background: #16004b;
+  --float-menu: #4f4d53;
+  --float-menu-hover: #3f3d43;
+
+  --border-bottom-color: #e4ba00;
 }
 
 .success {

@@ -1,9 +1,8 @@
 import { PrismaClient } from '@prisma/client';
-import { CreateClienteDTO } from '../../DTO/cliente';
 import plano from '../plano/Plano.service';
-import { PlanoDTO } from '../../DTO/plano';
 import DataPorTipoDePlano from '../../helpers/dateForPlan';
 import { ClientesMaisPlanos } from '../../helpers/response';
+import { CreateClienteDTO } from '../../DTO/cliente';
 
 class ClienteService {
   private prisma: PrismaClient;
@@ -19,17 +18,16 @@ class ClienteService {
 
     const endDate = DataPorTipoDePlano(cliente, plano);
 
-    const birthDate = new Date(cliente.dataNascimento);
-
     const newCliente = await this.prisma.cliente.create({
       data: {
         nome: cliente.nome,
         email: cliente.email,
         telefone: cliente.telefone,
-        dataNascimento: birthDate,
+        dataNascimento: new Date(cliente.dataNascimento),
         dataInicio: new Date(cliente.dataInicio),
         vencimento: new Date(endDate),
         planoId: cliente.planoId,
+        status: cliente.status,
       }
     });
 
@@ -46,7 +44,6 @@ class ClienteService {
       const plano = planType.find(plano => plano.id === cliente.planoId);
       return ClientesMaisPlanos(cliente, plano);
     });
-
     return response;  
   }
 
