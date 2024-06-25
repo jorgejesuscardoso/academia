@@ -12,6 +12,7 @@ type Cliente = {
   idade: number,
   inicio: string,
   plano: string,
+  planoId: number,
   status: string,
   diasRestantes: number
 }
@@ -24,6 +25,7 @@ export type ClienteApi = {
   dataNascimento: string,
   dataInicio: string,
   plano: string,
+  planoId: number,
   status: string,
   vencimento: string
 }
@@ -39,6 +41,7 @@ export const ListCliente = () => {
     idade: 0,
     inicio: '',
     plano: '',
+    planoId: 0,
     status: '',
     diasRestantes: 0  
   });
@@ -67,6 +70,7 @@ export const ListCliente = () => {
             idade: age,
             inicio: item.dataInicio,
             plano: item.plano,
+            planoId: item.planoId,
             status: item.status,
             diasRestantes: daysUntilExpiry
           };
@@ -79,11 +83,7 @@ export const ListCliente = () => {
     };
     fetchData();
   }
-
-  const activeDesactiveClient = () => {
-    console.log('Desativar Cliente');
-  }
-
+  
   return (
     <Container>
       <Table>
@@ -138,9 +138,9 @@ export const ListCliente = () => {
           telefone={selectedClient.telefone}
           dataInicio={selectedClient.inicio}
           plano={selectedClient.plano}
+          planoId={selectedClient.planoId}
           setToggleConfig={setToggleConfig}
-          handleGetList={handleGetList}
-          activeDesactiveClient={activeDesactiveClient}     
+          handleGetList={handleGetList}   
       /> } 
     </Container>
   )

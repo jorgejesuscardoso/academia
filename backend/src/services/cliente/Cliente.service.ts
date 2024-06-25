@@ -32,7 +32,7 @@ class ClienteService {
     });
 
     const reponseData = ClientesMaisPlanos(newCliente, plano);
-
+    
     return reponseData;
   }
 
@@ -44,6 +44,7 @@ class ClienteService {
       const plano = planType.find(plano => plano.id === cliente.planoId);
       return ClientesMaisPlanos(cliente, plano);
     });
+    
     return response;  
   }
 
@@ -111,7 +112,7 @@ class ClienteService {
       ...data,
       dataNascimento: new Date(data.dataNascimento),
       dataInicio: new Date(data.dataInicio),
-      vencimento: new Date(data.vencimento)
+      vencimento: new Date(data.vencimento),
     }
 
     const cliente = await this.prisma.cliente.update({

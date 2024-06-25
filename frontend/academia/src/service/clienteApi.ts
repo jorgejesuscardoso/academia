@@ -32,6 +32,19 @@ export const GetClientes = async () => {
 	}
 }
 
+export const GetClientesById = async (id: number) => {
+	try {
+
+		const response = await fetch(`${URL}/${id}`);
+		const data = await response.json();
+
+		return data;
+
+	} catch (error) {
+		console.error(error);
+	}
+}
+
 export const UpdateCliente = async (id: number, data: any) => {
 	try {
 		const response = await fetch(`${URL}/${id}`, {

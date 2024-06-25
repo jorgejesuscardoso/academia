@@ -3,6 +3,7 @@ import Home from './pages/home/Home'
 import LayOut from './components/layout/LayOut'
 import Login from './pages/login/Login'
 import { Client } from './pages/client/Client'
+import CadastroDeClientes from './pages/client/CadastroDeCliente'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         <Route path='/home' element={<Home />} />
 
         <Route path="/clientes" element={<Client />} />
-        <Route path="/clientes/cadastro" element={ <h1>cadastro de clientes</h1> } />
+        <Route path="/clientes/cadastro" element={ <CadastroDeClientes /> } />
 
         <Route path="/planos" element={<h1>Planos</h1>} />
         <Route path="/planos/cadastro" element={<h1>cadastro de planos</h1>} />        

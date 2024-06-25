@@ -9,13 +9,13 @@ export const MenuClienteContainer = styled.div`
   justify-content: center;
   border-radius: 5px;
   width: 20vw;
-  height: 50vh;
+  height: 40vh;
   top: 11vh;
   right: 8vw;
 
     h4 {
       color: var(--menu-title-color);
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
 
     ul {
@@ -63,8 +63,9 @@ export const ConfirmDeleteContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
   width: 30vw;
-  height: 20vh;
+  height: 30vh;
   gap: 10px;
 
     p {
@@ -74,7 +75,7 @@ export const ConfirmDeleteContainer = styled.div`
     }
 
     main {
-      width: 100vw;
+      width: 100%;
       height: 10vh;
     }
 
@@ -93,6 +94,7 @@ export const ConfirmDeleteContainer = styled.div`
       }
     }
 `;
+
 export const Buttons = styled.div`
   display: flex;
   align-items: center;
@@ -110,4 +112,56 @@ export const Content = styled.div`
   margin: auto;
   width: 30vw;
   height: 10vh;
+`;
+
+export const ShowDataCliente = styled.div`
+  position: absolute;
+  background-color: var(--background-menu);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  right: 0vw;
+  width: 40vw;
+  height: 40vh;
+  gap: 10px;
+
+    p {
+      text-align: center;
+      color: var(--menu-title-color);
+      margin-bottom: 30px;
+    }
+
+    main {
+      width: 100%;
+      height: 60%;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+      background-color: var(--menu-button-background);
+      border: none;
+      color: var(--menu-button-text-color);
+      border-radius: 5px;
+      margin: 0 auto;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--menu-button-hover-background);
+        color: var(--menu-button-hover-text-color);
+      }
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-left: 10px;
+      width: 90%;
+      height: 25%;
+      gap: 10px;      
+    }
 `;

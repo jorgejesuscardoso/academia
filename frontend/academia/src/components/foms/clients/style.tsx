@@ -12,8 +12,7 @@ export const EditMenuContaienr = styled.div`
   padding: 20px;
   width: 20vw;
 
-    h4 {
-      margin-top: 10px;
+    h4{
       color: var(--menu-title-color);
     }
 

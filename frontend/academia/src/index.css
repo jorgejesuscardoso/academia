@@ -8,6 +8,7 @@
 :root {
   --text-color: #333;
   --text-color-success: #007700;
+  --text-color-success-2: #003800;
   --text-color-error: #ff0000;
   --text-color-black-1: #4400e4;
   --text-color-black-1-hover: #16004b;
@@ -25,6 +26,8 @@
   --background-menu-2: #919191;
   --background-menu-3: #6b6b6b;
   --background-option: #59cac4;
+  --background-form-cadastro-cliente: #ddd;
+  --background-form-cadastro-cliente-2: #aaa;
 
 
   --input-login-outline: rgb(81, 220, 255);

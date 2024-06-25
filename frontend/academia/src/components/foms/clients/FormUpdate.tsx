@@ -1,31 +1,53 @@
+import { useEffect, useState } from 'react';
 import { EditMenuContaienr } from './style';
-
-type ClietObject = {
-  id: number;
-  nome: string;
-  email: string;
-  telefone: string;
-  dataNascimento: string;
-  dataInicio: string;
-  planoId: number;
-  vencimento: string;
-};
+import { GetClientesById, UpdateCliente } from '../../../service/clienteApi';
 
 type FormUpdateProps = {
-    updateClient: ClietObject
-    setUpdateClient: (updateClient: ClietObject) => void;
-    handleSubmitUpdate: () => void;
-    setEditMenu: (toggle: boolean) => void;
+  id: number;
+  setEditMenu: (toggle: boolean) => void;
+  handleGetList: () => void;
 }
 
-export const FormUpdate = ({
-  updateClient,
-  setUpdateClient,
-  handleSubmitUpdate,
-  setEditMenu
-}: FormUpdateProps
+export const FormUpdate = ({ setEditMenu, id, handleGetList }: FormUpdateProps
 ) => {
-  
+  const [data, setData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    dataNascimento: '',
+    dataInicio: '',
+    planoId: 0,
+    vencimento: '',
+    status: ''
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await GetClientesById(id);
+      setData(response);
+    }
+    fetchData();
+  }, [id]);
+
+  const handleSubmitUpdate = async () => {
+    const fixedData = {
+      nome: data.nome,
+      email: data.email,
+      telefone: data.telefone,
+      planoId: data.planoId,
+      status: data.status,
+      dataNascimento: data.dataNascimento.split('/').reverse().join('-'),
+      dataInicio: data.dataInicio.split('/').reverse().join('-'),
+      vencimento: data.vencimento.split('/').reverse().join('-'),
+    };
+
+    const response = await UpdateCliente(id, fixedData);
+
+    setEditMenu(false);
+    handleGetList();
+
+    return response;
+  }
   return (
     <EditMenuContaienr>
       <h4>Editar Cliente</h4>
@@ -50,11 +72,10 @@ export const FormUpdate = ({
         <input
           type="text"
           id="nome"
-          placeholder="Nome"
-          value={ updateClient.nome }
+          value={ data.nome }
           onChange={
             (e) => {
-              setUpdateClient({ ...updateClient, nome: e.target.value });
+              setData({ ...data, nome: e.target.value });
             }
           }
         />
@@ -63,23 +84,21 @@ export const FormUpdate = ({
         <input
           type="email"
           id='email'
-          placeholder="Email"
-          value={ updateClient.email }
+          value={ data.email }
           onChange={
             (e) => {
-              setUpdateClient({ ...updateClient, email: e.target.value });
+              setData({ ...data, email: e.target.value });
             }
           }
         />
-        <label htmlFor="phone">Senha:</label>
+        <label htmlFor="phone">Telefone:</label>
         <input
           type="text"
           id='phone'
-          placeholder="Telefone"
-          value={ updateClient.telefone }
+          value={ data.telefone }
           onChange={
             (e) => {
-              setUpdateClient({ ...updateClient, telefone: e.target.value });
+              setData({ ...data, telefone: e.target.value });
             }
           }
         />
@@ -89,10 +108,10 @@ export const FormUpdate = ({
           type="date"
           id='nascimento'
           onChange={(e) => {
-            setUpdateClient({ ...updateClient, dataNascimento: e.target.value });
+            setData({ ...data, dataNascimento: e.target.value });
           }}
           value={ 
-            updateClient.dataNascimento
+            data.dataNascimento.split('/').reverse().join('-')
           }
         />
 
@@ -100,11 +119,11 @@ export const FormUpdate = ({
         <input
           type="date"
           id='inicio'
-          placeholder="Data de Início"
           onChange={(e) => {
-            setUpdateClient({ ...updateClient, dataInicio: e.target.value });
+            setData({ ...data, dataInicio: e.target.value });
           }}
-          value={ updateClient.dataInicio }
+          value={ data.dataInicio.split('/').reverse().join('-')
+          }
         />
 
         <label htmlFor="plano">Plano:</label>
@@ -112,9 +131,9 @@ export const FormUpdate = ({
           name="plano"
           id="plano"
           onChange={(e) => {
-            setUpdateClient({ ...updateClient, planoId: parseInt(e.target.value) });
+            setData({ ...data, planoId: parseInt(e.target.value) });
           }}
-          value={ updateClient.planoId }
+          value={ data.planoId }
         >
           <option value="1">Mensal</option>
           <option value="2">Trimestral</option>
@@ -130,14 +149,25 @@ export const FormUpdate = ({
           id="diasRestantes"
           placeholder="Dias Restantes"
           onChange={(e) => {
-          setUpdateClient({ ...updateClient, vencimento: e.target.value });
+          setData({ ...data, vencimento: e.target.value });
           }}
           value={
-          updateClient.planoId === 6 
-            ? new Date(3001, 11, 31).toISOString().split('T')[0]
-            : updateClient.vencimento
+            data.vencimento.split('/').reverse().join('-')
           }
           />
+
+          <label htmlFor="status">Status</label>
+          <select
+            name="status"
+            id="status"
+            onChange={(e) => {
+              setData({ ...data, status: e.target.value });
+            }}
+            value={ data.status }
+          >
+            <option value="Ativo">Ativo</option>
+            <option value="Desativado">Desativado</option>
+          </select>
 
         <div>
           <button 

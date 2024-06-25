@@ -108,3 +108,120 @@ export const TableCell = styled.td`
   }
   }
 `;
+
+/* *** CadastroDeCliente.tsx *** */
+
+export const MainCadastroClientes = styled.main`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  font-size: 14px;
+`;
+
+export const FormCadastro = styled.form`
+  background-color: var(--background-form-cadastro-cliente);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 10px;
+  width: 30%;
+  margin: 15px;
+
+  h1 {
+    font-size: 20px;
+    margin: 10px 10px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+  }
+
+  label {
+    text-align: start;
+    margin-top: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus {
+      border: 1px solid #007bff;
+    }
+  }
+
+  select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus {
+      border: 1px solid #007bff;
+    }
+  }
+`;
+
+export const DivButton = styled.div`
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  button {
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+`;
+
+export const DivMsg = styled.div`
+  background-color: var(--background-form-cadastro-cliente-2);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 12vh;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  top: 30vh;
+
+  span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--text-color-success-2);
+  }
+`;
