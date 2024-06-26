@@ -6,8 +6,10 @@ export interface UserLoginDTO {
 export interface UserDTO {
   id: number;
   nome: string;
-  user: string;
+  username: string;
+  telefone: string;
   email: string;
   senha: string;
+  turno: string;
   role: string;
 }

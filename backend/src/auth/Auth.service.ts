@@ -10,11 +10,11 @@ class AuthService {
 
 
   async register(data: UserDTO) {
-    const user = data.user && data.user.toLowerCase();
+    const username = data.username && data.username.toLowerCase();
 
     const hasUser = await this.prisma.user.findFirst({
       where: {
-        user,
+        username,
       },
     });
 
@@ -26,7 +26,9 @@ class AuthService {
       nome: data.nome,
       email: data.email,
       senha: data.senha,
-      user: user.toLowerCase(),
+      username: username.toLowerCase(),
+      telefone: data.telefone,
+      turno: data.turno,
       role: data.role,
     };
 
@@ -37,12 +39,12 @@ class AuthService {
     return newUser;
   }
 
-  async getUserToLogin(data: { user: string, senha: string }) {
-    const user = data.user.toLowerCase();
+  async getUserToLogin(data: { username: string, senha: string }) {
+    const username = data.username.toLowerCase();
 
     const login = await this.prisma.user.findFirst({
       where: {
-        user,
+        username,
       },
     });
 

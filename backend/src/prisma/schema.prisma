@@ -9,9 +9,12 @@ datasource db {
 
 model User {
   id       Int      @id @default(autoincrement())
+  nome     String
   email    String   @unique
-  user     String?
+  telefone String?
+  username String?
   senha    String
+  turno    String
   role     String
 }
 
@@ -38,8 +41,9 @@ model Instrutor {
 
 model Plano {
   id          Int      @id @default(autoincrement())
-  nome        String
+  nome        String   @unique
   valor       Float
+  descricao   String?
   clientes    Cliente[]
 }
 

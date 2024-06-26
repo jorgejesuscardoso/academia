@@ -9,13 +9,13 @@ class AuthController {
   }
 
   async login(req: Request, res: Response) {
-    const { user, senha } = req.body;
+    const { username, senha } = req.body;
 
-    if (!user || !senha) {
+    if (!username || !senha) {
       return res.status(400).json({ error: 'Missing user or password' });
     }
 
-    const hasUser = await this.user.getUserToLogin({ user, senha });
+    const hasUser = await this.user.getUserToLogin({ username, senha });
 
     if (!hasUser) {
       return res.status(404).json({ error: 'Login or password incorrect' });

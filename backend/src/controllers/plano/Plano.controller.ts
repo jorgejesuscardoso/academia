@@ -7,9 +7,9 @@ class PlanoController {
   constructor() {  }
 
   async CreatePlano(req: Request, res: Response) {
-    const { nome, valor, clientes } = req.body;
+    const { nome, valor, clientes, descricao } = req.body;
 
-    const data = await this.planoService.CreatePlano({ nome, valor, clientes });
+    const data = await this.planoService.CreatePlano({ nome, valor, clientes, descricao});
 
     res.status(201).json(data);
   }
@@ -30,12 +30,13 @@ class PlanoController {
 
   async UpdatePlano(req: Request, res: Response) {
     const { id } = req.params;
-    const { nome, valor } = req.body;
+    const { nome, valor, descricao } = req.body;
 
     const data = await this.planoService.UpdatePlano(Number(id), { 
       id: Number(id),
       nome,
       valor,
+      descricao,
       clientes: []
     });
 

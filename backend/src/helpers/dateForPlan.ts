@@ -1,6 +1,6 @@
 const DataPorTipoDePlano = (cliente: any, plano: any) => {
   const startDate = new Date(cliente.dataInicio);
-
+    
     let endDate;
 
     if (plano.nome === 'Mensal') {

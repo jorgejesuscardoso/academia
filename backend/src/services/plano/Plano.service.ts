@@ -1,8 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { PlanoDTO, CreatePlanoDTO } from '../../DTO/plano';
-import { ClienteDTO } from '../../DTO/cliente'; 
 import { PlanosMaisCliente } from '../../helpers/response';
-import { response } from 'express';
 
 class PlanoService {
   private prisma: PrismaClient;
@@ -11,14 +9,13 @@ class PlanoService {
     this.prisma = new PrismaClient();
   }
 
-  async CreatePlano({ nome, valor, clientes }: CreatePlanoDTO) {
-    const clienteIds = clientes.map(cliente => ({ id: cliente.id }));
+  async CreatePlano({ nome, valor, descricao }: CreatePlanoDTO) {
 
     const data = await this.prisma.plano.create({
       data: {
         nome,
         valor,
-        clientes: { connect: clienteIds }
+        descricao,
       }
     });
 
@@ -52,14 +49,15 @@ class PlanoService {
     return response;
   }
 
-  async UpdatePlano(id: number, { nome, valor, clientes }: PlanoDTO) {
+  async UpdatePlano(id: number, { nome, valor, descricao }: PlanoDTO) {
 
     const data = await this.prisma.plano.update({
       where: { id },
       data: {
         id,
         nome,
-        valor
+        valor,
+        descricao
       }
     });
 
