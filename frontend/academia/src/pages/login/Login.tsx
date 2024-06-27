@@ -5,17 +5,17 @@ import { Container } from './style';
 import { loginLogo } from '../../utils/icons';
 
 const Login = () => {
-  const [user, setUser] = useState('');
+  const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
 
   const handleLogin = async () => {
-    if (!user || !password) {
+    if (!username || !password) {
       setError('Preencha todos os campos');
       return;
     }
-    const login = await LoginApi({ user, senha: password });
+    const login = await LoginApi({ username, senha: password });
     
     if (login.error) {
       setError(login.error);
@@ -48,7 +48,7 @@ const Login = () => {
         <input
           type="user"
           placeholder="user"
-          value={user}
+          value={username}
           onChange={(e) => {
             setUser(e.target.value);
             setError('');

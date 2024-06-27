@@ -46,9 +46,8 @@ class AuthController {
   }
 
   async getUserById(req: Request, res: Response) {
-    const { id } = req.params;
-
-    const user = await this.user.getUserById(+id);
+    const { userId } = req.params;
+    const user = await this.user.getUserById(+userId);
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

@@ -7,6 +7,7 @@ class InstrutorController {
   constructor() {  }
 
   async CreateInstrutor(req: Request, res: Response) {
+
     const instrutor = await this.clienteService.CreateInstrutor(req.body);
     return res.json(instrutor);
   }

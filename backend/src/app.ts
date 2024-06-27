@@ -11,8 +11,8 @@ class App {
     
     constructor() {
         this.app = express();
-        this.app.use(express.json());
         this.app.use(cors());
+        this.app.use(express.json());
         this.app.use(routes);
 
         this.app.get('/', (req, res) => {

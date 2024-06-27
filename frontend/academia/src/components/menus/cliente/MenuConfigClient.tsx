@@ -109,9 +109,10 @@ const MenuConfigClient = ({
     const response = await GetPlanosById(planoId);
     return setPlano(response);
   }
+
   return (
     <MenuClienteContainer ref={ refer }>
-      <h4>Configurações do Cliente</h4>
+      <h4>Configurações do(a) Cliente: <p>ID: Nº{ id } - { nome }</p></h4>
       <span
         onClick={() => setToggleConfig(false)}
       >

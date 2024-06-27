@@ -19,7 +19,8 @@ export const PlanosMaisCliente = (data: any) => {
   return {
     id: data.id,
     nome: data.nome,
-    vencimento: data.vencimento?.getFullYear() && data.vencimento?.getFullYear()  > 3000 ? null : data.vencimento?.toLocaleDateString()
+    vencimento: data.vencimento?.getFullYear() && data.vencimento?.getFullYear()  > 3000 ? null : data.vencimento?.toLocaleDateString(),
+    status: data.status,
   }
 }
 

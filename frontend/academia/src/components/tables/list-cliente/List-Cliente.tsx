@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { GetClientes } from '../../../service/clienteApi';
-import { Container, Table, TableHead, TableBody, TableRow, TableCell } from './style';
+import { Container, Table, TableHead, TableBody, TableRow, TableCell, DivOverFlowTable } from './style';
 import { calculateAge, calculateDaysUntil } from '../../../utils/calculateDate';
 import MenuConfigClient from '../../menus/cliente/MenuConfigClient';
+import Summary from './sumary';
+import Swal from 'sweetalert2';
 
-type Cliente = {
+export type Cliente = {
   id: number,
   nome: string,
   email: string,
@@ -46,8 +49,6 @@ export const ListCliente = () => {
     diasRestantes: 0  
   });
 
-  const options = ['Dias', 'Aguardando Pagamento', 'Vencido', 'Vitalício']
-
   useEffect(() => {
     handleGetList();
   }, []);
@@ -55,6 +56,7 @@ export const ListCliente = () => {
   const handleToggleConfig = () => {
     setToggleConfig(!toggleConfig);
   }
+
   const handleGetList = () => {
     const fetchData = async () => {
       try {
@@ -78,59 +80,108 @@ export const ListCliente = () => {
         
         setListClients(attDate);
       } catch (error) {
-        console.error("Erro ao buscar clientes:", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao buscar clientes',
+          text: 'Erro interno do servidor'
+        });
       }
     };
     fetchData();
   }
+
+  const getRowClassName = (item: any) => {
+    let className = ' normal';
   
+    if (item.diasRestantes < 0) {
+      className += ' vencido';
+    }
+
+    if (item.diasRestantes < 6 && item.diasRestantes >= 0) {
+      className += ' alert';
+    }
+    
+    if (item.plano === 'Vitalício') {
+      className += ' vitalicio';
+    }
+  
+    return className.trim();
+  };  
+
+  const getStringDays = (days: number) => {
+    
+    if (days > 0) {
+      return (<p>{days} dias restantes</p>);
+    }
+    if (days === 0) {
+      return (<p className='alert'>Hoje é o último dia</p>);
+    }
+
+    if (days < 0) {
+      return (<p className='error'>Vencido</p>);
+    }
+
+    if (days < -1) {
+      return (<p className='error'>Vencido há ${days * -1} dias</p>);
+    }
+
+    if (!days) {
+      return (<p className='success'>Vitalício</p>);
+    }
+  };
+
   return (
     <Container>
-      <Table>
-        <TableHead>
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Idade</th>
-            <th>Início</th>
-            <th>Plano</th>
-            <th>Status</th>
-            <th>Dias Restantes</th>
-          </tr>
-        </TableHead>
-        <TableBody>
-          {listClients.map((item: Cliente) => (
-            <TableRow key={item.id}>
-              <TableCell>{ item.id }</TableCell>
-              <TableCell>
-                { item.nome }
-              </TableCell>
-              <TableCell>{ item.email }</TableCell>
-              <TableCell>{ item.telefone }</TableCell>
-              <TableCell>{ item.idade }</TableCell>
-              <TableCell>{ item.inicio }</TableCell>
-              <TableCell>{ item.plano }</TableCell>
-              <TableCell>{ item.status }</TableCell>                
-              <TableCell>
-                <div>
-                  { item.diasRestantes > 0 ? `${item.diasRestantes} ${options[0]}` : item.diasRestantes <= 0 ? <p className='error'><span>{ options[2] }.</span> <span>{ options[1] }</span></p> : <p className='success'>{ options[3] }</p>}
-                  <button
-                    onClick={
-                      () => {
-                      handleToggleConfig();
-                      setSelectedClient(item);
-                    }}                
-                  >
-                    <img src="config_black.png" alt="" />
-                  </button>
-                </div>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <DivOverFlowTable>
+        <Table>
+          <TableHead>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Idade</th>
+              <th>Início</th>
+              <th>Plano</th>
+              <th>Status</th>
+              <th>Dias Restantes</th>
+            </tr>
+          </TableHead>
+            <TableBody>
+            {listClients.map((item: Cliente) => (
+              <TableRow
+                key={item.id}
+                className={ getRowClassName(item) }
+              >
+                <TableCell>{ item.id }</TableCell>
+                <TableCell>
+                  { item.nome } 
+                </TableCell>
+                <TableCell>{ item.email }</TableCell>
+                <TableCell>{ item.telefone }</TableCell>
+                <TableCell>{ item.idade } anos</TableCell>
+                <TableCell>{ item.inicio }</TableCell>
+                <TableCell>{ item.plano }</TableCell>
+                <TableCell>{ item.status }</TableCell>                
+                <TableCell>
+                  <div>
+                    { getStringDays(item.diasRestantes)}
+                    <button
+                      onClick={
+                        () => {
+                        handleToggleConfig();
+                        setSelectedClient(item);
+                      }}                
+                    >
+                      <img src="config_black.png" alt="" />
+                    </button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+            </TableBody>
+        </Table>
+      </DivOverFlowTable>
       {  toggleConfig && <MenuConfigClient
           id={selectedClient.id}
           nome={selectedClient.nome}
@@ -142,6 +193,11 @@ export const ListCliente = () => {
           setToggleConfig={setToggleConfig}
           handleGetList={handleGetList}   
       /> } 
+
+      <Summary
+        listClients={listClients}
+        handleGetList={handleGetList}
+      />
     </Container>
   )
 }

@@ -51,12 +51,18 @@ class PlanoService {
 
   async UpdatePlano(id: number, { nome, valor, descricao }: PlanoDTO) {
 
+    const dataFixed = {
+      nome,
+      valor,
+      descricao
+    }
+
     const data = await this.prisma.plano.update({
       where: { id },
       data: {
         id,
         nome,
-        valor,
+        valor: +valor,
         descricao
       }
     });

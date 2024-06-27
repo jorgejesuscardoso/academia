@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DivButton, DivMsg, FormCadastro, MainCadastroClientes } from './style';
 import { CreateCliente } from '../../../service/clienteApi';
+import { GetPlanos } from '../../../service/planos';
+import Swal from 'sweetalert2';
+
+type PlanosType = {
+  id: number;
+  nome: string;
+  valor: number;
+};
 
 const FormCadastroDeClientes = () => {
   const [msgSubmit, setMsgSubmit] = useState(false);
+  const [getPlanos, setGetPlanos] = useState<PlanosType[]>([]);
   const [data, setData] = useState({
     nome: '',
     email: '',
@@ -12,16 +21,35 @@ const FormCadastroDeClientes = () => {
     dataNascimento: '',
     dataInicio: '',
     vencimento: '',
-    status: ''
+    status: 'Ativo'
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await GetPlanos();
+        setGetPlanos(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleSubmit = async () => {
     try {
       const response = await CreateCliente(data);
+
       setMsgSubmit(!msgSubmit);
+      
       return response;
+
     } catch (error) {
-      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro ao cadastrar cliente',
+        text: 'Erro interno do servidor',
+      });
     }
   };
   return (
@@ -72,12 +100,11 @@ const FormCadastroDeClientes = () => {
             value={data.planoId}
             onChange={(e) => setData({ ...data, planoId: Number(e.target.value) })}
           >
-            <option value="1">Mensal</option>
-            <option value="2">Trimestral</option>
-            <option value="3">Semestral</option>
-            <option value="4">Anual</option>
-            <option value="5">Bianual</option>
-            <option value="6">Vitalício</option>
+            {getPlanos.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.nome}
+              </option>
+            ))}
           </select>
         </div>
 

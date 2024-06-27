@@ -3,12 +3,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: 20px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f8f9fa;
   font-size: 14px;
 `;
 
@@ -18,9 +17,33 @@ export const Table = styled.table`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
+export const DivOverFlowTable = styled.div`
+  display: flex;
+  height: 65vh;
+  width: 90%;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: grabbing;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #969595;
+  }
+`;
+
 export const TableHead = styled.thead`
   background-color: #343a40;
   color: #fff;
+  margin-top: 18vh;
+  width: 100%;
 
   th {
     text-align: center;
@@ -29,14 +52,29 @@ export const TableHead = styled.thead`
 `;
 
 export const TableBody = styled.tbody`
+  margin-bottom: 100px;
+
   tr:nth-child(even) {
-    text-align: center;
-    background-color: #f2f2f2;
+    background-color: #fff;
   }
 
   tr:hover {
-    text-align: center;
     background-color: #ddd;
+  }
+
+  tr.vencido {
+    background-color: #ffbaba !important;
+    color: var(--text-color-error-2);
+  }
+
+  tr.vitalicio {
+    background-color: #baffba !important;
+    color: var(--text-color-success-2);
+  }
+
+  tr.alert {
+    background-color: #ffffba !important;
+    color: var(--text-color-success-2);
   }
 
   td {
@@ -83,18 +121,7 @@ export const TableCell = styled.td`
     flex-direction: column;
     justify-content: center;
     background: transparent;
-    font-size: 12px;
-
-    &.success {
-      color: #066806;
-      font-weight: 550;
-    }
-
-    &.error {
-      text-align: start;
-      color: red;
-      font-weight: 550;
-    }
+    font-size: 13px;
 
     &:hover {
       background-color: transparent;
@@ -117,7 +144,6 @@ export const MainCadastroClientes = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f8f9fa;
   font-size: 14px;
 `;
 
@@ -153,8 +179,8 @@ export const FormCadastro = styled.form`
     width: 100%;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+    border: none;
+    outline: 1px solid #62d3ff;
 
     &:focus {
       border: 1px solid #007bff;
@@ -166,8 +192,8 @@ export const FormCadastro = styled.form`
     padding: 8px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+    border: none;
+    outline: 1px solid #62d3ff;
 
     &:focus {
       border: 1px solid #007bff;
@@ -224,4 +250,104 @@ export const DivMsg = styled.div`
     font-size: 16px;
     color: var(--text-color-success-2);
   }
+`;
+
+
+
+
+
+/*summary.tsx*/
+export const SummaryContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  padding: 15px;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+export const SummaryTitle = styled.h2`
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #343a40;
+`;
+
+export const ColorLegend = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const LegendItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ColorBox = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+
+  &.yellow {
+    background-color: yellow;
+  }
+
+  &.green {
+    background-color: green;
+  }
+
+  &.red {
+    background-color: red;
+  }
+
+  &.white {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+  }
+`;
+
+export const ClientsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #343a40;
+  }
+`;
+
+
+/* plans */
+
+export const TableContainer = styled.div`
+  margin-top: 20px;
+`;
+
+export const StyledTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+export const StyledHeader = styled.th`
+  background-color: #202842;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #aaa;
+`;
+
+export const StyledCell = styled.td`
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #aaa; 
+`;
+
+export const Title = styled.h2`
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 15px;
 `;

@@ -45,7 +45,6 @@ export const FormUpdate = ({ setEditMenu, id, handleGetList }: FormUpdateProps
 
     setEditMenu(false);
     handleGetList();
-
     return response;
   }
   return (

@@ -18,59 +18,71 @@ const Navbar = () => {
     <HeaderContainer>
       <Nav>
         <ul>
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            className={params === 'home' ? 'active' : ''}
-          >
-            <Link to='/home'>Home</Link>
-          </li>
+          <Link to='/home'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              className={params === 'home' ? 'active' : ''}
+            >
+              Home
+            </li>
+          </Link>
 
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            className={params === 'planos' ? 'active' : ''}
-          >
-            <Link to='/planos'>Planos</Link>
-          </li>
+          <Link to='/planos'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              className={params === 'planos' ? 'active' : ''}
+            >
+              Planos
+            </li>
+          </Link>
 
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            className={params === 'clientes' ? 'active' : ''}
-          >
-            <Link to='/clientes'>Clientes</Link>
-          </li>
+          <Link to='/clientes'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              className={params === 'clientes' ? 'active' : ''}
+            >
+              Clientes
+            </li>
+          </Link>
 
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            onClick={() => setFloatMenu(!floatMenu)}
-            className={params === 'instrutores' ? 'active' : ''}
-          >
-            <Link to='/instrutores'>Instrutores</Link>
-          </li>
+          <Link to='/instrutores'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              onClick={() => setFloatMenu(!floatMenu)}
+              className={params === 'instrutores' ? 'active' : ''}
+            >
+              Instrutores
+            </li>
+          </Link>
 
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            onClick={() => setFloatMenu(!floatMenu)}
-            className={params === 'usuarios' ? 'active' : ''}
-          >
-            <Link to='/usuarios'>Usuários</Link>
-          </li>
+          <Link to='/usuarios'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              onClick={() => setFloatMenu(!floatMenu)}
+              className={params === 'usuarios' ? 'active' : ''}
+            >
+              Usuários
+            </li>
+          </Link>
 
           <li
             className={paramsCadastro === 'cadastro' ? 'active' : ''}            
           >
             <span
-              onMouseOver={() => setFloatMenu(true)}              
+              onMouseOver={() => setFloatMenu(true)}
+              onClick={() => setFloatMenu(true)}          
             >
               Cadastro
             </span>
           </li>
-          <li
-            onMouseOver={() => setFloatMenu(false)}
-            onClick={ () => RemoveLocalStorage('user') }
-            className={params === 'logout' ? 'active' : ''}
-          >
-            <Link to='/'>Logout</Link>
-          </li>
+          <Link to='/'>
+            <li
+              onMouseOver={() => setFloatMenu(false)}
+              onClick={ () => RemoveLocalStorage('user') }
+            >
+              Logout
+            </li>
+          </Link>
         </ul>
       </Nav>
       {
@@ -79,10 +91,10 @@ const Navbar = () => {
             onMouseLeave={() => setFloatMenu(false)}
           >
             <ul className='float-menu'>
-              <li><Link to='/clientes/cadastro'>Clientes</Link></li>
-              <li><Link to='/instrutores/cadastro'>Instrutores</Link></li>
-              <li><Link to='/usuarios/cadastro'>Usuários</Link></li>
-              <li><Link to='/planos/cadastro'>Planos</Link></li>
+              <Link to='/clientes/cadastro'><li>Clientes</li></Link>
+              <Link to='/instrutores/cadastro'><li>Instrutores</li></Link>
+              <Link to='/usuarios/cadastro'><li>Usuários</li></Link>
+              <Link to='/planos/cadastro'><li>Planos</li></Link>
             </ul>
           </FloatMenu>
         )

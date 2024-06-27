@@ -1,7 +1,7 @@
 const URL = 'http://localhost:3030/login';
 
-export async function LoginApi({ user, senha }: { user: string, senha: string }) {
-  const data = { user, senha };
+export async function LoginApi({ username, senha }: { username: string, senha: string }) {
+  const data = { username, senha };
   const response = await fetch(URL, {
     method: 'POST',
     headers: {

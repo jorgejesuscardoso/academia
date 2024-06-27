@@ -3,19 +3,26 @@ import styled from 'styled-components';
 export const MenuClienteContainer = styled.div`
   background-color: var(--background-menu);
   display: flex;
-  position: absolute;
+  position: fixed;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   width: 20vw;
   height: 40vh;
-  top: 11vh;
-  right: 8vw;
+  top: 25vh;
+  right: 35vw;
 
     h4 {
       color: var(--menu-title-color);
       margin-bottom: 30px;
+
+        p {
+          text-align: center;
+          color: var(--menu-title-color);
+          margin-top: 10px;
+          color: darkgreen;
+        }
     }
 
     ul {
