@@ -23,7 +23,12 @@ type SearchResult = {
   vencimento: string;
 };
 
-const CardSearch = () => {
+type SearchProp = {
+  setCount: (count: number) => void;
+  count?: number;
+}
+
+const CardSearch = ({ setCount }: SearchProp ) => {
   const searchSelector = useSelector((state: SearchType) => state.searchRedux as SearchResult[] );
   const typeSearchSelector = useSelector((state: any) => state.typeSearchRedux);
   const [searchData, setSearchData] = useState<SearchResult[]>([]);
@@ -39,9 +44,11 @@ const CardSearch = () => {
     { id: 6, nome: 'Vitalício' }
   ];
 
-  useEffect(() => {
-    setSearchData(searchSelector);
-  }, [searchSelector]);
+ useEffect(() => {
+  setSearchData(searchSelector)
+  setCount(searchData.length)
+
+ }, [searchSelector, searchData])
 
   const handleFixDate = (date: string) => {
     const dateFormatted = new Date(date).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
@@ -90,7 +97,7 @@ const CardSearch = () => {
   
   return (
     <CardContainer>
-      {searchData.map((data: any) => (
+      { searchData.map((data: any) => (
         <Card
           key={data.email}
           className={ handleClassName(data) }

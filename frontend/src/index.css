@@ -87,14 +87,14 @@ body {
 
 .descript p {
   padding: 20px;
-  color: rgb(200, 50, 150);
+  color: #5a5a5a;
   font-weight: 500;
 }
 
 .planNumbers {
   width: 7% !important;
   font-weight: bold;
-  color: var(--text-color);
+  color: #5a5a5a;
 }
 
 .planName {
@@ -121,4 +121,15 @@ body {
 .alertCard {
   background-color: goldenrod !important;
   color: #fff;
+}
+
+.asideLeft {
+  margin-top: -3vh;
+  height: 93vh !important;
+}
+
+.asideRight {
+  position: fixed;
+  margin-top: -3vh;
+  height: 93vh !important;
 }

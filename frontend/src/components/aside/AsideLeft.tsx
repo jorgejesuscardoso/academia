@@ -1,14 +1,19 @@
+import { Link } from 'react-router-dom';
 import { AsideLeftContainersL } from '../../pages/home/style';
-import { AsideLeftContent, VerMais } from './style';
+import { AsideLeftContent, AsideLeftWithBorder, VerMais } from './style';
 
-const AsideLeft = () => {
+type AsideLeftProps = {
+  classname?: string;
+}
+
+const AsideLeft = ({ classname } : AsideLeftProps) => {
   return (
-    <AsideLeftContainersL className="asid">
+    <AsideLeftContainersL className={ classname }>
       <AsideLeftContent className="asid__container">
         <div>
           <div>
             <h3>Exercícios</h3>
-            <div>
+            <AsideLeftWithBorder>
               <h4>Peito</h4>
               <ul>
                 <li>Supino reto</li>
@@ -27,7 +32,6 @@ const AsideLeft = () => {
               </ul>
               <h4>Ombro</h4>
               <ul>
-                <li>Desenvolvimento</li>
                 <li>Elevação lateral</li>
                 <li>Elevação frontal</li>
                 <li>Elevação posterior</li>
@@ -36,11 +40,11 @@ const AsideLeft = () => {
               <VerMais href="#" className="btn">
                 Ver todos
               </VerMais>
-            </div>
+            </AsideLeftWithBorder>
           </div>
         </div>
         <div>
-          <h3>Video para treino</h3>
+          <h3 className='video'><Link to=''>Últimos vídeos</Link></h3>
           <iframe
             src="https://www.youtube.com/embed/VJSJiMFcVQ8?si=__rwlQqL3HR5mRKQ"
             allowFullScreen

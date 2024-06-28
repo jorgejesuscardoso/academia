@@ -8,7 +8,18 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 12px;
+
+  h1 {
+    margin-top: 7vh;
+    background-color: #fff;
+    color: #917e01;
+    width: 65%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
 `;
 
 export const Table = styled.table`
@@ -18,15 +29,14 @@ export const Table = styled.table`
 `;
 
 export const DivOverFlowTable = styled.div`
-  margin-top: 7vh;
   display: flex;
   height: 65vh;
-  width: 90%;
+  width: 65%;
   margin-bottom: 10px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 3px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -60,27 +70,39 @@ export const TableBody = styled.tbody`
   }
 
   tr:hover {
-    background-color: #ddd;
+    background-color: #00f9ff;
   }
 
   tr.vencido {
     background-color: #ffbaba !important;
     color: var(--text-color-error-2);
+
+    &:hover {
+      background-color: #00f9ff !important;
+    }
   }
 
   tr.vitalicio {
     background-color: #baffba !important;
     color: var(--text-color-success-2);
+
+    &:hover {
+      background-color: #00f9ff !important;
+    }
   }
 
   tr.alert {
     background-color: #ffffba !important;
     color: var(--text-color-success-2);
+
+    &:hover {
+      background-color: #00f9ff !important;
+    }
   }
 
   td {
     text-align: center;
-    padding: 12px 15px;
+    padding: 7px 15px;
     border-bottom: 1px solid #ddd;
   }
 `;
@@ -96,7 +118,6 @@ export const TableRow = styled.tr`
 `;
 
 export const TableCell = styled.td`
-  padding: 12px 15px;
   border-bottom: 1px solid #ddd;
 
   div {
@@ -144,6 +165,7 @@ export const MainCadastroClientes = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8vh;
   flex-direction: column;
   font-size: 14px;
 `;
@@ -261,23 +283,23 @@ export const DivMsg = styled.div`
 export const SummaryContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 90%;
-  padding: 15px;
-  background-color: #eee;
+  width: 65%;
+  padding: 5px;
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const SummaryTitle = styled.h2`
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 14px;
   color: #343a40;
 `;
 
 export const ColorLegend = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const LegendItem = styled.div`
@@ -316,7 +338,7 @@ export const ClientsContainer = styled.div`
 
   h2 {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 14px;
     color: #343a40;
   }
 `;
@@ -336,7 +358,7 @@ export const StyledTable = styled.table`
 export const StyledHeader = styled.th`
   background-color: #202842;
   color: #fff;
-  padding: 8px;
+  padding: 5px;
   text-align: center;
   border: 1px solid #aaa;
 `;
@@ -349,6 +371,6 @@ export const StyledCell = styled.td`
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
   margin-bottom: 15px;
 `;

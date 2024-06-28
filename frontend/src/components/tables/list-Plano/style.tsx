@@ -2,21 +2,33 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  background-color: #fff;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
+
+  h1 {
+    margin-top: 7vh;
+    color: #917e01;
+    width: 60%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding: 3px;
+    border-bottom: 1px solid #ccc;
+  }
 `;
 
 export const Table = styled.table`
-  margin-top: 10vh;
-  background-color: #d5d8da;
-  width: 90%;
+  background-color: #ffffff;
+  width: 60%;
+  font-size: 13px;
   border-collapse: collapse;
+  border: 1px solid #343a40;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
@@ -27,7 +39,7 @@ export const TableHead = styled.thead`
   th {
     width: 100px;
     text-align: center;
-    padding: 12px 15px;
+    padding: 0px 15px;
 
     div {
       display: flex;
@@ -71,7 +83,6 @@ export const TableRow = styled.tr`
 `;
 
 export const TableCell = styled.td`
-  padding: 12px 15px;
   border-bottom: 1px solid #bbb;
   border-left: 1px solid #bbb;
   border-right: 1px solid #bbb;
@@ -79,14 +90,14 @@ export const TableCell = styled.td`
 
   select {
     text-align: center;
-    background-color: dodgerblue;
+    background-color: #eee;
     width: 100%;
     height: 100%;
-    padding: 15px;
-    border: none;
+    padding: 10px;
+    border: 1px solid #bbb;
     border-radius: 5px;
-    color: #fff;
-    font-weight: 600;
+    color: #5a5a5a;
+    font-weight: bolder;
     outline: none;
     cursor: pointer;
 
@@ -100,8 +111,7 @@ export const TableCell = styled.td`
     }
 
     &:hover {
-      background-color: #1a7ee2;
-      color: #00ff00;
+      background-color: #ddd;
       font-weight: bolder;
     }
   }

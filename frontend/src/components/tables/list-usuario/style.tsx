@@ -150,6 +150,7 @@ export const ContainerCadastroUsuario = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8vh;
   flex-direction: column;
   width: 100%;
   padding: 10px;

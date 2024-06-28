@@ -24,12 +24,14 @@ const Navbar = () => {
     return () => document.removeEventListener('click', closeMenu);
   }, []);
 
+
   const handleSearch = async () => {
     try {
       const response = await searchApi(tipoDeBusca, ondeBuscar, searchValue);
       
       const payload = { onde: tipoDeBusca, oque: ondeBuscar, assunto: searchValue }
       
+      console.log(payload)
       if (response.length === 0) {
         Swal.fire({
           icon: 'info',
@@ -98,7 +100,9 @@ const Navbar = () => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
-          <button onClick={handleSearch}>
+          <button
+            onClick={handleSearch}
+          >
             <img src="ico_search.png" alt="Ícone de busca" />
           </button>
         </SearchContainer>

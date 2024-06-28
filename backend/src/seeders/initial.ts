@@ -27,24 +27,24 @@ async function main() {
   const trimestral = await prisma.plano.create({
     data: {
       nome: 'Trimestral',
-      valor: 171.00,
-      descricao: 'Pagamento trimestral. Todos os serviços acessíveis. Valor com desconto de 5% aplicado sobre o total de 3 meses (R$ 180,00 - economia de R$ 9,00 em relação ao plano mensal).'
+      valor: 162.00,
+      descricao: 'Pagamento trimestral. Valor com desconto de 10% aplicado sobre o total de 3 meses (R$ 180,00 - economia de R$ 18,00 em relação ao plano mensal).'
     },
   });
 
   const semestral = await prisma.plano.create({
     data: {
       nome: 'Semestral',
-      valor: 324.00,
-      descricao: 'Pagamento semestral. Todos os serviços acessíveis. Valor com desconto de 10% aplicado sobre o total de 6 meses (R$ 360,00 - economia de R$ 36,00 em relação ao plano mensal).'
+      valor: 306.00,
+      descricao: 'Pagamento semestral. Valor com desconto de 15% aplicado sobre o total de 6 meses (R$ 360,00 - economia de R$ 54,00).'
     },
   });
 
   const anual = await prisma.plano.create({
     data: {
       nome: 'Anual',
-      valor: 612.00,
-      descricao: 'Pagamento anual. Todos os serviços acessíveis. Valor com desconto de 15% aplicado sobre o total de 12 meses (R$ 720,00 - economia de R$ 108,00 em relação ao plano mensal).'
+      valor: 578.00,
+      descricao: 'Pagamento anual. Valor com desconto de 20% aplicado sobre o total de 12 meses (R$ 720,00 - economia de R$ 142,00). Novos usuários recebem um brinde de boas vindas: camisa + coqueteleira'
     },
   });
 
@@ -52,15 +52,15 @@ async function main() {
     data: {
       nome: 'Bienal',
       valor: 1152.00,
-      descricao: 'Pagamento bienal. Todos os serviços acessíveis. Valor com desconto de 20% aplicado sobre o total de 24 meses (R$ 1440,00 - economia de R$ 288,00 em relação ao plano mensal).'
+      descricao: 'Pagamento bienal. Valor com desconto de 20% aplicado sobre o total de 24 meses (R$ 1440,00 - economia de R$ 288,00). Novos usuários recebem um brinde de boas vindas: camisa + coqueteleira + luva + participação grátis em alguns dos eventos da academia.'
     },
   });
 
   const vitalicio = await prisma.plano.create({
     data: {
       nome: 'Vitalício',
-      valor: 5400.00,
-      descricao: 'Pagamento único vitalício. Todos os serviços acessíveis. Valor com desconto de 25% aplicado sobre o valor total de 10 anos (R$ 7200,00 - economia de R$ 1800,00 em relação ao plano mensal).'
+      valor: 7560.00,
+      descricao: 'Pagamento único vitalício. Mais brinde da academia(coqueteleira, camisa, luva e estacionamento privativo, participação grátis de todos eventos e a participação de 5 dias grátis do tão cobiçado Summer Travel). Valor com desconto de 30% aplicado sobre o valor total de 15 anos (R$ 10800,00 - economia de R$ 3240,00 ).'
     },
   });
 

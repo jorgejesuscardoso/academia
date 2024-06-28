@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const HomeContent = styled.div`
@@ -16,6 +16,17 @@ export const HomeContent = styled.div`
   justify-content: center;
   width: 60vw;
   margin-top: 12vh;
+`;
+
+export const SearchCardContainer = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row !important;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 20px;
 `;
 
 export const SearchInfoSection = styled.div`
@@ -49,6 +60,16 @@ export const Labels = styled.p`
 
 export const Value = styled.strong`
   color: #333;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    background-color: green;
+    color: white;
+    width: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 `;
 
 
@@ -101,7 +122,7 @@ export const AsideRightContainers = styled.div`
     }  
 `;
 
-export const CardContainer = styled.div`
+export const NewsCardContainer = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column !important;

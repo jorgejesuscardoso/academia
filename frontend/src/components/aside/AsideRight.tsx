@@ -1,9 +1,12 @@
 import { AsideRightContainers } from '../../pages/home/style';
 import { AsideRightContent } from './style';
 
-const AsideRight = () => {
+type AsideProps = {
+  classname?: string;
+}
+const AsideRight = ({classname} : AsideProps) => {
   return (
-    <AsideRightContainers className="asideright">
+    <AsideRightContainers className={ classname }>
       <AsideRightContent className="asideright__container">
         <div className="asideright__container--content">
           <img 
@@ -24,7 +27,6 @@ const AsideRight = () => {
             </ul>
             <h4>Prôximos 3 dias</h4>
             <ul>
-              <li>Reunião com a equipe</li>
               <li>Reunião com a equipe</li>
               <li>Reunião com a equipe</li>
             </ul>

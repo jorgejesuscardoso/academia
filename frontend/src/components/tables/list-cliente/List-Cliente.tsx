@@ -132,6 +132,7 @@ export const ListCliente = () => {
 
   return (
     <Container>
+        <h1>Gerenciamento de Clientes</h1>
       <DivOverFlowTable>
         <Table>
           <TableHead>

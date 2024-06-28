@@ -26,9 +26,9 @@ export const Card = styled.div`
 
 export const CardContainer = styled.div`
   display: flex;
+  flex-direction: row !important;
   flex-wrap: wrap;
-  margin-top: 11vh;
-  width: 60%;
+  width: 100%;
   gap: 8px;
 `;
 

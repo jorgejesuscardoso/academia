@@ -19,6 +19,7 @@ export const ListaDePlanos = () => {
   
   return (
     <Container>
+      <h1>Gerenciamento de planos</h1>
       <Table>
         <TableHead>
           <tr>
