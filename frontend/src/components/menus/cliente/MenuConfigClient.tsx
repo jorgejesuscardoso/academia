@@ -112,7 +112,7 @@ const MenuConfigClient = ({
   }
 
   const handlePayment = async () => {
-    const response = await GetClientesById(id);
+    const response = await GetClientesById(id) as { [key: string]: any };
 
     if (response.vencimento === null) {
       Swal.fire({
@@ -126,7 +126,7 @@ const MenuConfigClient = ({
     const [day, month, year] = response.vencimento.split('/');
     const newDate = new Date(`${year}-${month}-${day}`);
 
-    const planoDias = {
+    const planoDias: { [key: string]: number } = {
       'Mensal': 30,
       'Trimestral': 90,
       'Semestral': 180,
