@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
-import { Container, Table, TableHead, TableBody, TableRow, TableCell, ConfigMenu } from './style';
+import { Container, Table, TableHead, TableBody, TableRow, TableCell } from './style';
 import { GetPlanos } from '../../../service/planos';
 import MenuConfigPlanos from '../../menus/planos/ConfigPlanos';
 
@@ -69,17 +69,12 @@ export const ListaDePlanos = () => {
       </Table>
 
       {
-        showConfigMenu && (
-          <ConfigMenu>
-            <span
-              onClick={() => setShowConfigMenu(!showConfigMenu)}
-            >
-              ❌
-            </span>
-            <MenuConfigPlanos
-              handleGetPlanos={handleGetPlanos}
-            />
-          </ConfigMenu>
+        showConfigMenu && (            
+          <MenuConfigPlanos
+            handleGetPlanos={handleGetPlanos}
+            setShowConfigMenu={setShowConfigMenu}
+            showConfigMenu={showConfigMenu}
+          />
         )
       }
     </Container>

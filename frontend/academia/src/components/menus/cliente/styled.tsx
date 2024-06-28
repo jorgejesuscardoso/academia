@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const MenuClienteContainer = styled.div`
-  background-color: var(--background-menu);
+  background-color: #ffffff;
   display: flex;
   position: fixed;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  box-shadow: 4px 4px 15px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   width: 20vw;
   height: 40vh;
   top: 25vh;
@@ -41,15 +42,14 @@ export const MenuClienteContainer = styled.div`
         button {
           width: 200px;
           height: 35px;
-          background-color: var(--menu-button-background);
+          background-color: dodgerblue;
           border: none;
           color: var(--menu-button-text-color);
           border-radius: 5px;
           cursor: pointer;
 
           &:hover {
-            background-color: var(--menu-button-hover-background);
-            color: var(--menu-button-hover-text-color);
+            background-color: #006eff;
           }
         }
       }
@@ -123,12 +123,13 @@ export const Content = styled.div`
 
 export const ShowDataCliente = styled.div`
   position: absolute;
-  background-color: var(--background-menu);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  box-shadow: 4px 4px 50px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   right: 0vw;
   width: 40vw;
   height: 40vh;
@@ -148,7 +149,7 @@ export const ShowDataCliente = styled.div`
     button {
       width: 100px;
       height: 30px;
-      background-color: var(--menu-button-background);
+      background-color: dodgerblue;
       border: none;
       color: var(--menu-button-text-color);
       border-radius: 5px;

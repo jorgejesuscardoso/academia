@@ -27,7 +27,7 @@ type FilterType = {
   trimestral: number;
   semestral: number;
   anual: number;
-  bianual: number;
+  bienal: number;
 }
 
 const Summary = ({ listClients }: SummaryProps) => {
@@ -40,7 +40,7 @@ const Summary = ({ listClients }: SummaryProps) => {
     trimestral: 0,
     semestral: 0,
     anual: 0,
-    bianual: 0
+    bienal: 0
   });
 
   useEffect(() => {
@@ -77,8 +77,8 @@ const Summary = ({ listClients }: SummaryProps) => {
         acc.anual += 1;
       }
     
-      if (client.plano === 'Bianual') {
-        acc.bianual += 1;
+      if (client.plano === 'Bienal') {
+        acc.bienal += 1;
       }
     
       return acc;
@@ -91,7 +91,7 @@ const Summary = ({ listClients }: SummaryProps) => {
       trimestral: 0,
       semestral: 0,
       anual: 0,
-      bianual: 0
+      bienal: 0
     });    
 
     setFilteredAll(filtered);
@@ -129,7 +129,7 @@ const Summary = ({ listClients }: SummaryProps) => {
               <StyledHeader>Trimestral</StyledHeader>
               <StyledHeader>Semestral</StyledHeader>
               <StyledHeader>Anual</StyledHeader>
-              <StyledHeader>Bianual</StyledHeader>
+              <StyledHeader>Bienal</StyledHeader>
               <StyledHeader>Vitalício</StyledHeader>
             </tr>
           </thead>
@@ -139,7 +139,7 @@ const Summary = ({ listClients }: SummaryProps) => {
               <StyledCell>{filteredAll.trimestral}</StyledCell>
               <StyledCell>{filteredAll.semestral}</StyledCell>
               <StyledCell>{filteredAll.anual}</StyledCell>
-              <StyledCell>{filteredAll.bianual}</StyledCell>
+              <StyledCell>{filteredAll.bienal}</StyledCell>
               <StyledCell>{filteredAll.vitalicio}</StyledCell>
             </tr>
           </tbody>

@@ -103,3 +103,22 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 600;
 }
+
+.vitalicio {
+  background-color: #029934 !important;
+  color: #fff;
+}
+
+.vencido {
+  background-color: #ff0000 !important;
+  color: #fff;
+}
+
+.vencido strong {
+  color: #000000;
+}
+
+.alertCard {
+  background-color: goldenrod !important;
+  color: #fff;
+}

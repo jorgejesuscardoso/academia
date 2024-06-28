@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
+  position: fixed;
   background-color: #333;
   display: flex;
   justify-content: space-between;
@@ -9,12 +10,13 @@ export const HeaderContainer = styled.header`
   height: 7vh;
   padding: 0 20px;
   color: #fff;
+  z-index: 100;
 `;
 
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   font-size: 16px;
   font-weight: bold;
   width: 100%;
@@ -49,6 +51,55 @@ export const Nav = styled.nav`
 
   li:hover {
     border-bottom: 2px solid var(--border-bottom-color);
+    cursor: pointer;
+  }
+
+  img {
+    width: 7vh;  
+  }
+`;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+
+  input {
+    background-color: #eee;
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+    border: none;
+    border-left: 1px solid #aaa;
+    outline: none;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50%;
+    background-color: #ffd012;
+    border: 1px solid #ffcc11;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  img {
+    width: 20px;
+  }
+
+  select {
+    width: 120px;
+    height: 50%;
+    padding: 5px;
+    border: none;
+    border-left: 1px solid #aaa;
+    outline: none;  
     cursor: pointer;
   }
 `;

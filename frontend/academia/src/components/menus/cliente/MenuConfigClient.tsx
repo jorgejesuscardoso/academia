@@ -3,6 +3,7 @@ import { Buttons, ConfirmDeleteContainer, Content, MenuClienteContainer, ShowDat
 import { DeleteCliente, GetClientesById, UpdateCliente } from '../../../service/clienteApi';
 import { FormUpdate } from '../../foms/clients/FormUpdate';
 import { GetPlanosById } from '../../../service/planos';
+import Swal from 'sweetalert2';
 
 type MenuConfigClientProps = {
   id: number;
@@ -109,6 +110,58 @@ const MenuConfigClient = ({
     const response = await GetPlanosById(planoId);
     return setPlano(response);
   }
+
+  const handlePayment = async () => {
+    const response = await GetClientesById(id);
+
+    if (response.vencimento === null) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Oops...',
+        text: 'Este é um cliente vitalício e não possui vencimento!',
+      });
+      return;
+    }
+
+    const [day, month, year] = response.vencimento.split('/');
+    const newDate = new Date(`${year}-${month}-${day}`);
+
+    const planoDias = {
+      'Mensal': 30,
+      'Trimestral': 90,
+      'Semestral': 180,
+      'Anual': 365,
+      'Bienal': 730
+    };
+
+    const diasIncremento = planoDias[response.plano] || 0;
+    newDate.setDate(newDate.getDate() + diasIncremento);
+
+    const newDateString = newDate.toLocaleDateString('pt-BR');
+
+    const data = {
+      nome: response.nome,
+      email: response.email,
+      telefone: response.telefone,
+      dataInicio: response.dataInicio.split('/').reverse().join('-'),
+      planoId: response.planoId,
+      vencimento: newDateString.split('/').reverse().join('-'),
+      dataNascimento: response.dataNascimento.split('/').reverse().join('-'),
+      status: 'Ativo',
+    };
+    
+    const responseUpdate = await UpdateCliente(id, data);
+    console.log(responseUpdate);
+    if (responseUpdate) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Data de vencimento atualizada com sucesso!🎉',
+        text: 'Atualise a página para ver as mudanças!',
+      });
+      handleGetList();
+    }
+    return responseUpdate;
+  };
 
   return (
     <MenuClienteContainer ref={ refer }>

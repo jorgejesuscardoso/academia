@@ -12,6 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
+  margin-top: 7vh;
   background-color: #d5d8da;
   width: 90%;
   border-collapse: collapse;

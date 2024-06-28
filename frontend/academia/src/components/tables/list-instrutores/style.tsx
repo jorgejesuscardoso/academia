@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Table = styled.table`
   background-color: #d5d8da;
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
@@ -144,6 +144,7 @@ export const Title = styled.h2`
 `;
 
 export const DivOverFlowTable = styled.div`
+  margin-top: 7vh;
   display: flex;
   height: 65vh;
   width: 90%;

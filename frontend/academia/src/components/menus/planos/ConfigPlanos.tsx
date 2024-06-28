@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { DeletePlano, GetPlanos, UpdatePlano } from '../../../service/planos';
 import { ConfirmarModificacao, ConfirmarRemocao, ConfirmarRemocaoNovamente, EscolherPlanoParaModificar, EscolherPlanoParaRemover, FormularioModificarPlano } from '../../pop-ups/Planos';
 import Swal from 'sweetalert2';
-import { ContainerConfig } from './styled';
+import { ConfigMenu } from './styled';
 
 type Plano = {
   id: number;
@@ -14,9 +14,11 @@ type Plano = {
 
 type PlanosProps = {
   handleGetPlanos: () => void;
+  setShowConfigMenu: (value: boolean) => void;
+  showConfigMenu: boolean;
 };
 
-const MenuConfigPlanos = ({ handleGetPlanos }: PlanosProps) => {
+const MenuConfigPlanos = ({ handleGetPlanos, setShowConfigMenu, showConfigMenu }: PlanosProps) => {
   const [planos, setPlanos] = useState<Plano[]>([]);
   const [remove, setRemove] = useState<boolean>(false);
   const [dataPlanoToRemove, setDataPlanoToRemove] = useState<Plano | null>(null);
@@ -97,7 +99,12 @@ const MenuConfigPlanos = ({ handleGetPlanos }: PlanosProps) => {
   };
 
   return (
-    <ContainerConfig>
+    <ConfigMenu> 
+      <span
+        onClick={() => setShowConfigMenu(!showConfigMenu)}
+      >
+        ❌
+      </span>
       <h3>Configuração de Planos</h3>
       <ul>
         <button onClick={() => setRemove(!remove)}>
@@ -162,7 +169,7 @@ const MenuConfigPlanos = ({ handleGetPlanos }: PlanosProps) => {
         handleModify={handleModify}
       />
       }
-    </ContainerConfig>
+    </ConfigMenu>
   );
 };
 

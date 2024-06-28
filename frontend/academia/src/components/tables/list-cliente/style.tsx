@@ -18,6 +18,7 @@ export const Table = styled.table`
 `;
 
 export const DivOverFlowTable = styled.div`
+  margin-top: 7vh;
   display: flex;
   height: 65vh;
   width: 90%;

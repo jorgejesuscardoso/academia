@@ -46,3 +46,53 @@ export const ContainerConfig = styled.div`
     
   }
 `;
+
+export const ConfigMenu = styled.div`
+  position: absolute;
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  width: 25%;
+  height: 25vh;
+  gap: 10px;
+
+  span {
+    position: absolute;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    gap: 10px;
+
+    button {
+      width: 30%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: dodgerblue;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+  
+`;

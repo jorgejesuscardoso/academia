@@ -1,4 +1,6 @@
 export  const calculateAge = (birthDate: string) => {
+  if (!birthDate) return NaN;
+  
   const [day, month, year] = birthDate.split('/').map(Number);
   const birth = new Date(year, month - 1, day);
   const today = new Date();
@@ -34,3 +36,4 @@ export const calculateDaysUntil = (date: string) => {
     return NaN; 
   }
 }
+

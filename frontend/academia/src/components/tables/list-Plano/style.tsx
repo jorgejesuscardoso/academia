@@ -13,6 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
+  margin-top: 10vh;
   background-color: #d5d8da;
   width: 90%;
   border-collapse: collapse;
@@ -204,34 +205,5 @@ export const FormCadastroPlano = styled.form`
     font-weight: 700;
     cursor: pointer;
     outline: none;
-  }
-`;
-
-/* Menu de configuração de planos */
-
-export const ConfigMenu = styled.div`
-  position: absolute;
-  background-color: #ddd;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
-  width: 25%;
-  height: 25vh;
-  gap: 10px;
-
-  span {
-    position: absolute;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 700;
-    top: 0;
-    right: 0;
-    cursor: pointer;
   }
 `;

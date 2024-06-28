@@ -48,11 +48,11 @@ async function main() {
     },
   });
 
-  const bianual = await prisma.plano.create({
+  const bienal = await prisma.plano.create({
     data: {
-      nome: 'Bianual',
+      nome: 'Bienal',
       valor: 1152.00,
-      descricao: 'Pagamento bianual. Todos os serviços acessíveis. Valor com desconto de 20% aplicado sobre o total de 24 meses (R$ 1440,00 - economia de R$ 288,00 em relação ao plano mensal).'
+      descricao: 'Pagamento bienal. Todos os serviços acessíveis. Valor com desconto de 20% aplicado sobre o total de 24 meses (R$ 1440,00 - economia de R$ 288,00 em relação ao plano mensal).'
     },
   });
 
@@ -399,7 +399,7 @@ async function main() {
       dataNascimento: '1990-11-10T06:00:00Z',
       dataInicio: '2023-06-01T06:00:00Z',
       vencimento: '2024-10-01T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     },
   });
@@ -789,7 +789,7 @@ async function main() {
       dataNascimento: '1988-12-12T06:00:00Z',
       dataInicio: '2018-02-22T06:00:00Z',
       vencimento: '2025-02-22T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     }
   });
@@ -893,7 +893,7 @@ async function main() {
       dataNascimento: '1980-02-13T06:00:00Z',
       dataInicio: '2019-03-15T06:00:00Z',
       vencimento: '2024-06-30T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     }
   });
@@ -971,7 +971,7 @@ async function main() {
       dataNascimento: '1992-02-12T06:00:00Z',
       dataInicio: '2016-11-20T06:00:00Z',
       vencimento: '2024-11-20T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     }
   });
@@ -1048,7 +1048,7 @@ async function main() {
       dataNascimento: '1985-09-15T06:00:00Z',
       dataInicio: '2019-10-05T06:00:00Z',
       vencimento: '2024-06-30T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     }
   });
@@ -1113,7 +1113,7 @@ async function main() {
       dataNascimento: '1989-11-30T06:00:00Z',
       dataInicio: '2017-06-01T06:00:00Z',
       vencimento: '2019-06-01T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Ativo'
     }
   });
@@ -1164,7 +1164,7 @@ async function main() {
       dataNascimento: '1987-09-25T06:00:00Z',
       dataInicio: '2019-11-01T06:00:00Z',
       vencimento: '2024-06-30T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Desativado'
     }
   });
@@ -1242,7 +1242,7 @@ async function main() {
       dataNascimento: '1989-11-05T06:00:00Z',
       dataInicio: '2018-12-20T06:00:00Z',
       vencimento: '2025-12-20T06:00:00Z',
-      planoId: bianual.id,
+      planoId: bienal.id,
       status: 'Desativado'
     }
   });
