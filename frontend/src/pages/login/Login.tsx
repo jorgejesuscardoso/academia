@@ -3,8 +3,10 @@ import { LoginApi } from '../../service/loginApi';
 import { SetLocalStorage } from '../../utils/localStorage';
 import { Container } from './style';
 import { loginLogo } from '../../utils/icons';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -28,7 +30,7 @@ const Login = () => {
       setLoading('Carregando...');
 
       setTimeout(() => {
-        window.location.href = '/home';
+        navigate('/home');
       }, 2000)
     } else {
       setError('Acesso negado');
