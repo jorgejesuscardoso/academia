@@ -8,7 +8,7 @@ const Arquivo_X = () => {
 
   useEffect(() => {
     
-    const stream = `https://superflixapi.dev/serie/4087/${temporada}/${episodios}`; 
+    const stream = `https://superflixapi.dev/serie/4087/${temporada}/${episodios}`;  
     setStreaming(stream);
     
   }, [episodios, temporada]);

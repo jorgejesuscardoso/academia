@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { AsideRightContainers } from '../../pages/home/style';
 import { AsideRightContent } from './style';
 
@@ -26,9 +25,9 @@ const AsideRight = () => {
               <li>Reunião com a equipe</li>
             </ul>
             <h4>Series</h4>
-            <ul>
-              <Link to="/series/loki"><li>Loki</li></Link>
-              <Link to="/series/arquivo-x"><li>Arquivo X</li></Link>
+            <ul>              
+              <li>Reunião com a equipe</li>
+              <li>Reunião com a equipe</li>
             </ul>
           </div>
           <div>

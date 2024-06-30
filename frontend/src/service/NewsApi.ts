@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-const URL = 'http://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=da6d379bbf5b4cd79bf6b6ae6d7fb8bc';
+const URL = 'https://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=da6d379bbf5b4cd79bf6b6ae6d7fb8bc';
 
 export const NewsApi = async () => {
   try {

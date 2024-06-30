@@ -65,7 +65,7 @@ export const TextArea = styled.div`
   }
 
   div {
-    background-color: #dfdfdf;
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     width: 100%;
