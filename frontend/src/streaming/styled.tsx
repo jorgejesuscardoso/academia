@@ -40,3 +40,24 @@ export const StreamingContainer = styled.div`
     }
   }
 `;
+
+export const SelectSeriesContainer = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  color: #fff;
+
+  select {
+    gap: 10px;
+    option {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 10px;
+    }
+  }
+`;

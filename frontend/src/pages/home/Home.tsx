@@ -7,6 +7,7 @@ import AsideRight from '../../components/aside/AsideRight';
 import { useState, useEffect } from 'react';
 import { NewsApi } from '../../service/NewsApi';
 import Swal from 'sweetalert2';
+import { listarPublicacoes } from '../../service/publicacaoApi';
 
 const Home = () => {
   const searchQuery = useSelector((state: any) => state.typeSearchRedux);
@@ -27,15 +28,34 @@ const Home = () => {
 
   useEffect(() => {
 
-    GetNewsApi()
+    GetFeed()
     setShowSearchItens(false)
-  }, []);
+  },[])
 
-  const GetNewsApi = async () => {
-    const news = await NewsApi();
-    setFeed(news.articles)
-    return news;
-  }
+
+  const GetFeed = async () => {
+    try {
+      const response = await listarPublicacoes();
+      const newd = await NewsApi();
+      const news = await newd.articles;
+
+      const data = await response.concat(news);
+      data.sort((a: any, b: any) => {
+        const dateA = new Date(a.createdAt || a.publishedAt);
+        const dateB = new Date(b.createdAt || b.publishedAt);
+        return Number(dateB.getTime()) - Number(dateA.getTime())
+      });
+      setFeed(data);
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Erro ao criar nova publicação!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  };
 
   const handleNewPublished = () => {
     if (newPublished.date === '' && newPublished.type === 'evento') {
@@ -107,7 +127,7 @@ const Home = () => {
               <Labels>Limpar pesquisa</Labels>
               <Value>
                 <span onClick={() => {
-                  GetNewsApi();
+                  GetFeed();
                   setShowSearchItens(false);
                   searchQuery.onde = ''
                 }}>Limpar</span>
@@ -182,30 +202,44 @@ const Home = () => {
 
         { feed && !ShowSearchItems && feed.map((item: any, index: number) => (
             <NewsCardContainer key={ index }>
-              <CardTitle>{item.title}</CardTitle>
+              <span>{item.titulo ? 'Pub' : 'News'}</span>
+              <CardTitle>{item.titulo || item.title}</CardTitle>
 
+              {item.autor && <CardAuthor>Publicado por: {item.autor}</CardAuthor>}
               {item.author && <CardAuthor>Autor: {item.author}</CardAuthor>}
+              
+              {item.descricao && <FonteNews>{item.descricao}</FonteNews>}
               {item.source && <FonteNews>Fonte: {item.source.name}</FonteNews>}
 
               <CardDescription>{item.description}</CardDescription>
 
+              {item.conteudo && <CardContent>{item.conteudo}</CardContent>}
               {item.content && <CardContent>Conteúdo: {item.content}</CardContent>}
 
-              <CardLink href={item.url} target="_blank" rel="noopener noreferrer">
-                Leia mais
-              </CardLink>
-
-              {
-                item.publishedAt &&
-                  <CardPublishedAt>
-                    Publicado em: {item.publishedAt.split('T')[0].split('-').reverse().join('/')} as {item.publishedAt.split('T')[1].split(':').slice(0,1).join(':')} horas e {item.publishedAt.split('T')[1].split(':').slice(1,2).join(':')} minutos.
-                  </CardPublishedAt>
+              {item.url && 
+                <CardLink href={item.url} target="_blank" rel="noopener noreferrer">
+                  Leia mais
+                </CardLink>
               }
-              </NewsCardContainer>
-            ))
-        }
+
+              {item.createdAt && 
+                <CardPublishedAt>
+                  Publicado em: {item.createdAt.split('T')[0].split('-').reverse().join('/')} as {item.createdAt.split('T')[1].split(':').slice(0, 1).join(':')} horas e {item.createdAt.split('T')[1].split(':').slice(1, 2).join(':')} minutos.
+                </CardPublishedAt>
+              }
+
+              {item.publishedAt && 
+                <CardPublishedAt>
+                  Publicado em: {item.publishedAt.split('T')[0].split('-').reverse().join('/')} as {item.publishedAt.split('T')[1].split(':').slice(0, 1).join(':')} horas e {item.publishedAt.split('T')[1].split(':').slice(1, 2).join(':')} minutos.
+                </CardPublishedAt>
+              }
+            </NewsCardContainer>
+        ))}
+
       </HomeContent>
+
       <AsideRight />
+      
     </Container>
   );
 };

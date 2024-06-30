@@ -255,6 +255,13 @@ export const NewsCardContainer = styled.div`
   &:first-child {
     margin-top: 10px;
   }
+
+  span {
+    color: #333;
+    font-size: 12px;
+    margin-bottom: 10px;
+  
+  }
 `;
 
 export const CardTitle = styled.h2`
@@ -302,7 +309,7 @@ export const CardLink = styled.a`
 export const CardPublishedAt = styled.p`
   color: #5f5f5f;
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 35px;
 `;
 
 

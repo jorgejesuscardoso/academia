@@ -24,7 +24,7 @@ const AsideRight = () => {
               <li>Reunião com a equipe</li>
               <li>Reunião com a equipe</li>
             </ul>
-            <h4>Series</h4>
+            <h4>Próximos dias</h4>
             <ul>              
               <li>Reunião com a equipe</li>
               <li>Reunião com a equipe</li>

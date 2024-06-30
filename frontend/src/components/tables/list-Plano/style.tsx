@@ -112,7 +112,8 @@ export const TableCell = styled.td`
     }
 
     &:hover {
-      background-color: #ddd;
+      background-color: var(--list-hover-color);
+      color: #444;
       font-weight: bolder;
     }
   }

@@ -59,7 +59,7 @@ export const TableBody = styled.tbody`
 
   tr:hover {
     text-align: center;
-    background-color: #00f9ff;
+    background-color: var(--list-hover-color);
     color: blue;
   }
 

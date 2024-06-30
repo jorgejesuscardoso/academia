@@ -53,7 +53,7 @@ export const TableBody = styled.tbody`
 
   tr:hover {
     text-align: center;
-    background-color: #aaa;
+    background-color: var(--list-hover-color);
   }
 
   td {

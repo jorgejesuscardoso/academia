@@ -70,7 +70,7 @@ export const TableBody = styled.tbody`
   }
 
   tr:hover {
-    background-color: #00f9ff;
+    background-color: var(--list-hover-color);
   }
 
   tr.vencido {
