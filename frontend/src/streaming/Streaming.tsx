@@ -33,42 +33,46 @@ const Streaming = () => {
 
   return (
     <StreamingContainer>
-      <h1>{titulo} - Temporada {temporada} - Episódio {episodios}</h1>
-      <iframe src={streaming} allowFullScreen width="1000" height="500"></iframe>
-      
-      <div>
-        <button
-          onClick={() => setEpisodios(prev => Math.max(prev - 1, 1))}
-        >
-          {"<<"} Episódio anterior
-        </button>
-        
-        <button
-          onClick={() => setEpisodios(prev => prev + 1)}
-        >
-          Próximo episódio {">>"}
-        </button>
-      </div>
+      { titulo && (
+        <>
+          <h1>{titulo} - Temporada {temporada} - Episódio {episodios}</h1>
+          <iframe src={streaming} allowFullScreen width="1000" height="500"></iframe>
+          
+          <div>
+            <button
+              onClick={() => setEpisodios(prev => Math.max(prev - 1, 1))}
+            >
+              {"<<"} Episódio anterior
+            </button>
+            
+            <button
+              onClick={() => setEpisodios(prev => prev + 1)}
+            >
+              Próximo episódio {">>"}
+            </button>
+          </div>
 
-      <div>
-        <button
-          onClick={() => {
-            setTemporada(prev => Math.max(prev - 1, 1));
-            setEpisodios(1);
-          }}
-        >
-          {"<<"} Temporada anterior
-        </button>
-        
-        <button
-          onClick={() => {
-            setTemporada(prev => prev + 1);
-            setEpisodios(1);
-          }}
-        >
-          Próxima temporada {">>"}
-        </button>
-      </div>
+          <div>
+            <button
+              onClick={() => {
+                setTemporada(prev => Math.max(prev - 1, 1));
+                setEpisodios(1);
+              }}
+            >
+              {"<<"} Temporada anterior
+            </button>
+            
+            <button
+              onClick={() => {
+                setTemporada(prev => prev + 1);
+                setEpisodios(1);
+              }}
+            >
+              Próxima temporada {">>"}
+            </button>
+          </div>
+        </>
+      ) }
       <SelectSeries
         setTitulo={setTitulo}
         setIMDB={setIMDB}

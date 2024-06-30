@@ -15,6 +15,8 @@ const SelectSeries = ({ setIMDB, setTipoDeMidia, setTitulo, season, episode }: S
   const [selectASerie, setSelectASerie] = useState('select');
 
   useEffect(() => {
+
+    if (selectASerie === 'select') navigate('/serie');
     if (selectASerie !== 'select') {
       const [tipo, imdb, titulo] = selectASerie.split('/');
       setIMDB(+imdb);

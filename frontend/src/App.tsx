@@ -32,6 +32,7 @@ function App() {
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/usuarios/cadastro" element={<CadastrarUsuario />} />
       </Route>
+        <Route path="/serie" element={<Streaming /> } />
         <Route path="/serie/:id/*" element={<Streaming /> } />
         <Route path="/filme/:filme" element={<Streaming />} />
     </Routes>
