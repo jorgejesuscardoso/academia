@@ -10,6 +10,9 @@ import Instrutores from './pages/instrutores/Instrutores'
 import Usuarios from './pages/users/Usuarios'
 import CadastroDeInstrutores from './components/tables/list-instrutores/CadastroDeInstrutores'
 import CadastrarUsuario from './components/tables/list-usuario/Cadastrar'
+import Streaming from './streaming/Streamin'
+import Arquivo_X from './streaming/series/ArquivoX./Arquivo_X'
+import Loki from './streaming/series/Loki/Loki'
 
 function App() {
 
@@ -30,8 +33,9 @@ function App() {
 
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/usuarios/cadastro" element={<CadastrarUsuario />} />
-
       </Route>
+        <Route path="/series/arquivo-x" element={<Arquivo_X /> } />
+        <Route path="/series/loki" element={<Loki /> } />
     </Routes>
   )
 }

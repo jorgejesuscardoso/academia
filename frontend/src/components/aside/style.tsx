@@ -11,7 +11,7 @@ export const AsideLeftContent = styled.div`
   gap: 10px;
 
   h3 {
-  background-color: #333;
+  background-color:#6b5c37;
   color: #fff;
   text-align: center;
   border-radius: 0.5rem;
@@ -34,7 +34,7 @@ export const AsideLeftContent = styled.div`
   }
 
   h4 {
-    text-align: start !important;
+    text-align: start;
     margin-top: 10px;
     color: #7e5f10;
   }
@@ -54,24 +54,25 @@ export const AsideLeftContent = styled.div`
       cursor: pointer;
 
       &:hover {
-        color: #ff0000;
+        color: #a36f2a;
       }
     }
   }
     
   li.verMais {
-    background-color: dodgerblue;
+    border: 1px solid #cf980b;
     width: 40%;
     margin: 0 auto;
     padding: 3px;
     margin-top: 10px;
     text-align: center;
+    font-weight: bold;
     border-radius: 5px;
-    color: #ffffff;
+    color: #b48100;
     cursor: pointer;
 
     &:hover {
-      background-color: #0000ff;
+      background-color: #aa8118;
       color: #ffffff;
     }
   }
@@ -93,24 +94,24 @@ export const AsideLeftContent = styled.div`
 
 export const VerMais = styled.a`  
   text-align: center;
-  width: 50%;
+  width: 60%;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  background-color: #b89e0d;
-  padding: 0.5rem 1rem;
+  background-color: #bb7b1b;
+  padding: 0.5rem 0.5rem;
   border-radius: 0.5rem;
   margin: 0 auto;
-  margin: 10px;
   display: inline-block;
   cursor: pointer;
 
   &:hover {
-    background-color: #9c8b8b;
+    background-color: #a15f09;
   }
 `;
 
 export const AsideRightContent = styled.div`
+  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -121,31 +122,15 @@ export const AsideRightContent = styled.div`
   gap: 10px;
 
   h3 {
-  background-color: #333;
+  background-color:#6b5c37;
   color: #fff;
   text-align: center;
   border-radius: 0.5rem;
   padding: 3px;
   }
 
-  h3.video {
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
-
-    &:hover {
-      background-color: #fff;
-      border: 1px solid dodgerblue;
-
-      a {
-        color: dodgerblue !important;
-      }
-    }
-  }
-
   h4 {
     text-align: center;
-    margin-right: 20px;
     margin-top: 10px;
     color: #7e5f10;
   }
@@ -166,7 +151,7 @@ export const AsideRightContent = styled.div`
       cursor: pointer;
 
       &:hover {
-        color: #ff0000;
+        color: #a36f2a;
       }
     }
   }
@@ -198,7 +183,6 @@ export const AsideRightContent = styled.div`
   }
 
   a {
-    color: #fff !important;
     text-decoration: none;
   }
 
@@ -214,6 +198,6 @@ export const AsideLeftWithBorder = styled.div`
   border-bottom: 1px solid #888888;
 
   a {
-    margin: 10px auto;
+    margin: 5px auto;
   }
 `;

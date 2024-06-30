@@ -111,6 +111,10 @@ const Summary = ({ listClients }: SummaryProps) => {
           <span>Clientes com plano vitalício</span>
         </LegendItem>
         <LegendItem>
+          <ColorBox className="blue" />
+          <span>Clientes com status desativado</span>
+        </LegendItem>
+        <LegendItem>
           <ColorBox className="red" />
           <span>Clientes com mensalidade/plano vencido</span>
         </LegendItem>

@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom';
 import { AsideLeftContainersL } from '../../pages/home/style';
 import { AsideLeftContent, AsideLeftWithBorder, VerMais } from './style';
 
-type AsideLeftProps = {
-  classname?: string;
-}
-
-const AsideLeft = ({ classname } : AsideLeftProps) => {
+const AsideLeft = () => {
+  const params = window.location.pathname.split('/')[1];
+  const classname = params !== 'home' ? 'asideLeft' : '';
   return (
     <AsideLeftContainersL className={ classname }>
       <AsideLeftContent className="asid__container">
@@ -38,7 +36,7 @@ const AsideLeft = ({ classname } : AsideLeftProps) => {
                 <li className='verMais'>ver mais</li>
               </ul>
               <VerMais href="#" className="btn">
-                Ver todos
+                Todos exercicios
               </VerMais>
             </AsideLeftWithBorder>
           </div>

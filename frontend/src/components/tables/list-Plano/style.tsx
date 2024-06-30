@@ -18,7 +18,8 @@ export const Container = styled.div`
     width: 60%;
     border-radius: 5px 5px 0 0;
     text-align: center;
-    padding: 3px;
+    font-size: 18px;
+    padding: 4px;
     border-bottom: 1px solid #ccc;
   }
 `;
@@ -66,7 +67,7 @@ export const TableHead = styled.thead`
 export const TableBody = styled.tbody`
   tr:nth-child(even) {
     text-align: center;
-    background-color: #eee;
+    background-color: #ddd;
   }
 
   td {
@@ -185,7 +186,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #62d3ff;
+      outline: 1px solid #be9c02;
     }
 
     textarea {
@@ -195,7 +196,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #62d3ff;
+      outline: 1px solid #be9c02;
       resize: none;
     }
 
@@ -210,10 +211,18 @@ export const FormCadastroPlano = styled.form`
     margin-top: 10px;
     border-radius: 5px;
     border: none;
-    background-color: dodgerblue;
+    background-color: #be9c02;
     color: #fff;
     font-weight: 700;
     cursor: pointer;
     outline: none;
+
+    &:hover {
+      background-color: #917e01;
+    }
+  }
+
+  select {
+    outline: 1px solid #be9c02;
   }
 `;

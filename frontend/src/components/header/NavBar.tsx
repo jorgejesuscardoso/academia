@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import { FloatMenu, HeaderContainer, Nav, SearchContainer } from './style';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FloatMenu, HeaderContainer, Nav, SearchForm } from './style';
 import { useEffect, useState } from 'react';
 import { RemoveLocalStorage } from '../../utils/localStorage';
 import Swal from 'sweetalert2';
@@ -9,6 +9,7 @@ import { searchAction, typeSearchAction } from '../../redux/actions/searchAction
 
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const params = useLocation().pathname.split('/')[1];
@@ -20,28 +21,61 @@ const Navbar = () => {
 
   useEffect(() => {
     const closeMenu = () => setFloatMenu(false);
+    
     document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener('click', closeMenu);
+
+    return () => {
+      document.removeEventListener('click', closeMenu);
+    };
   }, []);
 
 
   const handleSearch = async () => {
     try {
+
+      navigate('/home');
+
       const response = await searchApi(tipoDeBusca, ondeBuscar, searchValue);
       
       const payload = { onde: tipoDeBusca, oque: ondeBuscar, assunto: searchValue }
       
-      console.log(payload)
+      if (response === 'error') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao buscar',
+          text: 'Erro ao buscar, tente novamente'
+        });
+        return
+      }
+      
       if (response.length === 0) {
         Swal.fire({
           icon: 'info',
           title: 'Nada encontrado',
-          text: 'Nenhum resultado encontrado'
+          text: 'Nenhum resultado encontrado',
+          showConfirmButton: false,
+          timer: 1500,
         });
+        return
       }
 
-      dispatch(searchAction(response));
-      dispatch(typeSearchAction(payload));   
+      Swal.fire({
+        icon: 'info',
+        title: 'Buscando...',
+        timer: 1000,
+      });
+   
+      setTimeout(() => {
+        dispatch(searchAction(response));
+        dispatch(typeSearchAction(payload));
+        Swal.fire({
+          icon: 'info',
+          title: 'Concluído',
+          timer: 1000,
+        });
+      }, 1000);
+
+      return 
 
     } catch (error) {
       Swal.fire({
@@ -59,7 +93,12 @@ const Navbar = () => {
           <img src="academiaLogo2.png" alt="Logo da academia" />
         </div>
 
-        <SearchContainer>
+        <SearchForm
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
+        >
           <select
             name="buscar em"
             onChange={(e) => setTipoDeBusca(e.target.value)}
@@ -101,11 +140,11 @@ const Navbar = () => {
             onChange={(e) => setSearchValue(e.target.value)}
           />
           <button
-            onClick={handleSearch}
+            type="submit"
           >
             <img src="ico_search.png" alt="Ícone de busca" />
           </button>
-        </SearchContainer>
+        </SearchForm>
 
         <ul>
           <Link to="/home">

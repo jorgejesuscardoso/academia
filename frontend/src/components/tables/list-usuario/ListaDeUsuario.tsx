@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Container, Table, TableBody, TableCell, TableHead, TableRow } from './style';
 import { getUsers } from '../../../service/usuario';
 import Swal from 'sweetalert2';
+import AsideLeft from '../../aside/AsideLeft';
+import AsideRight from '../../aside/AsideRight';
 
 type IUsuario = {
   id: number;
@@ -36,6 +38,7 @@ const ListaDeUsuario = () => {
 
   return (
     <Container>
+      <h1>Gerênciamento de usuários</h1>
       <Table>
       <TableHead>
         <TableRow>
@@ -60,6 +63,8 @@ const ListaDeUsuario = () => {
         ))}
       </TableBody>
     </Table>
+    <AsideLeft />
+    <AsideRight />
   </Container>
   );
 }

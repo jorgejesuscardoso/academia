@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { Container, DivOverFlowTable, InstrutorContainer, StyledCell, StyledHeader, StyledTable, Table, TableBody, TableCell, TableHead, TableRow, Title } from './style';
 import { getInstrutores } from '../../../service/InstrutorApi';
+import AsideLeft from '../../aside/AsideLeft';
+import AsideRight from '../../aside/AsideRight';
 
 type Instrutor = {
   id: number,
@@ -48,6 +50,7 @@ const ListaDeInstrutores = () => {
   
   return (
     <Container>
+      <h1>Gerenciamento de instrutores</h1>
       <DivOverFlowTable>
         <Table>
         <TableHead>
@@ -91,6 +94,9 @@ const ListaDeInstrutores = () => {
           </tbody>
         </StyledTable>
       </InstrutorContainer>
+
+      <AsideLeft />
+      <AsideRight />
   </Container>
   );
 }

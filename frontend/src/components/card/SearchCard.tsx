@@ -92,6 +92,8 @@ const CardSearch = ({ setCount }: SearchProp ) => {
       return 'vencido';
     } else if (calculateDaysUntil(handleFixDate(date.vencimento)) < 6) {
       return 'alertCard';
+    } else if (date.status === 'Desativado') {
+      return 'desativado';
     }
   };
   

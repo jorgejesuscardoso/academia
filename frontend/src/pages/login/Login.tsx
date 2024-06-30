@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { LoginApi } from '../../service/loginApi';
 import { SetLocalStorage } from '../../utils/localStorage';
 import { Container } from './style';
-import { loginLogo } from '../../utils/icons';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,61 +13,93 @@ const Login = () => {
   const [loading, setLoading] = useState('');
 
   const handleLogin = async () => {
-    if (!username || !password) {
-      setError('Preencha todos os campos');
-      return;
-    }
-    const login = await LoginApi({ username, senha: password });
-    
-    if (login.error) {
-      setError(login.error);
-    }
-    
-    SetLocalStorage('user', login);
-
-    if (login.role === 'Admin') {
-      setError('');
-      setLoading('Carregando...');
-
-      setTimeout(() => {
-        navigate('/home');
-      }, 2000)
-    } else {
-      setError('Acesso negado');
+    try {
+      if (!username || !password) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro',
+          text: 'Preencha todos os campos',
+          showConfirmButton: false,
+          timer: 1000
+        });
+        return;
+      }
+      const login = await LoginApi({ username, senha: password });
+      
+      if (login.error) {
+        setError(login.error);
+      }
+      
+      SetLocalStorage('user', login);
+  
+      if (login.role === 'Admin') {
+        setError('');
+        setLoading('Logado.');
+  
+        setTimeout(() => {
+          setLoading('Redirecionando...');
+        }, 1000)
+  
+        setTimeout(() => {
+          navigate('/home');
+        }, 3000)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro',
+          text: 'Usuário não autorizado',
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Erro ao tentar logar',
+        showConfirmButton: false,
+        timer: 1000
+        });
     }
   };
 
   return (
     <Container>
-      <h1>Login</h1>
       <form onSubmit={ (e) => {
         e.preventDefault();
         handleLogin();
-       }}>
+      }}>
+
+        <img src="academiaWhite.png" alt="" />
+
+        <h3>Seja bem-vindo(a) ao Sistema da Academia XYZ</h3>
+
+       <div>
+          <label htmlFor="user">Username:</label>
+          <input
+              type="user"
+              id='user'
+              value={username}
+              onChange={(e) => {
+                setUser(e.target.value);
+                setError('');
+              }}
+          />
+       </div>
         <div>
-          <img src={ loginLogo } alt="Logomarca" title='Logomarca' />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id='password'
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError('');
+            }}
+          />
         </div>
-        <input
-          type="user"
-          placeholder="user"
-          value={username}
-          onChange={(e) => {
-            setUser(e.target.value);
-            setError('');
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setError('');
-          }}
-        />
         <button 
           type="submit"
-          className='success'
         >
           Login
         </button>

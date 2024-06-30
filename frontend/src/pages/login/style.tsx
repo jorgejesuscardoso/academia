@@ -9,63 +9,83 @@ export const Container = styled.main`
   width: 100vw;
   background-color: var(--background-login);
 
-  h1 {
-    margin-bottom: 20px;
+  h3 {
+    text-align: center;
+    color: #a78d1d;
+    margin-top: 20px;
+    margin: 10px;
+  }
+
+  p {
+    color: #8f9e07;
+    font-weight: bold;
+    text-align: center;
   }
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--background-login-form);
+    background-color: #fff;
     border-radius: 10px;
     width: 30vw;
     height: 60vh;
 
     input {
-      background-color: var(--background-login-input);
+      vertical-align: bottom;
+      background-color: transparent;
       color: var(--text-color);
       width: 80%;
-      margin: 10px;
+      height: 50px;
       padding: 10px;
-      border-radius: 5px;
+      color: #555;
+      font-size: 1rem;
       border: none;
       
       &::placeholder {
-        color: var(--text-color);
+        color: #777;
       }
 
       &:focus {
-        outline: 1px solid var(--input-login-outline);
+        background-color: none;
+        outline: none;
       }
     }
 
     div {
-      width: 100%;
+      width: 80%;
       display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
+      align-items: center;
+      justify-content: end;
+      border-bottom: 1px solid #aaa;
 
-    img {
-      width: 25%;
-      margin-bottom: 20px;
+      label {
+        width: 20%;
+        text-align: start;
+        color: #777;
+      }   
+
+      p {
+        background-color: transparent;
+      }
     }
 
     button {
-      color: var(--text-color-black-1);
-      width: 80%;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+        background-color: #c4a707;
+        color: white;
+        width: 80%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-weight: bolder;
+        font-size: 1rem;
+        cursor: pointer;
+      }
 
-    p {
-      background-color: transparent;
-    }
+      img {
+        margin: 10px;
+        width: 35%;
+      }
   }
 `;

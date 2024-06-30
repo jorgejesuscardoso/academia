@@ -16,6 +16,93 @@ async function main() {
     },
   });
 
+
+  const user2 = await prisma.user.create({
+    data: {
+      username: 'jorge',
+      nome: 'Jorge',
+      email: 'jorge@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Manhã',
+      role: 'Instrutor'
+    },
+  });
+
+  const user3 = await prisma.user.create({
+    data: {
+      username: 'maria',
+      nome: 'Maria',
+      email: 'mary.top@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Tarde',
+      role: 'Instrutor'
+    },
+  });
+
+  const user4 = await prisma.user.create({
+    data: {
+      username: 'ana',
+      nome: 'Ana',
+      email: 'aninha.danana@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Noite',
+      role: 'Instrutor'
+    },
+  });
+
+  const user5 = await prisma.user.create({
+    data: {
+      username: 'lucas',
+      nome: 'Lucas',
+      email: 'lucas.silva@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Manhã',
+      role: 'Aluno'
+    },
+  });
+  
+  const user6 = await prisma.user.create({
+    data: {
+      username: 'carolina',
+      nome: 'Carolina',
+      email: 'carol.jones@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Tarde',
+      role: 'Aluno'
+    },
+  });
+  
+  const user7 = await prisma.user.create({
+    data: {
+      username: 'rodrigo',
+      nome: 'Rodrigo',
+      email: 'rodrigo.cruz@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Noite',
+      role: 'Aluno'
+    },
+  });
+  
+  const user8 = await prisma.user.create({
+    data: {
+      username: 'isabela',
+      nome: 'Isabela',
+      email: 'isa.moreira@test.com',
+      telefone: '1234567890',
+      senha: '123123',
+      turno: 'Manhã',
+      role: 'Aluno'
+    },
+  });
+
+  // Planos
+
   const mensal = await prisma.plano.create({
     data: {
       nome: 'Mensal',

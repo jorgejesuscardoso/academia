@@ -1,20 +1,34 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  position: sticky;
+  background-color: #fff;
+  width: 65%;
+  height: 99vh;
   padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
   font-size: 15px;
   font-weight: 400;
+
+  h1 {
+    margin-top: 7vh;
+    color: #917e01;
+    width: 60%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    font-size: 18px;
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+  }
 `;
 
 export const Table = styled.table`
-  margin-top: 7vh;
   background-color: #d5d8da;
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
@@ -22,6 +36,7 @@ export const Table = styled.table`
 export const TableHead = styled.thead`
   background-color: #343a40;
   color: #fff;
+  font-weight: 600;
 
   th {
     text-align: center;
@@ -30,9 +45,10 @@ export const TableHead = styled.thead`
 `;
 
 export const TableBody = styled.tbody`
-  tr:nth-child(even) {
+  tr {
     text-align: center;
-    background-color: #eee;
+    background-color: #ffffff;
+    color: #000079;
   }
 
   tr:hover {
@@ -49,7 +65,7 @@ export const TableBody = styled.tbody`
 
 export const TableRow = styled.tr`
   &:nth-child(even) {
-    background-color: #535252;
+    background-color: #f3f3f3;
   }
 `;
 
@@ -150,7 +166,6 @@ export const ContainerCadastroUsuario = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8vh;
   flex-direction: column;
   width: 100%;
   padding: 10px;
@@ -165,6 +180,7 @@ export const FormCadastroPlano = styled.form`
   border-radius: 10px;
   width: 30%;
   padding: 10px;
+  margin-top: 10vh;
   font-size: 15px;
   font-weight: 400;
   gap: 10px;
@@ -191,7 +207,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #62d3ff;
+      outline: 1px solid #b19103;
     }
 
     &.btn {
@@ -205,7 +221,7 @@ export const FormCadastroPlano = styled.form`
     margin-top: 5px;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #62d3ff;
+    outline: 1px solid #be9c02;
   }
 `;
 
@@ -220,7 +236,7 @@ export const DivButton = styled.div`
   margin-top: 10px;
   border-radius: 5px;
   border: none;
-  background-color: dodgerblue;
+  background-color: #be9c02;
   color: #fff;
   font-weight: 700;
   cursor: pointer;

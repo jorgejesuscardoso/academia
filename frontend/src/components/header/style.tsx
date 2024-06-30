@@ -59,7 +59,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const SearchContainer = styled.div`
+export const SearchForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,12 +107,13 @@ export const SearchContainer = styled.div`
 export const FloatMenu = styled.div`
   background-color: var(--float-menu);
   position: absolute;
+  border-bottom: 1px solid transparent;
   font-size: 14px;
   top: 7vh;
   right: 2.5vw;
   width: 10vw;
   gap: 0;
-  z-index: 1;
+  z-index: 1000 !important;
 
   ul {
     list-style: none;
@@ -122,6 +123,7 @@ export const FloatMenu = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid transparent;
     height: 30px;
   }
 
@@ -132,6 +134,7 @@ export const FloatMenu = styled.div`
 
   li:hover {
     background-color: var(--float-menu-hover);
+    border-bottom: 1px solid goldenrod;
     cursor: pointer;
   }
 `;

@@ -93,6 +93,9 @@ export const ListCliente = () => {
   const getRowClassName = (item: any) => {
     let className = ' normal';
   
+    if (item.status === 'Desativado') {
+      className += ' desativado';
+    }
     if (item.diasRestantes < 0) {
       className += ' vencido';
     }

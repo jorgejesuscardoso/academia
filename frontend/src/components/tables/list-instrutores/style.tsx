@@ -1,14 +1,30 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  position: sticky;
+  background-color: #fff;
+  width: 65%;
+  height: 100vh;
   padding: 10px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 15px;
   font-weight: 400;
+
+  h1 {
+    margin-top: 7vh;
+    background-color: #fff;
+    color: #917e01;
+    width: 65%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding: 4px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+  }
 `;
 
 export const Table = styled.table`
@@ -20,7 +36,8 @@ export const Table = styled.table`
 
 export const TableHead = styled.thead`
   background-color: #343a40;
-  color: #fff;
+  color: #ffffff;
+  font-weight: 600;
 
   th {
     text-align: center;
@@ -31,24 +48,31 @@ export const TableHead = styled.thead`
 export const TableBody = styled.tbody`
   tr:nth-child(even) {
     text-align: center;
-    background-color: #eee;
+    background-color: #ffffff;
+    color: blue;
+  }
+  tr {
+    text-align: center;
+    background-color: #3a5f81;
+    color: #fff;
   }
 
   tr:hover {
     text-align: center;
-    background-color: #aaa;
+    background-color: #00f9ff;
+    color: blue;
   }
 
   td {
     text-align: center;
     padding: 0 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none;
   }
 `;
 
 export const TableRow = styled.tr`
   &:nth-child(even) {
-    background-color: #535252;
+    background-color: #004d96;
   }
 `;
 
@@ -91,7 +115,7 @@ export const TableCell = styled.td`
 `;
 
 export const InstrutorContainer = styled.div`
-  background-color: #fcfcfc;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,13 +123,13 @@ export const InstrutorContainer = styled.div`
   border-radius: 5px;
   margin-top: 20px;
   padding: 20px;
-  width: 90%;
+  width: 100%;
   gap: 10px;
 
   h2 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #343a40;
+    color: #778;
   }
 
   table {
@@ -144,10 +168,9 @@ export const Title = styled.h2`
 `;
 
 export const DivOverFlowTable = styled.div`
-  margin-top: 7vh;
   display: flex;
   height: 65vh;
-  width: 90%;
+  width: 100%;
   margin-bottom: 10px;
   overflow-y: scroll;
 
@@ -214,7 +237,7 @@ export const FormCadastroDeInstrutores = styled.form`
       padding: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #62d3ff;
+      outline: 1px solid #be9c02;
     }
 
     select {
@@ -223,7 +246,7 @@ export const FormCadastroDeInstrutores = styled.form`
       padding: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #62d3ff;
+      outline: 1px solid #be9c02;
     }
   }
 `;
@@ -240,7 +263,7 @@ export const DivButton = styled.div`
     height: 30px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #be9c02;
     color: #fff;
     font-weight: 600;
     cursor: pointer;

@@ -2,11 +2,128 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+`;
+
+export const TextArea = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px;
+
+  label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  textarea {
+    width: 99%;
+    height: 77%;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 2px;
+    font-size: 14px;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    resize: none;
+
+    &::placeholder {
+      font-size: 14px;
+      color: #7c7b7b;
+    }
+  }
+
+  input {
+    background-color: #ffffff;
+    height: 100%;
+    color: #555;
+    text-align: center;
+
+    &:disabled {
+      display: none;
+    }
+  }
+
+  p {
+    color: #333;
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  div {
+    background-color: #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+  }
+
+  button {
+    background-color: #ffffff;
+    color: #677;
+    font-weight: bold;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 8px 15px;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid dodgerblue;
+      color: dodgerblue;
+      font-weight: bold;
+    }
+  }
+
+  select {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #555;
+    outline: none;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+`;
+
+export const DivDataNewevent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+  width: 20% !important;
+
+  label {
+    color: #333;
+    font-size: 14px;
+    width: 50%;
+  }
+
+  input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    margin-right: 10px;
+  }
 `;
 
 export const HomeContent = styled.div`
@@ -31,10 +148,9 @@ export const SearchCardContainer = styled.div`
 
 export const SearchInfoSection = styled.div`
   position: fixed;
-  background-color: #9c9c9c;
+  background-color: #eee;
   display: flex;
   width: 100vw;
-  margin-bottom: 10px;
   top: 7vh;
   padding: 3px;
   gap: 30px;
@@ -46,7 +162,7 @@ export const SearchInfoSection = styled.div`
     gap: 10px;
 
     strong {
-      color: #424242;
+      color: #7c7c7c;
       font-size: 12px;
     }
   }
@@ -54,7 +170,7 @@ export const SearchInfoSection = styled.div`
 
 export const Labels = styled.p`
   margin-left: 10px;
-  color: #222;
+  color: #444;
   font-size: 13px;
 `;
 
@@ -122,6 +238,9 @@ export const AsideRightContainers = styled.div`
     }  
 `;
 
+
+// Feed
+
 export const NewsCardContainer = styled.div`
   background-color: #ffffff;
   display: flex;
@@ -144,7 +263,25 @@ export const CardTitle = styled.h2`
   margin-bottom: 10px;
 `;
 
+export const CardAuthor = styled.h3`
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 5px;  
+`;
+
+export const FonteNews = styled.h3`
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 5px;
+`;
+
 export const CardDescription = styled.p`
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.6;
+`;
+
+export const CardContent = styled.p`
   color: #666666;
   font-size: 14px;
   line-height: 1.6;
@@ -160,6 +297,12 @@ export const CardLink = styled.a`
   &:hover {
     color: #007bff;
   }
+`;
+
+export const CardPublishedAt = styled.p`
+  color: #5f5f5f;
+  font-size: 12px;
+  margin-top: 5px;
 `;
 
 

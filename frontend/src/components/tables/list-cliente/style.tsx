@@ -1,4 +1,3 @@
-// style.js
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -17,7 +16,8 @@ export const Container = styled.div`
     width: 65%;
     border-radius: 5px 5px 0 0;
     text-align: center;
-    padding: 10px;
+    padding: 4px;
+    font-size: 18px;
     border-bottom: 1px solid #ccc;
   }
 `;
@@ -32,7 +32,7 @@ export const DivOverFlowTable = styled.div`
   display: flex;
   height: 65vh;
   width: 65%;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -76,6 +76,15 @@ export const TableBody = styled.tbody`
   tr.vencido {
     background-color: #ffbaba !important;
     color: var(--text-color-error-2);
+
+    &:hover {
+      background-color: #00f9ff !important;
+    }
+  }
+
+  tr.desativado {
+    background-color: #a7d3ff !important;
+    color: #002d5a;
 
     &:hover {
       background-color: #00f9ff !important;
@@ -165,7 +174,6 @@ export const MainCadastroClientes = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8vh;
   flex-direction: column;
   font-size: 14px;
 `;
@@ -180,6 +188,7 @@ export const FormCadastro = styled.form`
   border-radius: 10px;
   width: 30%;
   margin: 15px;
+  margin-top: 10vh;
 
   h1 {
     font-size: 20px;
@@ -203,10 +212,10 @@ export const FormCadastro = styled.form`
     padding: 8px;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #62d3ff;
+    outline: 1px solid #be9c02;
 
     &:focus {
-      border: 1px solid #007bff;
+      border: 1px solid #be9c02;
     }
   }
 
@@ -216,10 +225,10 @@ export const FormCadastro = styled.form`
     margin: 10px 0;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #62d3ff;
+    outline: 1px solid #be9c02;
 
     &:focus {
-      border: 1px solid #007bff;
+      border: 1px solid #be9c02;
     }
   }
 `;
@@ -238,7 +247,7 @@ export const DivButton = styled.div`
     font-size: 16px;
     border-radius: 5px;
     border: none;
-    background-color: #007bff;
+    background-color: #be9c02;
     color: #fff;
     cursor: pointer;
 
@@ -291,7 +300,7 @@ export const SummaryContainer = styled.div`
 `;
 
 export const SummaryTitle = styled.h2`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 14px;
   color: #343a40;
 `;
@@ -319,6 +328,10 @@ export const ColorBox = styled.div`
 
   &.green {
     background-color: green;
+  }
+
+  &.blue {
+    background-color: blue;
   }
 
   &.red {

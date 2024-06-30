@@ -48,7 +48,6 @@ body {
 }
 
 .success {
-  background-color: rgb(0, 168, 0);
   color: var(--text-color-success);
 }
 
@@ -58,7 +57,6 @@ body {
 
 .error {
   color: var(--text-color-error);
-  background-color: rgb(250, 0, 0);
 }
 
 .error:hover {
@@ -132,4 +130,13 @@ body {
   position: fixed;
   margin-top: -3vh;
   height: 93vh !important;
+}
+
+
+.notfoundimg {
+  position: fixed;
+  width: 20%;
+  top: 25vh;
+  left: 35vw;
+  object-fit: cover;
 }
