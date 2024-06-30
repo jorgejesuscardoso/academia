@@ -36,7 +36,7 @@ const Streaming = () => {
       { titulo && (
         <>
           <h1>{titulo} - Temporada {temporada} - Episódio {episodios}</h1>
-          <iframe src={streaming} allowFullScreen width="1000" height="500"></iframe>
+          <iframe src={streaming} allowFullScreen></iframe>
           
           <div>
             <button

@@ -39,6 +39,28 @@ export const StreamingContainer = styled.div`
       }
     }
   }
+
+  iframe {
+    width: 60vw;
+    height: 60vh;
+  }
+
+  @media (max-width: 440px) {
+    h1 {
+      font-size: 1.3rem;
+    }
+    
+    div {
+      width: 100%;
+    }
+
+    iframe {
+      margin-top: 15px;
+      width: 95%;
+      height: 50vh;
+    }
+
+  }
 `;
 
 export const SelectSeriesContainer = styled.div`
