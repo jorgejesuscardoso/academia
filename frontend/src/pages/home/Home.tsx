@@ -180,7 +180,7 @@ const Home = () => {
           )
         }
 
-        { !ShowSearchItems && feed.map((item: any, index: number) => (
+        { feed && !ShowSearchItems && feed.map((item: any, index: number) => (
             <NewsCardContainer key={ index }>
               <CardTitle>{item.title}</CardTitle>
 
