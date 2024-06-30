@@ -71,6 +71,7 @@ const Streaming = () => {
               Próxima temporada {">>"}
             </button>
           </div>
+          <p>Bushido esteve aqui! {'][, (][) ][,'},</p>
         </>
       ) }
       <SelectSeries
