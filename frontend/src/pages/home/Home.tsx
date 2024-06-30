@@ -5,7 +5,6 @@ import CardSearch from '../../components/card/SearchCard';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
 import { useState, useEffect } from 'react';
-import { NewsApi } from '../../service/NewsApi';
 import Swal from 'sweetalert2';
 import { listarPublicacoes } from '../../service/publicacaoApi';
 
@@ -35,17 +34,16 @@ const Home = () => {
 
   const GetFeed = async () => {
     try {
-      const response = await listarPublicacoes();
-      const newd = await NewsApi();
-      const news = await newd.articles;
 
-      const data = await response.concat(news);
-      data.sort((a: any, b: any) => {
+      const response = await listarPublicacoes();
+      response.sort((a: any, b: any) => {
         const dateA = new Date(a.createdAt || a.publishedAt);
         const dateB = new Date(b.createdAt || b.publishedAt);
         return Number(dateB.getTime()) - Number(dateA.getTime())
       });
-      setFeed(data);
+
+      setFeed(response);
+
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -203,7 +201,7 @@ const Home = () => {
         { feed && !ShowSearchItems && feed.map((item: any, index: number) => (
             <NewsCardContainer key={ index }>
               <span>{item.titulo ? 'Pub' : 'News'}</span>
-              <CardTitle>{item.titulo || item.title}</CardTitle>
+              <CardTitle>{ item.titulo }</CardTitle>
 
               {item.autor && <CardAuthor>Publicado por: {item.autor}</CardAuthor>}
               {item.author && <CardAuthor>Autor: {item.author}</CardAuthor>}

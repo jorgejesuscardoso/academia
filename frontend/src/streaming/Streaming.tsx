@@ -4,15 +4,33 @@ import { GetLocalStorage, SetLocalStorage } from '../utils/localStorage';
 import SelectSeries from './SelectSerie';
 
 const Streaming = () => {
+  const paths = window.location.pathname.split('/');
+  const tipos = paths[1];
+  const IMDBs = paths[2];
+  const titles = paths[3];
+  const temp = paths[4];
+  const epis = paths[5];
+
   const [episodios, setEpisodios] = useState(1);
   const [temporada, setTemporada] = useState(1);
   const [streaming, setStreaming] = useState('');
   const [titulo, setTitulo] = useState('');
   const [IMDB, setIMDB] = useState(0);
-  const [tipoDeMidia, setTipoDeMidia] = useState('');
+  const [tipoDeMedia, setTipoDeMedia] = useState('');
 
   useEffect(() => {
     const data = GetLocalStorage(titulo);
+
+    if (tipos && IMDBs && titles && temp && epis) {
+      const season = temp.split('-')[1];
+      const episodios = epis.split('-')[1];
+      setTitulo(titles);
+      setIMDB(+IMDBs);
+      setTipoDeMedia(tipos);
+      setTemporada(+season);
+      setEpisodios(+episodios);
+      return;
+    }
   
     if (data && data.temporada && data.episodios) {
       setTemporada(data.temporada);
@@ -21,15 +39,15 @@ const Streaming = () => {
       setTemporada(1);
       setEpisodios(1);
     }
-  }, [titulo]);
+  }, [titulo, tipos, IMDBs, titles, temp, epis, paths]);
 
   useEffect(() => {
-    if (titulo && tipoDeMidia && IMDB) {
-      const stream = `https://superflixapi.dev/${tipoDeMidia}/${IMDB}/${temporada}/${episodios}`;
+    if (titulo && tipoDeMedia && IMDB) {
+      const stream = `https://superflixapi.dev/${tipoDeMedia}/${+IMDB}/${temporada}/${episodios}`;
       setStreaming(stream);
       SetLocalStorage(titulo, { temporada, episodios });
     }
-  }, [temporada, episodios, IMDB, titulo, tipoDeMidia]);
+  }, [temporada, episodios, IMDB, titulo, tipoDeMedia]);
 
   return (
     <StreamingContainer>
@@ -71,13 +89,13 @@ const Streaming = () => {
               Próxima temporada {">>"}
             </button>
           </div>
-          <p>Bushido esteve aqui! {'][, (][) ][,'},</p>
+          <p>Bushido esteve aqui!  -- ..:: {' =][, (][) ][,= '} ::.. --</p>
         </>
       ) }
       <SelectSeries
         setTitulo={setTitulo}
         setIMDB={setIMDB}
-        setTipoDeMidia={setTipoDeMidia}
+        setTipoDeMedia={setTipoDeMedia}
         season={temporada}
         episode={episodios}
       />
