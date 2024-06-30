@@ -6,13 +6,13 @@ export const Client = () => {
   return (
     <div>
        <div>
-        <AsideLeft classname={'asideLeft'} />
+        <AsideLeft />
       </div>
       
       <ListCliente />
 
       <div className='asideRight'>
-        <AsideRight classname={'asideRight'}/>
+        <AsideRight />
       </div>
     </div>
   );

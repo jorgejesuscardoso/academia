@@ -16,8 +16,8 @@ const Loki = () => {
   return (
     <StreamingContainer>
       <h1>Loki - Temporada {temporada} - Episódio {episodios}</h1>
-      <iframe src={streaming} allowfullscreen="true" webkitallowfullscreen="" mozallowfullscreen="" width="1000" height="500"></iframe>
-      
+      <iframe src={streaming} allowFullScreen width="1000" height="500"></iframe>
+            
       <div>
         <button
           onClick={() => setEpisodios(episodios - 1)}

@@ -6,13 +6,13 @@ const Planos = () => {
   return (
     <div>
       <div>
-        <AsideLeft classname={'asideLeft'} />
+        <AsideLeft />
       </div>
       
       <ListaDePlanos />
 
       <div className='asideRight'>
-        <AsideRight classname={'asideRight'}/>
+        <AsideRight />
       </div>
     </div>
   )

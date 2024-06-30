@@ -16,7 +16,7 @@ const Arquivo_X = () => {
   return (
     <StreamingContainer>
       <h1>Arquivo X - Temporada {temporada} - Episódio {episodios}</h1>
-      <iframe src={streaming} allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" width="1000" height="500"></iframe>
+      <iframe src={streaming} allowFullScreen width="1000" height="500"></iframe>
       
       <div>
         <button
