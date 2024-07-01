@@ -36,9 +36,8 @@ const SelectSeries = ({ setIMDB, setTipoDeMedia, setTitulo, season, episode }: S
     { value: 'serie/1399/Game-of-Thrones', label: 'Game of Thrones' },
     { value: 'serie/1396/Breaking-Bad', label: 'Breaking Bad' },
     { value: 'serie/1668/Friends', label: 'Friends' },
-    { value: 'serie/1434/The-Big-Bang-Theory', label: 'The Big Bang Theory'},
+    { value: 'serie/1418/The-Big-Bang-Theory', label: 'The Big Bang Theory'},
     { value: 'serie/60735/The-Flash', label: 'The Flash' },
-    { value: 'serie/60708/Arrow', label: 'Arrow' },
     { value: 'serie/1402/The-Walking-Dead', label: 'The Walking Dead' }
   ];
 
