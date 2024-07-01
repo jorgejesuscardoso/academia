@@ -240,7 +240,7 @@ const Home = () => {
                       type="file"
                       id='img'
                       accept='image/*'
-                      onChange={(e) => setImage(e.target.files[0]) }
+                      onChange={(e) => setImage(e.target.files && e.target.files[0]) }
                       title='Adicionar imagem à publicação.'
                       placeholder='Adicionar imagem à publicação.'
                     />                   
