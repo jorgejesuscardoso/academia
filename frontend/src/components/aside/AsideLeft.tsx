@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AsideLeftContainersL } from '../../pages/home/style';
-import { AsideLeftContent, AsideLeftWithBorder, VerMais } from './style';
+import { AsideLeftContainersL, AsideLeftContent, AsideLeftWithBorder, VerMais } from './style';
 
 const AsideLeft = () => {
   const params = window.location.pathname.split('/')[1];

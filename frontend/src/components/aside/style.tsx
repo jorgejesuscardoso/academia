@@ -1,5 +1,28 @@
 import { styled } from 'styled-components';
 
+export const AsideLeftContainersL = styled.div`
+  background-color: #f5f5f5;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 10px;
+  width: 22vw;
+  height: 90vh;
+  top: 10vh;
+  left: 0;
+  gap: 20px;
+  z-index: 100;
+
+    img {
+      width: 100px;
+
+    }
+  
+`;
+
 export const AsideLeftContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -98,7 +121,7 @@ export const VerMais = styled.a`
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  background-color: #bb7b1b;
+  background-color: #cf953e;
   padding: 0.5rem 0.5rem;
   border-radius: 0.5rem;
   margin: 0 auto;
@@ -108,6 +131,24 @@ export const VerMais = styled.a`
   &:hover {
     background-color: #a15f09;
   }
+`;
+
+
+export const AsideRightContainers = styled.div`
+  background-color: #f5f5f5;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 10px;
+  width: 22vw;
+  height: 90vh;
+  top: 10vh;
+  right: 0;
+  gap: 20px;
+  z-index: 100;
 `;
 
 export const AsideRightContent = styled.div`
@@ -187,7 +228,8 @@ export const AsideRightContent = styled.div`
   }
 
   img {
-    width: 100%;
+    margin: auto;
+    width: 60%;
   }
 `;
 

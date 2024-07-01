@@ -1,19 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const URL = 'http://localhost:3030/publicacao';
 
-export const criarPublicacao = async (publicacao: any) => {
+export const criarPublicacao = async (publicacao: FormData) => {
+
   const response = await fetch(URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(publicacao),
+    body: publicacao,
   });
 
   const data = await response.json();
 
   return data;
 };
+
 
 export const listarPublicacoes = async () => {
   const response = await fetch(URL);

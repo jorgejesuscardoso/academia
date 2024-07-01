@@ -15,27 +15,21 @@ export const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: none;
   margin-bottom: 20px;
+  border: 1px solid #a1a1a1;
   border-radius: 8px;
   width: 100%;
-  height: 250px;
-
-  label {
-    margin-left: 10px;
-    font-size: 14px;
-    color: #333;
-  }
+  height: 45vh;
 
   textarea {
     width: 99%;
-    height: 77%;
-    border: none;
-    border-radius: 5px 5px 0 0;
-    margin-bottom: 2px;
+    height: 67%;
     font-size: 14px;
-    color: #555;
+    color: #333;
     padding: 10px;
+    margin-bottom: 2px;
     border: none;
     border-bottom: 1px solid #ccc;
     outline: none;
@@ -43,49 +37,112 @@ export const TextArea = styled.div`
 
     &::placeholder {
       font-size: 14px;
-      color: #7c7b7b;
+      color: #aaa;
     }
+    
+    
   }
 
   input {
-    background-color: #ffffff;
-    height: 100%;
+    background-color: #f9f9f9;
+    padding: 3px 5px;
+    width: 95%;
     color: #555;
-    text-align: center;
+    text-align: start;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 5px;
 
     &:disabled {
       display: none;
     }
+
+    &::placeholder {
+      color: #a7a7a7;
+    }
   }
 
-  p {
-    color: #333;
-    font-size: 12px;
-    margin-bottom: 2px;
+  input#img {
+    display: none;
+  }
+
+  label {
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #47565f;
+  }
+
+  label#imge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 5px;
+    height: 70%;
+    border: 1px solid #99b2c0;
+    color: #1c252b;
+    cursor: pointer;
+
+    &:hover {
+      color: #08618a !important;
+      border: 1px solid #869aa3;
+    }
   }
 
   div {
-    background-color: #fff;
+    background-color: #eee;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 15%;
+    height: 14%;
+  }
+
+  div.title-descript {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cecece;
+    width: 100%;
+    height: 8%;
   }
 
   button {
     background-color: #ffffff;
-    color: #677;
+    color: dodgerblue;
     font-weight: bold;
-    border: 1px solid #bbb;
+    border: 1px solid dodgerblue;
     border-radius: 5px;
     margin: 0 5px;
     padding: 8px 15px;
-    height: 100%;
+    height: 80%;
     cursor: pointer;
 
     &:hover {
-      border: 1px solid dodgerblue;
-      color: dodgerblue;
+      border: 1px solid #0060c0;
+      color: #0060c0;
+      font-weight: bold;
+    }
+  }
+
+  button.clear {
+    background-color: #ffffff;
+    color: #a34646;
+    font-weight: bold;
+    border: 1px solid #a34646;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 8px 15px;
+    height: 80%;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid #ff0000;
+      color: #ff0000;
       font-weight: bold;
     }
   }
@@ -95,11 +152,19 @@ export const TextArea = styled.div`
     text-align: center;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    color: #555;
+    border: 1px solid #99b2c0;
+    color: #70828d;
     outline: none;
+    height: 80%;
     font-size: 14px;
+    font-weight: bold;
     margin-left: 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: #47565f;
+      border: 1px solid #99b2c0;
+    }
   }
 `;
 
@@ -131,7 +196,7 @@ export const HomeContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60vw;
+  width: 50vw;
   margin-top: 12vh;
 `;
 
@@ -188,57 +253,6 @@ export const Value = styled.strong`
   }
 `;
 
-
-// AsideLeft 
-
-export const AsideLeftContainersL = styled.div`
-  background-color: #f5f5f5;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 10px;
-  width: 17vw;
-  height: 90vh;
-  top: 10vh;
-  left: 0;
-  gap: 20px;
-  z-index: 100;
-
-    img {
-      width: 100px;
-
-    }
-  
-`;
-
-// AsideRight
-
-export const AsideRightContainers = styled.div`
-  background-color: #f5f5f5;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 10px;
-  width: 17vw;
-  height: 90vh;
-  top: 10vh;
-  right: 0;
-  gap: 20px;
-  z-index: 100;
-
-    img {
-      width: 100px;
-
-    }  
-`;
-
-
 // Feed
 
 export const NewsCardContainer = styled.div`
@@ -252,46 +266,45 @@ export const NewsCardContainer = styled.div`
   width: 100%;
   padding: 20px;
 
-  &:first-child {
-    margin-top: 10px;
-  }
-
   span {
     color: #333;
-    font-size: 12px;
-    margin-bottom: 10px;
-  
+    font-size: 12px;  
   }
 `;
 
 export const CardTitle = styled.h2`
+  text-align: center;
   color: #333333;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 40px 0 0 0;
 `;
 
-export const CardAuthor = styled.h3`
+export const CardAuthor = styled.h4`
   color: #666666;
-  font-size: 14px;
-  margin-bottom: 5px;  
-`;
-
-export const FonteNews = styled.h3`
-  color: #666666;
-  font-size: 14px;
-  margin-bottom: 5px;
+  font-size: 12px;
 `;
 
 export const CardDescription = styled.p`
+  text-align: center;
   color: #666666;
   font-size: 14px;
-  line-height: 1.6;
+  font-weight: 600;
+  margin: 10px 0;
 `;
 
 export const CardContent = styled.p`
-  color: #666666;
+  text-align: center;
+  color: #555;
   font-size: 14px;
   line-height: 1.6;
+  white-space: pre-wrap;
+`;
+
+export const CardContentImg = styled.img`
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px auto;
 `;
 
 export const CardLink = styled.a`

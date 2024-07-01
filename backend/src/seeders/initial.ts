@@ -105,6 +105,7 @@ async function main() {
 
   const lembrete1 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Contactar fornecedor',
       descricao: 'Lembrar de comprar whey protein',
       data: '2024-07-01T06:00:00Z',
@@ -115,6 +116,7 @@ async function main() {
 
   const lembrete2 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Reunião de equipe',
       descricao: 'Reunião com os instrutores',
       data: '2024-06-01T06:00:00Z',
@@ -125,6 +127,7 @@ async function main() {
 
   const lembrete3 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Avaliação física',
       descricao: 'Avaliação física do aluno ID 5',
       data: '2022-07-11T06:00:00Z',
@@ -135,6 +138,7 @@ async function main() {
 
   const lembrete4 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Avaliação física',
       descricao: 'Avaliação física do aluno ID 7',
       data: '2024-08-21T06:00:00Z',
@@ -145,6 +149,7 @@ async function main() {
 
   const lembrete5 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Avaliação física',
       descricao: 'Avaliação física do aluno ID 6',
       data: '2024-06-21T06:00:00Z',
@@ -155,6 +160,7 @@ async function main() {
 
   const lembrete6 = await prisma.lembrete.create({
     data: {
+      tipo: 'lembrete',
       titulo: 'Equipamentos',
       descricao: 'Manutenção dos equipamentos',
       data: '2024-07-21T06:00:00Z',
@@ -167,6 +173,7 @@ async function main() {
 
   const evento1 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Aula de Zumba no parque',
       descricao: 'Aula de Zumba com a instrutora Maria. Duração de 3 dias, das 8h às 10h. Local: Parque da Cidade. Trazer garrafa de água e protetor solar. Inscrições abertas e gratuitas.',
       dataInicio: '2024-07-01T06:00:00Z',
@@ -177,6 +184,7 @@ async function main() {
 
   const evento2 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Aula de Crossfit',
       descricao: 'Aula de Crossfit com o instrutor Jorge. Duração de 1 dia, das 18h às 20h. Local: Academia Bushido. Inscrições abertas e gratuitas.',
       dataInicio: '2024-06-01T06:00:00Z',
@@ -187,6 +195,7 @@ async function main() {
 
   const evento3 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Aula de Pilates',
       descricao: 'Aula de Pilates com a instrutora Ana. Duração de 1 dia, das 19h às 21h. Local: Academia Bushido. Inscrições abertas e gratuitas.',
       dataInicio: '2024-07-01T06:00:00Z',
@@ -197,6 +206,7 @@ async function main() {
 
   const evento4 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Projeto Verão',
       descricao: 'Projeto Verão com o instrutor Lucas. Duração de 3 meses, com avaliação física e acompanhamento nutricional. Inscrições abertas.',
       dataInicio: '2024-06-01T06:00:00Z',
@@ -207,6 +217,7 @@ async function main() {
 
   const evento5 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Campeonato: Summer House',
       descricao: 'Campeonato de verão com premiação para os vencedores. Inscrições abertas. Primeiro lugar: 3 meses de academia grátis + o tão cobiçado Summer Travel. Segundo lugar: 2 meses de academia grátis. Terceiro lugar: 1 mês de academia grátis.',
       dataInicio: '2024-08-01T06:00:00Z',
@@ -217,6 +228,7 @@ async function main() {
 
   const evento6 = await prisma.evento.create({
     data: {
+      tipo: 'evento',
       titulo: 'Torneio powerlifting',
       descricao: 'Torneio de powerlifting com premiação para os vencedores. Inscrições abertas. Primeiro lugar: 3 meses de academia grátis. Segundo lugar: 2 meses de academia grátis. Terceiro lugar: 1 mês de academia grátis.',
       dataInicio: '2024-09-01T06:00:00Z',
@@ -229,6 +241,7 @@ async function main() {
 
   const publicacao1 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Dicas de alimentação',
       descricao: 'Dicas de alimentação para quem deseja ganhar massa muscular.',
       conteudo: 'Para ganhar massa muscular, é importante manter uma alimentação balanceada e rica em proteínas. Alguns alimentos recomendados são: frango, peixe, ovos, batata doce, arroz integral, aveia, entre outros.',
@@ -239,6 +252,7 @@ async function main() {
 
   const publicacao2 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Treino de pernas',
       descricao: 'Treino de pernas para iniciantes.',
       conteudo: 'Para quem está começando a treinar, é importante começar com exercícios mais leves e ir aumentando a intensidade aos poucos. Alguns exercícios recomendados são: agachamento, leg press, avanço, entre outros.',
@@ -248,6 +262,7 @@ async function main() {
 
   const publicacao3 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Benefícios do pilates',
       descricao: 'Conheça os benefícios do pilates para a saúde.',
       conteudo: 'O pilates é uma atividade física que trabalha o corpo como um todo, fortalecendo os músculos, melhorando a postura e a flexibilidade, além de ajudar a aliviar o estresse e a ansiedade.',
@@ -257,6 +272,7 @@ async function main() {
 
   const publicacao4 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Treino de glúteos',
       descricao: 'Treino de glúteos para quem deseja aumentar o bumbum.',
       conteudo: 'Para quem deseja aumentar o bumbum, é importante focar em exercícios que trabalhem os músculos dessa região, como: agachamento, afundo, elevação pélvica, entre outros.',
@@ -266,6 +282,7 @@ async function main() {
 
   const publicacao5 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Dicas para emagrecer',
       descricao: 'Dicas para emagrecer de forma saudável.',
       conteudo: 'Para emagrecer de forma saudável, é importante manter uma alimentação balanceada e praticar exercícios físicos regularmente. Além disso, é importante beber bastante água e dormir bem.',
@@ -275,6 +292,7 @@ async function main() {
 
   const publicacao6 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Benefícios da musculação',
       descricao: 'Conheça os benefícios da musculação para a saúde.',
       conteudo: 'A musculação é uma atividade física que ajuda a aumentar a massa muscular, fortalecer os ossos, melhorar a postura e a flexibilidade, além de ajudar a emagrecer e a aliviar o estresse.',
@@ -284,6 +302,7 @@ async function main() {
 
   const publicacao7 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Treino de braços',
       descricao: 'Treino de braços para quem deseja aumentar a massa muscular.',
       conteudo: 'Para quem deseja aumentar a massa muscular dos braços, é importante focar em exercícios que trabalhem os músculos dessa região, como: rosca direta, tríceps testa, supino, entre outros.',
@@ -293,6 +312,7 @@ async function main() {
 
   const publicacao8 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Benefícios do crossfit',
       descricao: 'Conheça os benefícios do crossfit para a saúde.',
       conteudo: 'O crossfit é uma atividade física que combina exercícios de alta intensidade e funcionalidade, ajudando a melhorar a resistência, a força, a agilidade e a coordenação motora.',
@@ -302,6 +322,7 @@ async function main() {
 
   const publicacao9 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Treino de costas',
       descricao: 'Treino de costas para quem deseja aumentar a massa muscular.',
       conteudo: 'Para quem deseja aumentar a massa muscular das costas, é importante focar em exercícios que trabalhem os músculos dessa região, como: puxada, remada, levantamento terra, entre outros.',
@@ -311,6 +332,7 @@ async function main() {
 
   const publicacao10 = await prisma.publicacao.create({
     data: {
+      tipo: 'public',
       titulo: 'Benefícios do pilates',
       descricao: 'Conheça os benefícios do pilates para a saúde.',
       conteudo: 'O pilates é uma atividade física que trabalha o corpo como um todo, fortalecendo os músculos, melhorando a postura e a flexibilidade, além de ajudar a aliviar o estresse e a ansiedade.',

@@ -2,23 +2,31 @@ import express = require('express');
 import dotenv = require('dotenv');
 import cors = require('cors');
 import 'express-async-errors';
+import path = require('path');
 import routes from './routes';
 
 dotenv.config();
 
 class App {
     private app: express.Express;
-    
+
     constructor() {
         this.app = express();
+        this.config();
+        this.routes();
+    }
+
+    private config(): void {
         this.app.use(cors());
         this.app.use(express.json());
-        this.app.use(routes);
+        this.app.use('/publicacao/img', express.static('uploads/publicacao'));
+    }
 
+    private routes(): void {
+        this.app.use(routes);
         this.app.get('/', (req, res) => {
             res.status(200).json('Hello World!');
         });
-
     }
 
     public start(PORT: string | number): void {

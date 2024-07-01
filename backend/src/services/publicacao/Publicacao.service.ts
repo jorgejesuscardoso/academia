@@ -8,9 +8,39 @@ class PublicacaoService {
     this.prisma = new PrismaClient();
   }
 
+  async criar(publicacao: PublicacaoDTO) {
+    const { titulo, descricao, conteudo, usuarioId, tipo, imagem } = publicacao;
+
+    const newPub = await this.prisma.publicacao.create({
+      data: {
+        tipo,
+        titulo,
+        descricao,
+        conteudo,
+        usuarioId,
+        imagem
+      }
+    });
+
+    return newPub;
+  }
+
   async listar() {
 
-    const getPub = await this.prisma.publicacao.findMany();    
+    const getPub = await this.prisma.publicacao.findMany({
+      orderBy: {
+        createdAt: 'desc'
+      },
+      include: {
+        usuario: {
+          select: {
+            nome: true,
+            email: true,
+            id: true
+          }
+        }
+      }
+    });    
 
     return getPub || [];
   }
@@ -18,27 +48,22 @@ class PublicacaoService {
   async listarPorId(id: number) {
     const getPub = await this.prisma.publicacao.findUnique({
       where: {
-        id
+        id        
+      },
+      include: {
+        usuario: {
+          select: {
+            nome: true,
+            email: true,
+            id: true
+          }
+        }
       }
+
     });
 
     return getPub;
-  }
-
-  async criar(publicacao: PublicacaoDTO) {
-    const { titulo, descricao, autor, conteudo } = publicacao;
-
-    const newPub = await this.prisma.publicacao.create({
-      data: {
-        titulo,
-        descricao,
-        conteudo,
-        usuarioId: autor,
-      }
-    });
-
-    return newPub;
-  }
+  }  
 
   async atualizar(publicacao: PublicacaoDTO) {
     const { id, titulo, descricao, conteudo } = publicacao;

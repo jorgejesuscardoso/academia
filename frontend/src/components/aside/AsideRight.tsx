@@ -1,5 +1,4 @@
-import { AsideRightContainers } from '../../pages/home/style';
-import { AsideRightContent } from './style';
+import { AsideRightContainers, AsideRightContent } from './style';
 
 const AsideRight = () => {
   const params = window.location.pathname.split('/')[1];
@@ -37,9 +36,11 @@ const AsideRight = () => {
               <ul>
                 <li>Reunião com a equipe</li>
                 <li>Reunião com a equipe</li>
+                <li>Reunião com a equipe</li>
               </ul>
               <h4>Prôximos 3 dias</h4>
               <ul>
+                <li>Reunião com a equipe</li>
                 <li>Reunião com a equipe</li>
                 <li>Reunião com a equipe</li>
               </ul>

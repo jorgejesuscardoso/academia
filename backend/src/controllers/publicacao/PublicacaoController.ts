@@ -8,6 +8,30 @@ class PublicacaoController {
     this.publicacao = new PublicacaoService();
   }
 
+  async criar(req: Request, res: Response) {
+    try {
+        
+        const { titulo, descricao, conteudo, usuarioId, tipo } = req.body;
+        const { file } = req;
+
+        const imagePath = file && file.path ? file.filename : null;
+        const newPublication = {
+            titulo,
+            descricao,
+            conteudo,
+            usuarioId: Number(usuarioId),
+            tipo,
+            imagem: imagePath
+        };
+
+        const newPub = await this.publicacao.criar(newPublication);
+        return res.status(201).json(newPub);
+    } catch (error) {
+        console.error('Erro ao criar publicação:', error);
+        return res.status(500).json({ error: 'Erro ao criar publicação' });
+    }
+  }
+
   async listar(req: Request, res: Response) {
     const lista = await this.publicacao.listar();
     
@@ -20,14 +44,6 @@ class PublicacaoController {
     const publicacao = await this.publicacao.listarPorId(Number(id));
 
     return res.status(200).json(publicacao);
-  }
-
-  async criar(req: Request, res: Response) {
-    const publicacao = req.body;
-
-    const newPub = await this.publicacao.criar(publicacao);
-
-    return res.status(201).json(newPub);
   }
 
   async atualizar(req: Request, res: Response) {
