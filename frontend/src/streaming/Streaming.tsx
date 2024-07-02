@@ -24,8 +24,6 @@ const Streaming = () => {
     }
   }, [titulo]);
 
-  console.log(titulo, temporada, episodios, IMDB, tipoDeMedia, ad);
-
   useEffect(() => {
     if (ad) {
       const stream = `https://superflixapi.dev/serie/${IMDB}/${temporada}/${episodios}`;
