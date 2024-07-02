@@ -35,8 +35,11 @@ const Streaming = () => {
     if (data && data.temporada && data.episodios) {
       setTemporada(data.temporada);
       setEpisodios(data.episodios);
-    } 
-  }, [titulo, tipos, IMDBs, titles, temp, epis, paths]);
+    } else {
+      setTemporada(1);
+      setEpisodios(1);
+    }
+  }, [titulo, tipos, IMDBs, titles, paths]);
 
   useEffect(() => {
     if (titulo && tipoDeMedia && IMDB) {
@@ -44,7 +47,7 @@ const Streaming = () => {
       setStreaming(stream);
       SetLocalStorage(titulo, { temporada, episodios });
     }
-  }, [temporada, episodios, IMDB, titulo, tipoDeMedia]);
+  }, [temporada, episodios, IMDB, titulo, tipoDeMedia, epis, temp]);
 
   return (
     <StreamingContainer>
