@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec ts-node src/main.ts",
     "build": "tsc -p .",
-    "migrate": "cd src && prisma migrate deploy && npm run db:reset ",
+    "migrate": "cd src && npx prisma migrate dev --name init && prisma migrate deploy && npm run db:reset ",
     "db:reset": "cd src && prisma db push --force-reset && node seeders/initial.ts"
   },
   "author": "Jorge de jesus cardoso",
