@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'http://localhost:3030/publicacao';
+const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
 
 export const criarPublicacao = async (publicacao: FormData) => {
 
