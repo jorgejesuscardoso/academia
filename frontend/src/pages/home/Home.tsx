@@ -28,14 +28,13 @@ const Home = () => {
     type: 'lembrete',
   })
 
-  const URL_IMAGE = 'http://localhost:3030/publicacao/img/';
+  const URL_IMAGE = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
 
   useEffect(() => {
     setShowSearchItens(true)
   }, [searchQuery])
 
   useEffect(() => {
-
     GetFeed()
     setShowSearchItens(false)
   },[])

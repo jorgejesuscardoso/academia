@@ -17,3 +17,11 @@ export const searchApi = async (por: string, em: string, value: string) => {
     });
   }
 };
+
+
+
+
+
+
+
+

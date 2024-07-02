@@ -43,7 +43,7 @@ const Streaming = () => {
 
   useEffect(() => {
     if (titulo && tipoDeMedia && IMDB) {
-      const stream = `https://superflixapi.dev/${tipoDeMedia}/${+IMDB}/${temporada}/${episodios}`;
+      const stream = `https://embedder.net/e/${+IMDB}/1/1`;
       setStreaming(stream);
       SetLocalStorage(titulo, { temporada, episodios });
     }
