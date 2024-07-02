@@ -21,11 +21,11 @@ export const TextArea = styled.div`
   border: 1px solid #a1a1a1;
   border-radius: 8px;
   width: 100%;
-  height: 45vh;
+  height: 40vh;
 
   textarea {
     width: 99%;
-    height: 67%;
+    height: 70%;
     font-size: 14px;
     color: #333;
     padding: 10px;
@@ -98,7 +98,7 @@ export const TextArea = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 14%;
+    height: 17%;
   }
 
   div.title-descript {
@@ -108,7 +108,7 @@ export const TextArea = styled.div`
     align-items: center;
     border-bottom: 1px solid #cecece;
     width: 100%;
-    height: 8%;
+    height: 10%;
   }
 
   button {
@@ -276,7 +276,7 @@ export const CardTitle = styled.h2`
   text-align: center;
   color: #333333;
   font-size: 18px;
-  margin: 40px 0 0 0;
+  margin: 40px 0 10px 0;
 `;
 
 export const CardAuthor = styled.h4`

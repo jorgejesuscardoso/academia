@@ -87,3 +87,11 @@ export const SelectSeriesContainer = styled.div`
     }
   }
 `;
+
+export const CardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+`;

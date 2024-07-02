@@ -40,15 +40,12 @@ const SelectSeries = ({ setIMDB, setTipoDeMedia, setTitulo, season, episode }: S
     { value: 'serie/60735/The-Flash', label: 'The Flash' },
     { value: 'serie/1402/The-Walking-Dead', label: 'The Walking Dead' },
     { value: 'serie/1416/Grey\'s-Anatomy', label: 'Grey\'s Anatomy' },
-    { value: 'serie/1622/The-Simpsons', label: 'The Simpsons' },
+    { value: 'serie/456/The-Simpsons', label: 'The Simpsons' },
     { value: 'serie/60708/Gotham', label: 'Gotham' },
-    { value: 'serie/60708/The-Blacklist', label: 'The Blacklist' },
     { value: 'serie/18165/The-Vampire-Diaries', label: 'The Vampire Diaries' },
-    { value: 'serie/60735/Arrow', label: 'Arrow' },
-    { value: 'serie/1396/Better-Call-Saul', label: 'Better Call Saul' },
-    { value: 'serie/1668/How-I-Met-Your-Mother', label: 'How I Met Your Mother' },
-    { value: 'serie/1399/Westworld', label: 'Westworld' },
-    { value: 'serie/1416/Scandal', label: 'Scandal' },
+    { value: 'serie/60059/Better-Call-Saul', label: 'Better Call Saul' },
+    { value: 'serie/124010/How-I-Met-Your-Mother', label: 'How I Met Your Mother' },
+    { value: 'serie/135157/Alquimia-das-almas', label: 'Alquimia das almas' },
 
   ];
 
