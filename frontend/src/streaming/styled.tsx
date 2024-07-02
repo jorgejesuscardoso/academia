@@ -59,9 +59,12 @@ export const StreamingContainer = styled.div`
       width: 95%;
       height: 50vh;
     }
+
+    
   }
 
   p {
+    text-align: center;
     margin: 20px;
     font-size: 0.9rem;
   }

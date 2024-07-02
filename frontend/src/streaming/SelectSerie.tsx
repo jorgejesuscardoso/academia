@@ -6,52 +6,60 @@ type SelectSeriesProps = {
   setTitulo: (titulo: string) => void;
   setIMDB: (IMDB: number) => void;
   setTipoDeMedia: (tipoDeMidia: string) => void;
+  setAd: (ad: boolean) => void;
   season: number;
   episode: number;
 };
 
-const SelectSeries = ({ setIMDB, setTipoDeMedia, setTitulo, season, episode }: SelectSeriesProps) => {
+const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episode }: SelectSeriesProps) => {
   const paths = window.location.pathname.split('/');
   const titles = paths[3];
 
   const navigate = useNavigate();
-  const [selectASerie, setSelectASerie] = useState('select');
+  const [selectASerie, setSelectASerie] = useState('select');  
 
   useEffect(() => {
+    const [tipo, imdb, titulo] = selectASerie.split('/');
 
-    if (selectASerie === 'select' && !titles) navigate('/serie');
+    if (selectASerie === 'select' && !titles) navigate('/serie');  
     
     if (selectASerie !== 'select') {
-      const [tipo, imdb, titulo] = selectASerie.split('/');
-      setIMDB(+imdb);
       setTipoDeMedia(tipo);
       setTitulo(titulo);
-      navigate(`/${tipo}/${+imdb}/${titulo}/temporada-${season || 1}/episodio-${episode || 1}`);
+      setIMDB(+imdb);
+      navigate(`/${tipo}/${+imdb}/${titulo}/${season}/${episode}/`);
     }
-  }, [selectASerie, setIMDB, setTipoDeMedia, setTitulo, navigate, season, episode]);
+  }, [
+    selectASerie, setIMDB, setTipoDeMedia, setTitulo, navigate, season, episode, titles
+  ]);
 
-  const seriesOptions = [
-    { value: 'serie/4087/Arquivo-X', label: 'Arquivo X' },
+  const notAd = [
     { value: 'serie/84958/Loki', label: 'Loki' },
     { value: 'serie/1399/Game-of-Thrones', label: 'Game of Thrones' },
-    { value: 'serie/1396/Breaking-Bad', label: 'Breaking Bad' },
-    { value: 'serie/1668/Friends', label: 'Friends' },
     { value: 'serie/1418/The-Big-Bang-Theory', label: 'The Big Bang Theory'},
     { value: 'serie/60735/The-Flash', label: 'The Flash' },
-    { value: 'serie/1402/The-Walking-Dead', label: 'The Walking Dead' },
     { value: 'serie/1416/Grey\'s-Anatomy', label: 'Grey\'s Anatomy' },
+    { value: 'serie/18165/The-Vampire-Diaries', label: 'The Vampire Diaries' },
+  ];
+
+  const witAd = [
+    { value: 'serie/4087/Arquivo-X', label: 'Arquivo X' },
+    { value: 'serie/135157/Alquimia-das-almas', label: 'Alquimia das almas' },
+    { value: 'serie/1396/Breaking-Bad', label: 'Breaking Bad' },
+    { value: 'serie/1668/Friends', label: 'Friends' },
+    { value: 'serie/1402/The-Walking-Dead', label: 'The Walking Dead' },
     { value: 'serie/456/The-Simpsons', label: 'The Simpsons' },
     { value: 'serie/60708/Gotham', label: 'Gotham' },
-    { value: 'serie/18165/The-Vampire-Diaries', label: 'The Vampire Diaries' },
     { value: 'serie/60059/Better-Call-Saul', label: 'Better Call Saul' },
     { value: 'serie/124010/How-I-Met-Your-Mother', label: 'How I Met Your Mother' },
-    { value: 'serie/135157/Alquimia-das-almas', label: 'Alquimia das almas' },
-
+    { value: 'serie/95249/gossip-girls', label: 'Gossip Girls'}
   ];
 
   return (
     <SelectSeriesContainer>
+      
       <h1>Selecione uma série</h1>
+      <h2>Sem propaganda</h2>
       <select
         name="select"
         id="select"
@@ -60,7 +68,27 @@ const SelectSeries = ({ setIMDB, setTipoDeMedia, setTitulo, season, episode }: S
         defaultValue="select"
       >
         <option value="select" hidden>Selecione uma série</option>
-        {seriesOptions.map((option, index) => (
+        {notAd.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <h1>Com propagandas</h1>
+      <h2>Infelizmente</h2>
+      <select
+        name="select"
+        id="select"
+        value={selectASerie}
+        onChange={(e) => {
+          setSelectASerie(e.target.value);
+          setAd(true);
+        }}
+        defaultValue="select"
+      >
+        <option value="select" hidden>Selecione uma série</option>
+        {witAd.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>

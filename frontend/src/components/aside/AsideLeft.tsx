@@ -9,54 +9,50 @@ const AsideLeft = () => {
       <AsideLeftContent className="asid__container">
         <div>
           <div>
-            <h3>Exercícios</h3>
+            <h3>Menus</h3>
             <AsideLeftWithBorder>
-              <h4>Texto Test</h4>
+              <h4>Menus Test</h4>
               <ul>
                 <li>
-                  <img src="ico_about_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="ico_about_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li>
-                  <img src="config_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="config_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li>
-                  <img src="ico_contact_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="ico_contact_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li className='verMais'>ver mais</li>
               </ul>
-              <h4>Texto Test 2</h4>
+              <h4>Menus Test 2</h4>
               <ul>
                 <li>
-                  <img src="ico_search_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="ico_search_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
 
                 <li>
-                  <img src="pngwing.com.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="pngwing.com.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li>
-                  <img src="reset.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className='verMais'>ver mais</li>
-              </ul>
-              <h4>Texto test 3</h4>
-              <ul>
-                <li>
-                  <img src="ico_home_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="reset.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li>
-                  <img src="ico_profile_1.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="ico_home_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li>
-                  <img src="ico_project_black.png" alt="About" />
-                  Lorem ipsum dolor sit amet.
+                  <img src="ico_profile_1.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
+                </li>
+                <li>
+                  <img src="ico_project_black.png" alt="About" />                  
+                  Lorem ipsum. <p>Lorem, ipsum.</p>
                 </li>
                 <li className='verMais'>ver mais</li>
               </ul>

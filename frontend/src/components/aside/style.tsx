@@ -34,8 +34,8 @@ export const AsideLeftContent = styled.div`
   gap: 10px;
 
   h3 {
-  background-color:#6b5c37;
-  color: #fff;
+  border:1px solid #6b5c37;
+  color: #6b5c37;
   width: 50%;
   margin: 0 auto;
   text-align: center;
@@ -45,8 +45,11 @@ export const AsideLeftContent = styled.div`
 
   h3.video {
     cursor: pointer;
-    border: 1px solid transparent;
     transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+
+    a {
+      color: #6b5c37 !important;
+    }
 
     &:hover {
       background-color: #fff;
@@ -72,7 +75,7 @@ export const AsideLeftContent = styled.div`
     width: 100%;
     list-style: none;
     padding: 5px;
-    gap: 3px;
+    gap: 0.75rem;
     border-bottom: 1px solid #949494;
 
     li {
@@ -81,7 +84,7 @@ export const AsideLeftContent = styled.div`
       align-items: center;
       color: #00366d;
       cursor: pointer;
-      width: 55%;
+      width: 60%;
 
       &:hover {
         color: #a36f2a;
@@ -177,8 +180,8 @@ export const AsideRightContent = styled.div`
   gap: 10px;
 
   h3 {
-  background-color:#6b5c37;
-  color: #fff;
+  border: 1px solid #6b5c37;
+  color: #6b5c37;
   text-align: center;
   border-radius: 0.5rem;
   padding: 3px;

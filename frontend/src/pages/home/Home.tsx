@@ -115,7 +115,6 @@ const Home = () => {
       });
 
       GetFeed();
-      console.log("resp",newPub);
       return newPub;
 
     } catch (error) {
