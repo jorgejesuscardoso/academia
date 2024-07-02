@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from 'react-redux';
-import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardDescription, CardContentImg } from './style';
+import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg } from './style';
 import CardSearch from '../../components/card/SearchCard';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
@@ -16,7 +16,6 @@ const Home = () => {
   const [count, setCount] = useState(0)
   const [newPublication, setNewPublication] = useState({
     titulo: '',
-    descricao: '',
     conteudo: '',
     usuarioId: '',
     tipo: 'type',
@@ -24,7 +23,6 @@ const Home = () => {
   const [image, setImage] = useState<any>(null);
   const [newLembrete, setNewLembrete] = useState({
     titulo: '',
-    descricao: '',
     data: '',
     usuarioId: '',
     type: 'lembrete',
@@ -91,7 +89,6 @@ const Home = () => {
     
     const data = new FormData();
     data.append('titulo', newPublication.titulo);
-    data.append('descricao', newPublication.descricao);
     data.append('conteudo', newPublication.conteudo);
     data.append('usuarioId', storedUser.id);
     data.append('tipo', newPublication.tipo);
@@ -104,7 +101,6 @@ const Home = () => {
       setNewPublication({
         tipo: 'type',
         titulo: '',
-        descricao: '',
         conteudo: '',
         usuarioId: '',
       });
@@ -203,15 +199,6 @@ const Home = () => {
                   placeholder='Insira um titulo.'
                 />
               </div>
-              <div className='title-descript'>
-                <label htmlFor="titulo">Descrição:</label>
-                <input
-                  type="text"
-                  value={ newPublication.descricao }
-                  onChange={(e) => setNewPublication({ ...newPublication, descricao: e.target.value })}
-                  placeholder='Insira uma descrição.'
-                />
-              </div>
               <textarea
                 name="criar nova entrada"
                 id="textare"
@@ -261,7 +248,6 @@ const Home = () => {
                   onClick={() => {
                     setNewPublication({
                       titulo: '',
-                      descricao: '',
                       conteudo: '',
                       usuarioId: '',
                       tipo: 'type',
@@ -293,10 +279,6 @@ const Home = () => {
 
             <CardTitle>{item.titulo}</CardTitle>
             
-            {item.descricao && (
-              <CardDescription>{item.descricao}</CardDescription>
-            )}
-
             {item.conteudo && (
               <CardContent>{item.conteudo}</CardContent>
             )}
@@ -324,7 +306,6 @@ const Home = () => {
             )}
           </NewsCardContainer>
         ))}
-
 
       </HomeContent>
 

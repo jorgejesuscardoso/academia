@@ -284,14 +284,6 @@ export const CardAuthor = styled.h4`
   font-size: 12px;
 `;
 
-export const CardDescription = styled.p`
-  text-align: center;
-  color: #666666;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 10px 0;
-`;
-
 export const CardContent = styled.p`
   text-align: center;
   color: #555;
