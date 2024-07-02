@@ -35,10 +35,7 @@ const Streaming = () => {
     if (data && data.temporada && data.episodios) {
       setTemporada(data.temporada);
       setEpisodios(data.episodios);
-    } else {
-      setTemporada(1);
-      setEpisodios(1);
-    }
+    } 
   }, [titulo, tipos, IMDBs, titles, temp, epis, paths]);
 
   useEffect(() => {
