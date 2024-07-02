@@ -9,7 +9,7 @@ export const AsideLeftContainersL = styled.div`
   justify-content: center;
   border: none;
   padding: 10px;
-  width: 22vw;
+  width: 25vw;
   height: 90vh;
   top: 10vh;
   left: 0;
@@ -36,6 +36,8 @@ export const AsideLeftContent = styled.div`
   h3 {
   background-color:#6b5c37;
   color: #fff;
+  width: 50%;
+  margin: 0 auto;
   text-align: center;
   border-radius: 0.5rem;
   padding: 2px;
@@ -57,7 +59,7 @@ export const AsideLeftContent = styled.div`
   }
 
   h4 {
-    text-align: start;
+    text-align: center;
     margin-top: 10px;
     color: #7e5f10;
   }
@@ -65,6 +67,8 @@ export const AsideLeftContent = styled.div`
   ul {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     list-style: none;
     padding: 5px;
@@ -72,17 +76,27 @@ export const AsideLeftContent = styled.div`
     border-bottom: 1px solid #949494;
 
     li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       color: #00366d;
-      margin-left: 10px;
       cursor: pointer;
+      width: 55%;
 
       &:hover {
         color: #a36f2a;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
       }
     }
   }
     
   li.verMais {
+    display: inline-block;
     border: 1px solid #cf980b;
     width: 40%;
     margin: 0 auto;
@@ -143,7 +157,7 @@ export const AsideRightContainers = styled.div`
   justify-content: center;
   border: none;
   padding: 10px;
-  width: 22vw;
+  width: 25vw;
   height: 90vh;
   top: 10vh;
   right: 0;
@@ -229,7 +243,7 @@ export const AsideRightContent = styled.div`
 
   img {
     margin: auto;
-    width: 60%;
+    width: 50%;
   }
 `;
 

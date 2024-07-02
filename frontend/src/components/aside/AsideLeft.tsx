@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AsideLeftContainersL, AsideLeftContent, AsideLeftWithBorder, VerMais } from './style';
+import { AsideLeftContainersL, AsideLeftContent, AsideLeftWithBorder } from './style';
 
 const AsideLeft = () => {
   const params = window.location.pathname.split('/')[1];
@@ -11,32 +11,55 @@ const AsideLeft = () => {
           <div>
             <h3>Exercícios</h3>
             <AsideLeftWithBorder>
-              <h4>Peito</h4>
+              <h4>Texto Test</h4>
               <ul>
-                <li>Supino reto</li>
-                <li>Supino inclinado</li>
-                <li>Supino declinado</li>
-                <li>Crucifixo</li>
+                <li>
+                  <img src="ico_about_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                  <img src="config_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                  <img src="ico_contact_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
                 <li className='verMais'>ver mais</li>
               </ul>
-              <h4>Costas</h4>
+              <h4>Texto Test 2</h4>
               <ul>
-                <li>Puxada frontal</li>
-                <li>Puxada atrás</li>
-                <li>Remada baixa</li>
-                <li>Remada alta</li>
+                <li>
+                  <img src="ico_search_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+
+                <li>
+                  <img src="pngwing.com.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                  <img src="reset.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
                 <li className='verMais'>ver mais</li>
               </ul>
-              <h4>Ombro</h4>
+              <h4>Texto test 3</h4>
               <ul>
-                <li>Elevação lateral</li>
-                <li>Elevação frontal</li>
-                <li>Elevação posterior</li>
+                <li>
+                  <img src="ico_home_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                  <img src="ico_profile_1.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                  <img src="ico_project_black.png" alt="About" />
+                  Lorem ipsum dolor sit amet.
+                </li>
                 <li className='verMais'>ver mais</li>
               </ul>
-              <VerMais href="#" className="btn">
-                Todos exercicios
-              </VerMais>
             </AsideLeftWithBorder>
           </div>
         </div>

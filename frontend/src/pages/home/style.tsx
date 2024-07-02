@@ -20,7 +20,7 @@ export const TextArea = styled.div`
   margin-bottom: 20px;
   border: 1px solid #a1a1a1;
   border-radius: 8px;
-  width: 100%;
+  width: 85%;
   height: 40vh;
 
   textarea {
@@ -263,7 +263,7 @@ export const NewsCardContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-  width: 100%;
+  width: 85%;
   padding: 20px;
 
   span {
@@ -285,15 +285,16 @@ export const CardAuthor = styled.h4`
 `;
 
 export const CardContent = styled.p`
-  text-align: center;
+  text-align: justify;
   color: #555;
   font-size: 14px;
   line-height: 1.6;
   white-space: pre-wrap;
+  padding: 0 3%;
 `;
 
 export const CardContentImg = styled.img`
-  width: 90%;
+  width: 95%;
   height: auto;
   border-radius: 8px;
   margin: 20px auto;
