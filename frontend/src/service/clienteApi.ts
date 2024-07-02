@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'http://localhost:3030/cliente';
+const URL = 'https://academia-production-d7d0.up.railway.app/cliente';
 
 export const CreateCliente = async (data: any) => {
 	try {

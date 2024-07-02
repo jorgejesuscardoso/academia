@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'http://localhost:3030/planos';
+const URL = 'https://academia-production-d7d0.up.railway.app/planos';
 
 export const CreatePlano = async (data: any) => {
   try {

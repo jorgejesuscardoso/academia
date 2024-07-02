@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3030/login';
+const URL = 'https://academia-production-d7d0.up.railway.app/login';
 
 export async function LoginApi({ username, senha }: { username: string, senha: string }) {
   const data = { username, senha };

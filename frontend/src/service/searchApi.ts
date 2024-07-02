@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-const URL = 'http://localhost:3030/search';
+const URL = 'https://academia-production-d7d0.up.railway.app/search';
 
 // example of search: url/planos?nome=Vitalício
 
