@@ -9,13 +9,12 @@ class PublicacaoService {
   }
 
   async criar(publicacao: PublicacaoDTO) {
-    const { titulo, descricao, conteudo, usuarioId, tipo, imagem } = publicacao;
+    const { titulo, conteudo, usuarioId, tipo, imagem } = publicacao;
 
     const newPub = await this.prisma.publicacao.create({
       data: {
         tipo,
         titulo,
-        descricao,
         conteudo,
         usuarioId,
         imagem
@@ -66,7 +65,7 @@ class PublicacaoService {
   }  
 
   async atualizar(publicacao: PublicacaoDTO) {
-    const { id, titulo, descricao, conteudo } = publicacao;
+    const { id, titulo, conteudo } = publicacao;
 
     const updatedPub = await this.prisma.publicacao.update({
       where: {
@@ -74,7 +73,6 @@ class PublicacaoService {
       },
       data: {
         titulo,
-        descricao,
         conteudo
       }
     });

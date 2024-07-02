@@ -11,13 +11,12 @@ class PublicacaoController {
   async criar(req: Request, res: Response) {
     try {
         
-        const { titulo, descricao, conteudo, usuarioId, tipo } = req.body;
+        const { titulo, conteudo, usuarioId, tipo } = req.body;
         const { file } = req;
 
         const imagePath = file && file.path ? file.filename : null;
         const newPublication = {
             titulo,
-            descricao,
             conteudo,
             usuarioId: Number(usuarioId),
             tipo,

@@ -2,7 +2,6 @@ export interface PublicacaoDTO {
   id?: number;
   tipo: string;
   titulo: string;
-  descricao: string;
   conteudo: string;
   usuarioId: number;
   dataPublicacao?: Date;
