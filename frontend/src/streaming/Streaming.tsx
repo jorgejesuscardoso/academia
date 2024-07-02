@@ -39,7 +39,7 @@ const Streaming = () => {
       setTemporada(1);
       setEpisodios(1);
     }
-  }, [titulo, tipos, IMDBs, titles, paths]);
+  }, [titulo, tipos, IMDBs, titles]);
 
   useEffect(() => {
     if (titulo && tipoDeMedia && IMDB) {
