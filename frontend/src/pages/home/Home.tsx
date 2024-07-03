@@ -29,10 +29,12 @@ const Home = () => {
   })
   const [configPubIndex, setConfigPubIndex] = useState<number | null>(null);
 
-  //const URL_IMAGE = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
-  const URL_IMAGE_PUBLICACAO = 'http://localhost:3030/publicacaos/img'
+  const URL_IMAGE_PUBLICACAO = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
+  const URL_IMAGE_LEMBRETE = 'https://academia-production-d7d0.up.railway.app/lembretes/img/';
+  const URL_IMAGE_EVENTOS = 'https://academia-production-d7d0.up.railway.app/eventos/img/';
+  /* const URL_IMAGE_PUBLICACAO = 'http://localhost:3030/publicacaos/img'
   const URL_IMAGE_LEMBRETE = 'http://localhost:3030/lembretes/img'
-  const URL_IMAGE_EVENTOS = 'http://localhost:3030/eventos/img'
+  const URL_IMAGE_EVENTOS = 'http://localhost:3030/eventos/img' */
 
   useEffect(() => {
     setShowSearchItens(true)

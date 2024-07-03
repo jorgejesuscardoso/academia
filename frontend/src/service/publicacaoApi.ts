@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-//const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
-const URL = 'http://localhost:3030/publicacao';
+const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
+const URL2 = 'https://academia-production-d7d0.up.railway.app/lembretes';
+const URL3 = 'https://academia-production-d7d0.up.railway.app/eventos';
+/* const URL = 'http://localhost:3030/publicacao';
 const URL2 = 'http://localhost:3030/lembretes';
-const URL3 = 'http://localhost:3030/eventos';
+const URL3 = 'http://localhost:3030/eventos'; */
 
 export const criarPublicacao = async (publicacao: FormData) => {
 
