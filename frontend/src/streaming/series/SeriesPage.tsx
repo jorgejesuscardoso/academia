@@ -5,7 +5,7 @@ import Navbar from '../nav/NavBar';
 
 const SeriesPage = () => {
  
-  const [setSeries] = useState([] as any[]);
+  const [series, setSeries] = useState([] as any[]);
   useEffect(() => {
 
   }, []);
@@ -19,7 +19,7 @@ const SeriesPage = () => {
       { id: 5, title: 'Grey\'s Anatomy', poster: 'https://image.tmdb.org/t/p/w500/edmk8xjGBsYVIf4QtLY9WMaMcXZ.jpg' },
       { id: 6, title: 'The Vampire Diaries', poster: 'https://image.tmdb.org/t/p/w500/kLEha9zVVv8acGFKTX4gjvSR2Q0.jpg' },
     ]);
-  }, []);
+  }, [series]);
 
   return (
     <SeriesContainer>
