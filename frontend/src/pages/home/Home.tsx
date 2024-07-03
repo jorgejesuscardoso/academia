@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import { criarPublicacao, listarPublicacoes } from '../../service/publicacaoApi';
 import { GetLocalStorage } from '../../utils/localStorage';
 import ConfigPublicacao from '../../components/menus/publicacao/ConfigPublicacao';
+import { createEvento } from '../../service/eventoApi';
+import { createLembrete } from '../../service/lembrete';
 
 const Home = () => {
   const searchQuery = useSelector((state: any) => state.typeSearchRedux);
@@ -22,16 +24,15 @@ const Home = () => {
     tipo: 'type',
   })
   const [image, setImage] = useState<any>(null);
-  const [newLembrete, setNewLembrete] = useState({
-    titulo: '',
+  const [newData, setNewData] = useState({
     data: '',
-    usuarioId: '',
-    type: 'lembrete',
   })
   const [configPubIndex, setConfigPubIndex] = useState<number | null>(null);
 
   //const URL_IMAGE = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
-  const URL_IMAGE = 'http://localhost:3030/publicacao/img/'
+  const URL_IMAGE_PUBLICACAO = 'http://localhost:3030/publicacaos/img'
+  const URL_IMAGE_LEMBRETE = 'http://localhost:3030/lembretes/img'
+  const URL_IMAGE_EVENTOS = 'http://localhost:3030/eventos/img'
 
   useEffect(() => {
     setShowSearchItens(true)
@@ -78,7 +79,7 @@ const Home = () => {
         timer: 1500
       });
       return;
-    } else if (newPublication.tipo === 'public' && newPublication.conteudo === '') {
+    } else if (newPublication.tipo === 'publicacao' && newPublication.conteudo === '') {
       Swal.fire({
         icon: 'warning',
         title: 'Oops...',
@@ -87,8 +88,8 @@ const Home = () => {
         timer: 1500
       });
       return;
-    }
-    
+    } 
+
     const data = new FormData();
     data.append('titulo', newPublication.titulo);
     data.append('conteudo', newPublication.conteudo);
@@ -108,14 +109,6 @@ const Home = () => {
       });
 
       setImage(null);
-    
-      Swal.fire({
-        icon: 'success',
-        title: 'Publicação realizada com sucesso!',
-        text: 'Atualize a página para ver a publicação.',
-        showConfirmButton: false,
-        timer: 2500
-      });
 
       GetFeed();
       return newPub;
@@ -130,6 +123,149 @@ const Home = () => {
       });
     }
   };
+
+  const handleNewEvent = async () => {
+    const storedUser = GetLocalStorage('user');
+    if (newPublication.titulo === '' || newData.data === '') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return;
+    }
+
+
+    const formData = new FormData();
+    formData.append('titulo', newPublication.titulo);
+    formData.append('data', newData.data);
+    formData.append('conteudo', newPublication.conteudo);
+    formData.append('usuarioId', storedUser.id);
+    formData.append('tipo', newPublication.tipo);
+    formData.append('imagem', image);
+
+    try {
+      const datas = await createEvento(formData);
+      console.log(datas);
+      setNewPublication({
+        titulo: '',
+        conteudo: '',
+        usuarioId: '',
+        tipo: 'type',
+      });
+      setNewData({
+        data: '',
+      });
+
+      GetFeed();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Erro ao criar novo evento!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  }
+
+  const handleNewLembrete = async () => {
+    const storedUser = GetLocalStorage('user');
+    if (newPublication.titulo === '' || newData.data === '') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('titulo', newPublication.titulo);
+    formData.append('conteudo', newPublication.conteudo);
+    formData.append('data', newData.data);
+    formData.append('usuarioId', storedUser.id);
+    formData.append('tipo', 'lembrete');
+    formData.append('imagem', image);
+
+    try {
+      await createLembrete(formData);
+
+      setNewPublication({
+        titulo: '',
+        conteudo: '',
+        usuarioId: '',
+        tipo: 'type',
+      });
+
+      GetFeed();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Erro ao criar novo lembrete!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  }
+
+  const handleSubmit = () => {
+    try {
+      if (newPublication.conteudo === '' || newPublication.titulo === '') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Preencha todos os campos!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+
+      if (newPublication.tipo === 'lembrete') {
+        handleNewLembrete();
+      } else if (newPublication.tipo === 'publicacão') {
+        handleNewPublication();
+        Swal.fire({
+          icon: 'success',
+          title: 'Publicado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      } else if (newPublication.tipo === 'evento') {
+        handleNewEvent();
+        Swal.fire({
+          icon: 'success',
+          title: 'Publicado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error! Não foi possível publicar',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return;
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Erro ao publicar!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  }
 
   return (
     <Container>
@@ -218,7 +354,7 @@ const Home = () => {
                     <option value="type" >Selecione um tipo.</option>
                     <option value="lembrete">Lembrete</option>
                     <option value="evento">Evento</option>
-                    <option value="public">Publicação</option>
+                    <option value="publicacão">Publicação</option>
                   </select>
 
                   <label htmlFor="img" id='imge'>
@@ -236,10 +372,10 @@ const Home = () => {
                   <DivDataNewevent>
                     <input
                       type="date"
-                      value={ newLembrete.data }
-                      onChange={(e) => setNewLembrete({ ...newLembrete, data: e.target.value })}
+                      value={ newData.data }
+                      onChange={(e) => setNewData({ ...newData, data: e.target.value })}
                       disabled={
-                        newPublication.tipo === 'public' ? true : newPublication.tipo === 'type' ? true : false
+                        newPublication.tipo === 'publicacao' ? true : newPublication.tipo === 'type' ? true : false
                       }
                     />
                   </DivDataNewevent>
@@ -260,7 +396,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => {
-                    handleNewPublication();
+                    handleSubmit();
                   }}
                 >
                   Publicar
@@ -278,10 +414,11 @@ const Home = () => {
                 handleGetFeed={GetFeed}
                 configPub={configPubIndex === index}
                 item={item}
+                id = {item.id}
               />
             )}
             <CardSpanContainer>
-              <span>{item.tipo === 'public' ? 'Publicação' : 'News'}</span>
+              <span>{item.tipo}</span>
               <span
                 className='config'
                 onClick={() => {
@@ -293,7 +430,7 @@ const Home = () => {
             </CardSpanContainer>
 
             {item.usuario && (
-              <CardAuthor>Publicado por: {item.usuario.nome}</CardAuthor>
+              <CardAuthor>Publicado por: {item.usuario.nome || item.usuario.username}</CardAuthor>
             )}
 
             <CardTitle>{item.titulo}</CardTitle>
@@ -303,7 +440,7 @@ const Home = () => {
             )}
 
             {item.imagem && (
-              <CardContentImg src={`${URL_IMAGE}/${item.imagem}`} alt={item.titulo} />
+              <CardContentImg src={item.tipo === 'publicacão' ? `${URL_IMAGE_PUBLICACAO}/${item.imagem}` : item.tipo === 'evento' ? `${URL_IMAGE_EVENTOS}/${item.imagem}` : `${URL_IMAGE_LEMBRETE}/${item.imagem}`} alt={item.titulo} />
             )}
 
             {item.url && (

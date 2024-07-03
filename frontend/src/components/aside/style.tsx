@@ -37,7 +37,7 @@ export const AsideLeftContent = styled.div`
   border-top:1px solid #6b5c37;
   border-bottom:1px solid #6b5c37;
   color: #6b5c37;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   border-radius: 0;

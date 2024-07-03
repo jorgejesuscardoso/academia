@@ -3,24 +3,29 @@ import { useEffect, useState } from 'react';
 import { BtnContainer, Container, Edit, MenuPublicacao } from './style';
 import Swal from 'sweetalert2';
 import { atualizarPublicacao, deletarPublicacao } from '../../../service/publicacaoApi';
+import { deleteLembrete } from '../../../service/lembrete';
+import { deleteEvento } from '../../../service/eventoApi';
 
 type ConfigPublicacaoProps = {
   setConfigPub: (config: boolean) => void;
   handleGetFeed: () => void;
   configPub: boolean;
   item: any;
+  id: number;
 };
 
-const ConfigPublicacao = ({ setConfigPub, configPub, item, handleGetFeed }: ConfigPublicacaoProps) => {
+const ConfigPublicacao = ({ setConfigPub, configPub, item, handleGetFeed, id }: ConfigPublicacaoProps) => {
   const [edit, setEdit] = useState(false);
   const [deletePub, setDeletePub] = useState(false);
   const [titles, setTitles] = useState('');
   const [content, setContent] = useState('');
+  const [tipo, setTipo] = useState('');
 
   useEffect(() => {
     setTitles(item.titulo);
     setContent(item.conteudo);
-  } , []);
+    setTipo(item.tipo)
+  } , [id, item.titulo, item.conteudo, item.tipo]);
 
   const handleUpdate = async () => {
     try {
@@ -58,7 +63,7 @@ const ConfigPublicacao = ({ setConfigPub, configPub, item, handleGetFeed }: Conf
     }
   };
 
-  const handleDelete = async () => {
+  const handleDeletePublicacao = async () => {
     try {
       const response = await deletarPublicacao(item.id);
 
@@ -76,9 +81,7 @@ const ConfigPublicacao = ({ setConfigPub, configPub, item, handleGetFeed }: Conf
           text: 'Erro ao excluir a publicação'
         });
       }
-      console.log(response);
       return response;
-
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -86,6 +89,65 @@ const ConfigPublicacao = ({ setConfigPub, configPub, item, handleGetFeed }: Conf
         text: 'Erro ao excluir a publicação'
       });
     }
+  };
+
+  const handleDeleteLembrete = async () => {
+    await deleteLembrete(id);
+    
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: 'Lembrete excluído com sucesso. Atualize a página para ver as mudanças.'
+    });
+
+    handleGetFeed();
+
+    return;
+  };
+
+  const handleDeleteEvento = async () => {
+    await deleteEvento(id);
+
+    handleGetFeed(); 
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: 'Evento excluído com sucesso, atualize a página para ver as mudanças.'
+    });        
+  };
+
+  const handleDelete = async () => {
+    if (tipo === 'publicação') {
+      handleDeletePublicacao();
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso',
+        text: 'Publicação excluída com sucesso'
+      });
+      return;
+    } else if (tipo === 'lembrete') {
+      handleDeleteLembrete();
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso',
+        text: 'Lembrete excluído com sucesso'
+      });
+      return;
+    } else if (tipo === 'evento') {
+      handleDeleteEvento();
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso',
+        text: 'Evento excluído com sucesso'
+      });
+      return;
+    }
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro ao excluir a publicação',
+      text: 'Se acha que isso não deveria acontecer, tenta novamente.'
+    });
   };
 
   return (

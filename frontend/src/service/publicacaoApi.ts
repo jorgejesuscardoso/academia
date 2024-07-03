@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
-//const URL = 'http://localhost:3030/publicacao';
+//const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
+const URL = 'http://localhost:3030/publicacao';
+const URL2 = 'http://localhost:3030/lembretes';
+const URL3 = 'http://localhost:3030/eventos';
 
 export const criarPublicacao = async (publicacao: FormData) => {
 
@@ -17,9 +19,15 @@ export const criarPublicacao = async (publicacao: FormData) => {
 
 export const listarPublicacoes = async () => {
   const response = await fetch(URL);
-  const data = await response.json();
+  const response2 = await fetch(URL2);
+  const response3 = await fetch(URL3);
 
-  return data;
+  const data = await response.json();
+  const data2 = await response2.json();
+  const data3 = await response3.json();
+
+  const newData = data.concat(data2).concat(data3);
+  return newData;
 };
 
 export const listarPublicacaoPorId = async (id: number) => {
