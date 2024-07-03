@@ -9,7 +9,7 @@ const AsideLeft = () => {
       <AsideLeftContent className="asid__container">
         <div>
           <div>
-            <h3>Menus</h3>
+            <h3>Aside Left</h3>
             <AsideLeftWithBorder>
               <h4>Menus Test</h4>
               <ul>

@@ -2,7 +2,7 @@ import { AsideRightContainers, AsideRightContent } from './style';
 
 const AsideRight = () => {
   const params = window.location.pathname.split('/')[1];
-  const classname = params !== 'home' ? 'asideLeft' : '';
+  const classname = params !== 'home' ? 'asideRight' : '';
   return (
     <AsideRightContainers className={ classname }>
       <AsideRightContent className="asideright__container">

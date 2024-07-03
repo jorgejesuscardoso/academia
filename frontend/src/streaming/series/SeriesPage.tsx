@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { SeriesContainer } from './style';
+import Navbar from '../nav/NavBar';
 
 const SeriesPage = () => {
  
@@ -22,17 +23,7 @@ const SeriesPage = () => {
 
   return (
     <SeriesContainer>
-      <div>
-        <h1>Series</h1>
-        <div>
-          {series.map((serie) => (
-            <div key={serie.id}>
-              <img src={serie.poster} alt={serie.title} />
-              <h3>{serie.title}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Navbar />
     </SeriesContainer>
   );
 };

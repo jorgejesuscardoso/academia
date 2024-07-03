@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const URL = 'https://academia-production-d7d0.up.railway.app/publicacao';
+//const URL = 'http://localhost:3030/publicacao';
 
 export const criarPublicacao = async (publicacao: FormData) => {
 
@@ -43,7 +44,16 @@ export const atualizarPublicacao = async (publicacao: any) => {
 };
 
 export const deletarPublicacao = async (id: number) => {
-  await fetch(`${URL}/${id}`, {
-    method: 'DELETE',
-  });
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.status === 204) {
+      return true;
+    } 
+
+  } catch (error) {
+    return false;
+  }
 };

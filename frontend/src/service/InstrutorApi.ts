@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 const URL = 'https://academia-production-d7d0.up.railway.app/instrutor';
+//const URL = 'http://localhost:3030/';
 
 export const createInstrutor = async (instrutor: any) => {
   try {

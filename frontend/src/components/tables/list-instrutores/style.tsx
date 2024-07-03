@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: sticky;
-  background-color: #fff;
   width: 65%;
   height: 100vh;
   padding: 10px;
@@ -15,10 +14,10 @@ export const Container = styled.div`
   font-weight: 400;
 
   h1 {
-    margin-top: 7vh;
+    margin-top: 6.4vh;
     background-color: #fff;
     color: #917e01;
-    width: 65%;
+    width: 100%;
     border-radius: 5px 5px 0 0;
     text-align: center;
     padding: 4px;

@@ -124,13 +124,22 @@ body {
 }
 
 .asideLeft {
-  margin-top: -3vh;
-  height: 93vh !important;
+  margin-top: -2.3vh;
+  border-radius: 5px;
+  left: 0;
+  width: 17.3vw !important;
+  height: 92vh !important;
+}
+
+.asideLeft li {
+  width: 85% !important;
 }
 
 .asideRight {
   position: fixed;
-  margin-top: -3vh;
+  margin-top: -2.3vh;
+  border-radius: 5px;
+  width: 17.3vw !important;
   height: 93vh !important;
 }
 

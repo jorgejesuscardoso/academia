@@ -66,7 +66,6 @@ class PublicacaoService {
 
   async atualizar(publicacao: PublicacaoDTO) {
     const { id, titulo, conteudo } = publicacao;
-
     const updatedPub = await this.prisma.publicacao.update({
       where: {
         id
@@ -86,7 +85,7 @@ class PublicacaoService {
         id
       }
     });
-
+    
     return deletedPub;
   }
 

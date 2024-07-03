@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from 'react-redux';
-import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg } from './style';
+import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg, CardSpanContainer } from './style';
 import CardSearch from '../../components/card/SearchCard';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { criarPublicacao, listarPublicacoes } from '../../service/publicacaoApi';
 import { GetLocalStorage } from '../../utils/localStorage';
+import ConfigPublicacao from '../../components/menus/publicacao/ConfigPublicacao';
 
 const Home = () => {
   const searchQuery = useSelector((state: any) => state.typeSearchRedux);
@@ -27,8 +28,10 @@ const Home = () => {
     usuarioId: '',
     type: 'lembrete',
   })
+  const [configPubIndex, setConfigPubIndex] = useState<number | null>(null);
 
-  const URL_IMAGE = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
+  //const URL_IMAGE = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
+  const URL_IMAGE = 'http://localhost:3030/publicacao/img/'
 
   useEffect(() => {
     setShowSearchItens(true)
@@ -57,7 +60,7 @@ const Home = () => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Erro ao criar nova publicação!',
+        text: 'Erro ao buscar feed!',
         showConfirmButton: false,
         timer: 1500
       });
@@ -267,9 +270,27 @@ const Home = () => {
           )
         }
 
-        { feed && !ShowSearchItems && feed.map((item: any, index: number) => (
+        {feed && !ShowSearchItems && feed.map((item: any, index: number) => (
           <NewsCardContainer key={index}>
-            <span>{item.tipo === 'public' ? 'Publicação' : 'News'}</span>
+            {configPubIndex === index && (
+              <ConfigPublicacao
+                setConfigPub={() => setConfigPubIndex(null)}
+                handleGetFeed={GetFeed}
+                configPub={configPubIndex === index}
+                item={item}
+              />
+            )}
+            <CardSpanContainer>
+              <span>{item.tipo === 'public' ? 'Publicação' : 'News'}</span>
+              <span
+                className='config'
+                onClick={() => {
+                  setConfigPubIndex(configPubIndex === index ? null : index);
+                }}
+              >
+                <img src="config_black.png" alt="" />
+              </span>
+            </CardSpanContainer>
 
             {item.usuario && (
               <CardAuthor>Publicado por: {item.usuario.nome}</CardAuthor>

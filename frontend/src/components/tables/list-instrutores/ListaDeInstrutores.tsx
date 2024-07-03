@@ -63,7 +63,7 @@ const ListaDeInstrutores = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {instrutores.map(instrutor => (
+          { Array.isArray(instrutores) && instrutores.map(instrutor => (
             <TableRow key={instrutor.id}>
               <TableCell>{instrutor.id}</TableCell>
               <TableCell>{instrutor.nome}</TableCell>

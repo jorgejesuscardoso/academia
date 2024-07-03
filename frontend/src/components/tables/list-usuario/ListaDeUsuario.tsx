@@ -51,7 +51,7 @@ const ListaDeUsuario = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {usuarios.map((usuario) => (
+        {Array.isArray(usuarios) && usuarios.map((usuario) => (
           <TableRow key={usuario.id}>
             <TableCell>{usuario.username}</TableCell>
             <TableCell>{usuario.nome}</TableCell>

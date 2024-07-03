@@ -34,29 +34,33 @@ export const AsideLeftContent = styled.div`
   gap: 10px;
 
   h3 {
-  border:1px solid #6b5c37;
+  border-top:1px solid #6b5c37;
+  border-bottom:1px solid #6b5c37;
   color: #6b5c37;
   width: 50%;
   margin: 0 auto;
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: 0;
   padding: 2px;
   }
 
   h3.video {
+    background-color: #6b5c37;
+    border-radius: 0.35rem;
+    border: 1px solid transparent;
     cursor: pointer;
     transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
 
     a {
-      color: #6b5c37 !important;
+      color: #fff !important;
     }
 
     &:hover {
       background-color: #fff;
-      border: 1px solid dodgerblue;
+      border: 1px solid #6b5c37;
 
       a {
-        color: dodgerblue !important;
+        color: #6b5c37 !important;
       }
     }
   }
@@ -180,10 +184,10 @@ export const AsideRightContent = styled.div`
   gap: 10px;
 
   h3 {
-  border: 1px solid #6b5c37;
+  border-top:1px solid #6b5c37;
+  border-bottom:1px solid #6b5c37;
   color: #6b5c37;
   text-align: center;
-  border-radius: 0.5rem;
   padding: 3px;
   }
 

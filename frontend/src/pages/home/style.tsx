@@ -318,4 +318,15 @@ export const CardPublishedAt = styled.p`
   margin-top: 35px;
 `;
 
+export const CardSpanContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+  }
+`;
+
 
