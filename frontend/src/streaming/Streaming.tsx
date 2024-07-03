@@ -10,7 +10,7 @@ const Streaming = () => {
   const [titulo, setTitulo] = useState('');
   const [IMDB, setIMDB] = useState(0);
   const [tipoDeMedia, setTipoDeMedia] = useState('');
-  const [ad, setAd] = useState(false);
+  const [ad, setAd] = useState(true);
 
   useEffect(() => {
     const data = GetLocalStorage(titulo);
@@ -39,7 +39,7 @@ const Streaming = () => {
       SetLocalStorage(titulo, { temporada, episodios });
       setAd(false); 
     }
-  }, [temporada, episodios, IMDB, titulo, tipoDeMedia]);
+  }, [temporada, episodios, IMDB, titulo]);
 
   return (
     <StreamingContainer>
