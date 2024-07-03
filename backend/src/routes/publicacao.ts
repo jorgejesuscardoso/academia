@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
     
     const extension = path.extname(file.originalname);
 
-    const newfilename = `public-${userId}-${Date.now()}${extension}`;
+    const newfilename = `publicacao-${userId}-${Date.now()}${extension}`;
     cb(null, newfilename);
   }
 });

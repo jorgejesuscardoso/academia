@@ -5,6 +5,8 @@ import instrutor from './instrutor';
 import user from './user';
 import search from './search';
 import publicacao from './publicacao';
+import evento from './evento';
+import lembretes from './lembrete';
 
 const router = express.Router();
 
@@ -14,5 +16,7 @@ router.use(instrutor);
 router.use(user);
 router.use(search);
 router.use(publicacao);
+router.use(evento)
+router.use(lembretes);
 
 export default router; 

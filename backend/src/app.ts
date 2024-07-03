@@ -19,7 +19,9 @@ class App {
     private config(): void {
         this.app.use(cors());
         this.app.use(express.json());
-        this.app.use('/publicacao/img', express.static('uploads/publicacao'));
+        this.app.use('/publicacaos/img', express.static('uploads/publicacao'));
+        this.app.use('/eventos/img', express.static('uploads/evento'));
+        this.app.use('/lembretes/img', express.static('uploads/lembrete'));
     }
 
     private routes(): void {
