@@ -18,6 +18,7 @@ const Streaming = () => {
     if (data && data.temporada && data.episodios) {
       setTemporada(data.temporada);
       setEpisodios(data.episodios);
+      setAd(data.ad);
     } else {
       setTemporada(1);
       setEpisodios(1);
@@ -28,7 +29,7 @@ const Streaming = () => {
     if (ad) {
       const stream = `https://superflixapi.dev/serie/${IMDB}/${temporada}/${episodios}`;
       setStreaming(stream);
-      SetLocalStorage(titulo, { temporada, episodios });
+      SetLocalStorage(titulo, { temporada, episodios, ad: true });
       setAd(false); 
       return;
     }
@@ -36,7 +37,7 @@ const Streaming = () => {
     if (titulo && tipoDeMedia && IMDB) {
       const stream = `https://embedder.net/e/${IMDB}/${temporada}/${episodios}`;
       setStreaming(stream);
-      SetLocalStorage(titulo, { temporada, episodios });
+      SetLocalStorage(titulo, { temporada, episodios, ad: false});
       setAd(false); 
     }
   }, [temporada, episodios, IMDB, titulo]);
