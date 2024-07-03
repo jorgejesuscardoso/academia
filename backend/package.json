@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec ts-node src/main.ts",
     "build": "tsc -p .",
+    "migrate": "cd backend && cd src && npx prisma migrate dev --name init",
     "deploy": "cd src && npx prisma migrate deploy init && prisma db push --force-reset && node seeders/initial.ts ",
     "db:reset": "cd src && prisma db push --force-reset && node seeders/initial.ts"
   },
