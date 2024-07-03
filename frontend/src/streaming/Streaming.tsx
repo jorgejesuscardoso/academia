@@ -26,7 +26,7 @@ const Streaming = () => {
   }, [titulo]);
 
   useEffect(() => {
-    if (ad) {
+    if (ad || GetLocalStorage(titulo)?.ad === true) {
       const stream = `https://superflixapi.dev/serie/${IMDB}/${temporada}/${episodios}`;
       setStreaming(stream);
       SetLocalStorage(titulo, { temporada, episodios, ad: true });
