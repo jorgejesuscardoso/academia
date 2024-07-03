@@ -5,7 +5,7 @@ import Navbar from '../nav/NavBar';
 
 const SeriesPage = () => {
  
-  const [series, setSeries] = useState([] as any[]);
+  const [setSeries] = useState([] as any[]);
   useEffect(() => {
 
   }, []);
