@@ -17,9 +17,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={ <Login /> } />
+      <Route path="/login" element={ <Login /> } />
       <Route element={<LayOut />} >
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
 
         <Route path="/clientes" element={<Client />} />
         <Route path="/clientes/cadastro" element={ <CadastroDeClientes /> } />
