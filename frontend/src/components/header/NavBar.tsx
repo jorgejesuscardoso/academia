@@ -183,7 +183,7 @@ const Navbar = () => {
         </SearchForm>
 
         <ul>
-          <Link to="/home">
+          <Link to="/">
             <li className={params === 'home' ? 'active' : ''}>Home</li>
           </Link>
 
