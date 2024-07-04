@@ -3,7 +3,7 @@ import { FloatMenu, HeaderContainer, Nav, SearchForm } from './style';
 import { useEffect, useState } from 'react';
 import { RemoveLocalStorage } from '../../utils/localStorage';
 import Swal from 'sweetalert2';
-import { searchApi } from '../../service/searchApi';
+import { searchApi, searchApiFeed } from '../../service/searchApi';
 import { useDispatch } from 'react-redux';
 import { searchAction, typeSearchAction } from '../../redux/actions/searchAction';
 
@@ -32,8 +32,40 @@ const Navbar = () => {
 
   const handleSearch = async () => {
     try {
-
+      if (tipoDeBusca === '' ) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao buscar',
+          text: 'Escolha ao menos uma opção de busca'
+        });
+        return
+      }
       navigate('/home');
+
+      if (tipoDeBusca === 'publicacao' || tipoDeBusca === 'evento' || tipoDeBusca === 'lembrete') {
+
+        const response = await searchApiFeed(tipoDeBusca,searchValue);
+        
+        if (response === 'error') {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro ao buscar',
+            text: 'Erro ao buscar, tente novamente'
+          });
+          return
+        } else {
+          setTimeout(() => {
+            dispatch(searchAction(response));
+            dispatch(typeSearchAction({ onde: tipoDeBusca, assunto: searchValue}));
+            Swal.fire({
+              icon: 'info',
+              title: 'Concluído',
+              timer: 1000,
+            });
+          }, 1000);
+          return
+        }        
+      }
 
       const response = await searchApi(tipoDeBusca, ondeBuscar, searchValue);
       
@@ -109,12 +141,16 @@ const Navbar = () => {
             <option value="cliente">Clientes</option>
             <option value="instrutor">Instrutores</option>
             <option value="user">Usuários</option>
+            <option value="publicacao">Publicações</option>
+            <option value="evento">Eventos</option>
+            <option value="lembrete">Lembretes</option>
           </select>
 
           <select
             name="buscar por"
             onChange={(e) => setOndeBuscar(e.target.value)}
             value={ondeBuscar}
+            disabled={tipoDeBusca === '' || tipoDeBusca === 'publicacao' || tipoDeBusca === 'evento' || tipoDeBusca === 'lembrete'}
           >
             <option value="O que Buscar" hidden>Buscar por</option>
             <option value="nome">Nome</option>

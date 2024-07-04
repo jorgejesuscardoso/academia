@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { PublicacaoDTO } from '../../DTO/publicacaoDTO';
+import pluralize = require('pluralize');
 
 class PublicacaoService {
   private prisma: PrismaClient;
@@ -62,7 +63,31 @@ class PublicacaoService {
     });
 
     return getPub;
-  }  
+  }
+
+  async searchPublicacao(query: string) {
+    return await this.prisma.publicacao.findMany({
+      where: {
+        OR: [
+          {
+            tipo: {
+              contains: query,
+            }
+          },          
+          {
+            titulo: {
+              contains: query,
+            }
+          },
+          {
+            conteudo: {
+              contains: query,
+            }
+          },
+        ]
+      }
+    });
+  }
 
   async atualizar(publicacao: PublicacaoDTO) {
     const { id, titulo, conteudo } = publicacao;
@@ -88,7 +113,6 @@ class PublicacaoService {
     
     return deletedPub;
   }
-
 }
 
 export default PublicacaoService;

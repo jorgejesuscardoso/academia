@@ -10,23 +10,23 @@ router.post('/login', async (req: Request, res: Response) => {
   await user.login(req, res);
 });
 
-router.post('/users', async (req: Request, res: Response) => {
+router.post('/usuario', async (req: Request, res: Response) => {
   await user.register(req, res);
 });
 
-router.get('/users', async (req: Request, res: Response) => {
+router.get('/usuario', async (req: Request, res: Response) => {
   await user.getUsers(req, res);
 });
 
-router.get('/users/:userId', async (req: Request, res: Response) => {
+router.get('/usuario/:userId', async (req: Request, res: Response) => {
   await user.getUserById(req, res);
 });
 
-router.put('/users/:userId', async (req: Request, res: Response) => {
+router.put('/usuario/:userId', async (req: Request, res: Response) => {
   await user.updateUser(req, res);
 });
 
-router.delete('/users/:userId', async (req: Request, res: Response) => {
+router.delete('/usuario/:userId', async (req: Request, res: Response) => {
   await user.deleteUser(req, res);
 });
 

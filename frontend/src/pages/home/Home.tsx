@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from 'react-redux';
-import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg, CardSpanContainer } from './style';
+import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg, CardSpanContainer, CardContentAligned } from './style';
 import CardSearch from '../../components/card/SearchCard';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
@@ -11,9 +11,11 @@ import { GetLocalStorage } from '../../utils/localStorage';
 import ConfigPublicacao from '../../components/menus/publicacao/ConfigPublicacao';
 import { createEvento } from '../../service/eventoApi';
 import { createLembrete } from '../../service/lembrete';
+import { URL_DEPLOY_OR_HOST } from '../../utils/URL_DEPLOY_OR_HOST';
 
 const Home = () => {
   const searchQuery = useSelector((state: any) => state.typeSearchRedux);
+  const searchSelector = useSelector((state: any) => state.searchRedux as any[] );
   const [feed, setFeed] = useState<any>([]);
   const [ShowSearchItems, setShowSearchItens] = useState(false);
   const [count, setCount] = useState(0)
@@ -29,14 +31,16 @@ const Home = () => {
   })
   const [configPubIndex, setConfigPubIndex] = useState<number | null>(null);
 
-  const URL_IMAGE_PUBLICACAO = 'https://academia-production-d7d0.up.railway.app/publicacao/img/';
-  const URL_IMAGE_LEMBRETE = 'https://academia-production-d7d0.up.railway.app/lembretes/img/';
-  const URL_IMAGE_EVENTOS = 'https://academia-production-d7d0.up.railway.app/eventos/img/';
-  /* const URL_IMAGE_PUBLICACAO = 'http://localhost:3030/publicacaos/img'
-  const URL_IMAGE_LEMBRETE = 'http://localhost:3030/lembretes/img'
-  const URL_IMAGE_EVENTOS = 'http://localhost:3030/eventos/img' */
-
+  const URL_IMAGE_PUBLICACAO = `${URL_DEPLOY_OR_HOST}/publicacaos/img`;
+  const URL_IMAGE_LEMBRETE = `${URL_DEPLOY_OR_HOST}/lembretes/img`;
+  const URL_IMAGE_EVENTOS = `${URL_DEPLOY_OR_HOST}/eventos/img`;
+  
   useEffect(() => {
+    if (searchQuery.onde === 'publicacao' || searchQuery.onde === 'evento' || searchQuery.onde === 'lembrete' || searchQuery.onde === '') {
+      setShowSearchItens(false)
+      setFeed(searchSelector)
+      return;
+    }
     setShowSearchItens(true)
   }, [searchQuery])
 
@@ -44,7 +48,6 @@ const Home = () => {
     GetFeed()
     setShowSearchItens(false)
   },[])
-
 
   const GetFeed = async () => {
     try {
@@ -269,6 +272,9 @@ const Home = () => {
     }
   }
 
+  const handleImageClick = (e: any) => {
+    e.classList.toggle('fullscreen');
+  }
   return (
     <Container>
       <SearchInfoSection>
@@ -435,15 +441,23 @@ const Home = () => {
               <CardAuthor>Publicado por: {item.usuario.nome || item.usuario.username}</CardAuthor>
             )}
 
-            <CardTitle>{item.titulo}</CardTitle>
-            
-            {item.conteudo && (
-              <CardContent>{item.conteudo}</CardContent>
-            )}
+            <CardContentAligned>
+             <div>
+              <CardTitle>{item.titulo}</CardTitle>
+                
+                {item.conteudo && (
+                  <CardContent>{item.conteudo}</CardContent>
+                )}
+             </div>
 
-            {item.imagem && (
-              <CardContentImg src={item.tipo === 'publicacão' ? `${URL_IMAGE_PUBLICACAO}/${item.imagem}` : item.tipo === 'evento' ? `${URL_IMAGE_EVENTOS}/${item.imagem}` : `${URL_IMAGE_LEMBRETE}/${item.imagem}`} alt={item.titulo} />
-            )}
+              {item.imagem && (
+                <CardContentImg
+                  src={item.tipo === 'publicacão' ? `${URL_IMAGE_PUBLICACAO}/${item.imagem}` : item.tipo === 'evento' ? `${URL_IMAGE_EVENTOS}/${item.imagem}` : `${URL_IMAGE_LEMBRETE}/${item.imagem}`}
+                  alt={item.titulo} 
+                  onClick={(e) => handleImageClick(e.target)}
+                />
+              )}
+            </CardContentAligned>
 
             {item.url && (
               <CardLink href={item.url} target="_blank" rel="noopener noreferrer">

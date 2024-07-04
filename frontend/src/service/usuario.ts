@@ -1,6 +1,7 @@
+import { URL_DEPLOY_OR_HOST } from '../utils/URL_DEPLOY_OR_HOST';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'https://academia-production-d7d0.up.railway.app/users';
-//const URL = 'http://localhost:3030/planos';
+const URL = `${URL_DEPLOY_OR_HOST}/users`;
 
 export const createUser = async (user: any) => {
   try {

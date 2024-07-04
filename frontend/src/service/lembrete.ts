@@ -1,5 +1,7 @@
+import { URL_DEPLOY_OR_HOST } from '../utils/URL_DEPLOY_OR_HOST';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'http://localhost:3030/lembretes';
+const URL = `${URL_DEPLOY_OR_HOST}/lembretes`;
 
 export const getLembretes = async () => {
   const response = await fetch(URL);

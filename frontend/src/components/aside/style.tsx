@@ -9,7 +9,7 @@ export const AsideLeftContainersL = styled.div`
   justify-content: center;
   border: none;
   padding: 10px;
-  width: 25vw;
+  width: 22vw;
   height: 90vh;
   top: 10vh;
   left: 0;
@@ -164,7 +164,7 @@ export const AsideRightContainers = styled.div`
   justify-content: center;
   border: none;
   padding: 10px;
-  width: 25vw;
+  width: 22vw;
   height: 90vh;
   top: 10vh;
   right: 0;

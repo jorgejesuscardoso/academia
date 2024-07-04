@@ -23,7 +23,15 @@ class LembreteService {
   }
 
   async getLembretes() {
-    const response = await this.prisma.lembrete.findMany();
+    const response = await this.prisma.lembrete.findMany({
+      include: {
+        usuario: {
+          select: {
+            nome: true          
+          }
+        }
+      }
+    });
     return response;
   }
 

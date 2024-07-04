@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  background-color: #e6e6e6;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -20,7 +21,7 @@ export const TextArea = styled.div`
   margin-bottom: 20px;
   border: 1px solid #a1a1a1;
   border-radius: 8px;
-  width: 85%;
+  width: 82%;
   height: 40vh;
 
   textarea {
@@ -196,7 +197,7 @@ export const HomeContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50vw;
+  width: 65vw;
   margin-top: 12vh;
 `;
 
@@ -256,14 +257,12 @@ export const Value = styled.strong`
 // Feed
 
 export const NewsCardContainer = styled.div`
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   display: flex;
   flex-direction: column !important;
-  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-  width: 85%;
+  width: 82%;
   padding: 20px;
 
   span {
@@ -276,7 +275,8 @@ export const CardTitle = styled.h2`
   text-align: center;
   color: #333333;
   font-size: 18px;
-  margin: 40px 0 10px 0;
+  max-width: 95%;
+  margin: 50px 0 40px 0;
 `;
 
 export const CardAuthor = styled.h4`
@@ -285,19 +285,35 @@ export const CardAuthor = styled.h4`
 `;
 
 export const CardContent = styled.p`
-  text-align: justify;
+  text-align: center;
   color: #555;
   font-size: 14px;
   line-height: 1.6;
+  max-width: 100%;
   white-space: pre-wrap;
   padding: 0 3%;
 `;
 
 export const CardContentImg = styled.img`
-  width: 95%;
+  width: 39%;
+  max-height: 45vh;
+  min-height: 15vh;
   height: auto;
   border-radius: 8px;
   margin: 20px auto;
+  cursor: pointer;
+
+  &.fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 17%;
+    height: auto;
+    transform: translate(-50%, -50%) scale(2.2);
+    z-index: 1000;
+    border-radius: 0;
+    transition: transform 0.3s ease-in-out, z-index 0s ease-in-out 0s;
+  }
 `;
 
 export const CardLink = styled.a`
@@ -313,6 +329,7 @@ export const CardLink = styled.a`
 `;
 
 export const CardPublishedAt = styled.p`
+  text-align: center;
   color: #5f5f5f;
   font-size: 12px;
   margin-top: 35px;
@@ -326,6 +343,23 @@ export const CardSpanContainer = styled.div`
     width: 17px;
     height: 17px;
     cursor: pointer;
+  }
+`;
+
+export const CardContentAligned = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    overflow-wrap: break-word;
   }
 `;
 

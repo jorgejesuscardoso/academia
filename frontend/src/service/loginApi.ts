@@ -1,5 +1,6 @@
-const URL = 'https://academia-production-d7d0.up.railway.app/login';
-//const URL = 'http://localhost:3030/login';
+import { URL_DEPLOY_OR_HOST } from '../utils/URL_DEPLOY_OR_HOST';
+
+const URL = `${URL_DEPLOY_OR_HOST}/login`
 
 export async function LoginApi({ username, senha }: { username: string, senha: string }) {
   const data = { username, senha };

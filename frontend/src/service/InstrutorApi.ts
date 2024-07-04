@@ -1,6 +1,7 @@
+import { URL_DEPLOY_OR_HOST } from '../utils/URL_DEPLOY_OR_HOST';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = 'https://academia-production-d7d0.up.railway.app/instrutor';
-//const URL = 'http://localhost:3030/';
+const URL = `${URL_DEPLOY_OR_HOST}/instrutor`
 
 export const createInstrutor = async (instrutor: any) => {
   try {

@@ -45,6 +45,19 @@ class PublicacaoController {
     return res.status(200).json(publicacao);
   }
 
+  async searchPublicacao(req: Request, res: Response) {
+    try {
+      const query = req.query.query as string;
+      
+      const publicacao = await this.publicacao.searchPublicacao(query);
+
+      return res.status(200).json(publicacao);
+    } catch (error) {
+      console.error('Erro ao buscar publicação:', error);
+      return res.status(500).json({ error: 'Erro ao buscar publicação' });
+    }
+  };
+
   async atualizar(req: Request, res: Response) {
     const publicacao = req.body;
 
