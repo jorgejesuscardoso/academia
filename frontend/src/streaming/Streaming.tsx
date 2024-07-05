@@ -50,7 +50,7 @@ const Streaming = () => {
           <iframe
             src={streaming}
             allowFullScreen
-            sandbox='allow-same-origin allow-scripts notallow-popups allow-forms'
+            //sandbox='allow-same-origin allow-scripts notallow-popups allow-forms'
           ></iframe>
           
           <div>
