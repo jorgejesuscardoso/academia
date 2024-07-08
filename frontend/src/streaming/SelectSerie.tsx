@@ -44,15 +44,16 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
 
   const witAd = [
     { value: 'serie/4087/Arquivo-X', label: 'Arquivo X' },
-    { value: 'serie/135157/Alquimia-das-almas', label: 'Alquimia das almas' },
+    { value: 'serie/135157/Alquimia-das-almas', label: 'Alquimia das almas (dorama)' },
     { value: 'serie/1396/Breaking-Bad', label: 'Breaking Bad' },
     { value: 'serie/1668/Friends', label: 'Friends' },
     { value: 'serie/1402/The-Walking-Dead', label: 'The Walking Dead' },
-    { value: 'serie/456/The-Simpsons', label: 'The Simpsons' },
+    { value: 'serie/456/The-Simpsons', label: 'The Simpsons (cartoon)' },
     { value: 'serie/60708/Gotham', label: 'Gotham' },
     { value: 'serie/60059/Better-Call-Saul', label: 'Better Call Saul' },
     { value: 'serie/124010/How-I-Met-Your-Mother', label: 'How I Met Your Mother' },
-    { value: 'serie/95249/gossip-girls', label: 'Gossip Girls'}
+    { value: 'serie/95249/gossip-girls', label: 'Gossip Girls'},    
+    { value: 'serie/96162/itaewon-class', label: 'Itaewon Class (dorama)'}
   ];
 
   return (
