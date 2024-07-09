@@ -72,9 +72,9 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
         id="select"
         value={selectASerie}
         onChange={(e) => {
-          const labelS = e.target.options[e.target.selectedIndex.text];
+          const labelS = e.target.options[e.target.selectedIndex];
           setSelectASerie(e.target.value);
-          setLabel(labelS);
+          setLabel(labelS.text);
         }}
         defaultValue="select"
       >
