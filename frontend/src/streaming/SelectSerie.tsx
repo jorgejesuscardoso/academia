@@ -53,7 +53,12 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
     { value: 'serie/60059/Better-Call-Saul', label: 'Better Call Saul' },
     { value: 'serie/124010/How-I-Met-Your-Mother', label: 'How I Met Your Mother' },
     { value: 'serie/95249/gossip-girls', label: 'Gossip Girls'},    
-    { value: 'serie/96162/itaewon-class', label: 'Itaewon Class (dorama)'}
+    { value: 'serie/96162/itaewon-class', label: 'Itaewon Class (dorama)'},
+    { value: 'serie/67683/travellers', label: 'Travellers'},
+    { value: 'serie/1622/supernatural', label: 'Supernatural'},
+    { value: 'serie/1408/dr-house', label: 'Dr. House'},
+    { value: 'serie/57243/doctor-who', label: 'Doctor Who'},
+    { value: 'serie/1695/monk-um-detetive-diferente', label: 'Monk - Um detetive diferente'},
   ];
 
   return (
