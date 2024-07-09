@@ -17,6 +17,7 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
 
   const navigate = useNavigate();
   const [selectASerie, setSelectASerie] = useState('select');  
+  const [label, setLabel] = useState('');  
 
   useEffect(() => {
     const [tipo, imdb, titulo] = selectASerie.split('/');
@@ -25,7 +26,7 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
     
     if (selectASerie !== 'select') {
       setTipoDeMedia(tipo);
-      setTitulo(titulo);
+      setTitulo(label);
       setIMDB(+imdb);
       navigate(`/${tipo}/${+imdb}/${titulo}/${season}/${episode}/`);
     }
@@ -66,11 +67,15 @@ const SelectSeries = ({ setAd, setIMDB, setTipoDeMedia, setTitulo, season, episo
       
       <h1>Selecione uma série</h1>
       <h2>Sem propaganda</h2>
-      <select
+     <select
         name="select"
         id="select"
         value={selectASerie}
-        onChange={(e) => setSelectASerie(e.target.value)}
+        onChange={(e) => {
+          setSelectASerie(e.target.value);
+          const selectedOption = e.target.options[e.target.selectedIndex];
+          setLabel(selectedOption.label);
+        }}
         defaultValue="select"
       >
         <option value="select" hidden>Selecione uma série</option>
