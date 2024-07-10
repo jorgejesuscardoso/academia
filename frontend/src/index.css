@@ -151,3 +151,7 @@ body {
   left: 35vw;
   object-fit: cover;
 }
+
+.embedder_especial_content {
+  display: none;
+}
