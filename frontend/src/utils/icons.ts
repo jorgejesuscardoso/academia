@@ -1,1 +1,0 @@
-export const loginLogo = 'react-1.svg';
