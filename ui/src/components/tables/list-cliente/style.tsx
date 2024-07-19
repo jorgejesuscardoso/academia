@@ -37,7 +37,7 @@ export const Table = styled.table`
 
 export const DivOverFlowTable = styled.div`
   display: flex;
-  height: 65vh;
+  height: 62vh;
   width: 64%;
   margin-bottom: 7px;
   overflow-y: scroll;
@@ -58,7 +58,7 @@ export const DivOverFlowTable = styled.div`
 
   @media (min-width: 320px) and (max-width: 1024px){
     width: 100%;
-    height: 67vh;
+    height: 65vh;
   }
 `;
 
@@ -409,6 +409,7 @@ export const ColorBox = styled.div`
 export const ClientsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 12px;
   gap: 10px;
 
   h2 {
