@@ -124,7 +124,7 @@ const Summary = ({ listClients }: SummaryProps) => {
         </LegendItem>
       </ColorLegend>
 
-      <ClientsContainer>
+      <ClientsContainer className='mobile'>
         <Title>QTD de clientes por tipo de planos</Title>
         <StyledTable>
           <thead>

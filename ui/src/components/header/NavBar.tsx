@@ -130,7 +130,11 @@ const Navbar = () => {
     >
       {getWindowSize < 480 && (
         <NavMobile>
-          <img src="academiaLogo2.png" alt="Logo da academia" />
+          <img
+            src="academiaLogo2.png"
+            alt="Logo da academia"
+            onClick={() => navigate('/home')}
+          />
           <SearchForm
             onSubmit={(e) => {
               e.preventDefault();

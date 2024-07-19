@@ -20,6 +20,13 @@ export const Container = styled.div`
     font-size: 18px;
     border-bottom: 1px solid #ccc;
   }
+
+  @media (max-width: 480px) {
+    h1 {
+      width: 100%;
+      font-size: 12px;
+    }
+  }
 `;
 
 export const Table = styled.table`
@@ -48,6 +55,11 @@ export const DivOverFlowTable = styled.div`
   &::-webkit-scrollbar-track {
     background-color: #969595;
   }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 57vh;
+  }
 `;
 
 export const TableHead = styled.thead`
@@ -59,6 +71,14 @@ export const TableHead = styled.thead`
   th {
     text-align: center;
     padding: 12px 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    padding: 5px;
+    th.mobile {
+      display: none;
+    }
   }
 `;
 
@@ -139,6 +159,7 @@ export const TableCell = styled.td`
     border: none;
     cursor: pointer;
     color: #007bff;
+    }
   }
 
   p {
@@ -160,6 +181,13 @@ export const TableCell = styled.td`
         
       &:hover {
         transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      font-size: 7px;
+      &.mobile {
+        display: none;
       }
     }
 `;
@@ -294,24 +322,41 @@ export const SummaryContainer = styled.div`
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const SummaryTitle = styled.h2`
   margin-bottom: 10px;
   font-size: 14px;
   color: #343a40;
+
+  @media (max-width: 480px) {
+    text-align: center;
+    font-size: 10px;
+  }
 `;
 
 export const ColorLegend = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  @media (max-width: 480px) {
+    font-size: 7px;
+  }
 `;
 
 export const LegendItem = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 480px) {
+    gap: 5px;
+  }
 `;
 
 export const ColorBox = styled.div`
@@ -339,6 +384,11 @@ export const ColorBox = styled.div`
     background-color: blue;
     border: 1px solid #ddd;
   }
+
+  @media (max-width: 480px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const ClientsContainer = styled.div`
@@ -350,6 +400,20 @@ export const ClientsContainer = styled.div`
     margin-bottom: 15px;
     font-size: 14px;
     color: #343a40;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 50%;
+    font-size: 8px;
+
+    h2 {
+      font-size: 10px;
+    }
+
+    &.mobile {
+      display: none;
+    }
   }
 `;
 

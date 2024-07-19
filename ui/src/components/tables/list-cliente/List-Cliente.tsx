@@ -142,13 +142,13 @@ export const ListCliente = () => {
             <tr>
               <th>Id</th>
               <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
+              <th className='mobile'>Email</th>
+              <th className='mobile'>Telefone</th>
               <th>Idade</th>
-              <th>Início</th>
+              <th className='mobile'>Início</th>
               <th>Plano</th>
               <th>Status</th>
-              <th>Dias Restantes</th>
+              <th className='mobile'>Dias Restantes</th>
             </tr>
           </TableHead>
             <TableBody>
@@ -161,13 +161,13 @@ export const ListCliente = () => {
                 <TableCell>
                   { item.nome } 
                 </TableCell>
-                <TableCell>{ item.email }</TableCell> 
-                <TableCell>{ item.telefone }</TableCell>
+                <TableCell className='mobile'>{ item.email }</TableCell> 
+                <TableCell className='mobile'>{ item.telefone }</TableCell>
                 <TableCell>{ item.idade } anos</TableCell>
-                <TableCell>{ item.inicio }</TableCell>
+                <TableCell className='mobile'>{ item.inicio }</TableCell>
                 <TableCell>{ item.plano }</TableCell>
                 <TableCell>{ item.status }</TableCell>                
-                <TableCell>
+                <TableCell className='mobile'>
                   <div>
                     { getStringDays(item.diasRestantes)}
                     <button
