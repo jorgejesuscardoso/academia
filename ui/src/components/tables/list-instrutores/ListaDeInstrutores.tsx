@@ -50,12 +50,12 @@ const ListaDeInstrutores = () => {
   
   return (
     <Container>
-      <h1>Gerenciamento de instrutores</h1>
+      <h1>Lista de instrutores</h1>
       <DivOverFlowTable>
         <Table>
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
+            <TableCell className='id'>ID</TableCell>
             <TableCell>Nome</TableCell>
             <TableCell>Telefone</TableCell>
             <TableCell className='mobile'>Email</TableCell>

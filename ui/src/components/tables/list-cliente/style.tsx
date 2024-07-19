@@ -21,7 +21,7 @@ export const Container = styled.div`
     border-bottom: 1px solid #ccc;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 1024px) {
     h1 {
       width: 100%;
       font-size: 12px;
@@ -56,9 +56,9 @@ export const DivOverFlowTable = styled.div`
     background-color: #969595;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 1024px){
     width: 100%;
-    height: 57vh;
+    height: 50vh;
   }
 `;
 
@@ -73,7 +73,7 @@ export const TableHead = styled.thead`
     padding: 12px 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 1024px) {
     font-size: 10px;
     padding: 5px;
     th.mobile {
@@ -184,8 +184,8 @@ export const TableCell = styled.td`
       }
     }
 
-    @media (max-width: 480px) {
-      font-size: 7px;
+    @media (min-width: 480px) and (max-width: 1024px) {
+      font-size: 12px;
       &.mobile {
         display: none;
       }
@@ -216,6 +216,7 @@ export const FormCadastro = styled.form`
   margin-top: 10vh;
 
   h1 {
+    color: var(--text-h1-color);
     font-size: 20px;
     margin: 10px 10px;
   }
@@ -237,11 +238,7 @@ export const FormCadastro = styled.form`
     padding: 8px;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #be9c02;
-
-    &:focus {
-      border: 1px solid #be9c02;
-    }
+    outline: 1px solid var(--input-cadastro-border-color);
   }
 
   select {
@@ -250,10 +247,28 @@ export const FormCadastro = styled.form`
     margin: 10px 0;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #be9c02;
+    outline: 1px solid var(--input-cadastro-border-color);
+  }
 
-    &:focus {
-      border: 1px solid #be9c02;
+  @media (max-width: 480px) {
+    width: 95%;
+    font-size: 10px;
+
+    h1 {
+      font-size: 12px;
+    }
+
+    input {
+      padding: 4px;
+    }
+
+    select {
+      padding: 4px;
+    }
+
+    button {
+      padding: 4px;
+      font-size: 10px !important;
     }
   }
 `;
@@ -323,7 +338,7 @@ export const SummaryContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -402,7 +417,7 @@ export const ClientsContainer = styled.div`
     color: #343a40;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 768px){
     flex-direction: column;
     width: 50%;
     font-size: 8px;

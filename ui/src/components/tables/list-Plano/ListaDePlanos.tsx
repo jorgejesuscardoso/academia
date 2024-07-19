@@ -54,6 +54,7 @@ export const ListaDePlanos = () => {
               </TableCell>
               <TableCell className='descript'><p>{ plano.descricao }</p></TableCell>
               <TableCell className='planNumbers'>{plano.clientes.length}</TableCell>
+              
               <TableCell className='clientList'>               
                 <select name="lista-de-clientes">
                   <option hidden>Lista de Clientes</option>

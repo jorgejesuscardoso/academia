@@ -56,47 +56,11 @@ export const Nav = styled.nav`
 
   img {
     width: 7vh;  
-  }
-    
+  }    
 
-  @media (max-width: 480px) {
+  @media (max-width: 1023px) {
     display: none;
-    }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    }
+  }
 `;
 
 export const SearchForm = styled.form`
@@ -143,10 +107,12 @@ export const SearchForm = styled.form`
     cursor: pointer;
   }
 
-  @media (max-width: 480px) {
-    width: 60%;
+  @media (max-width: 1023px) {
+    width: 70%;
+
     select {
-      width: 20px;
+      width: 80px;
+      padding: 2px;
     }
     
     button {
@@ -200,7 +166,7 @@ export const FloatMenu = styled.div`
 export const NavMobile = styled.div`
   display: none;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1023px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -215,14 +181,14 @@ export const NavMobile = styled.div`
 export const MenuMobile = styled.div`
   display: none;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1023px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
 
     img {
-      width: 3vh;
+      width: 5vh;
     }
   }
 `;

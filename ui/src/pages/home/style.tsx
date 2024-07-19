@@ -9,45 +9,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-
-  @media (max-width: 480px) {
-      width: 100%;
-    }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    }
 `;
 
 export const TextArea = styled.div`
@@ -61,7 +22,7 @@ export const TextArea = styled.div`
   border: 1px solid #a1a1a1;
   border-radius: 8px;
   width: 82%;
-  height: 40vh;
+  height: 35vh;
 
   textarea {
     width: 99%;
@@ -119,20 +80,16 @@ export const TextArea = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
+    background-color: transparent;
+    border: none;
     padding: 5px;
     height: 80%;
-    border: 1px solid #99b2c0;
+    border: none;
     color: #1c252b;
     cursor: pointer;
 
-    &:before {
-      content: 'Enviar Imagem';
-    }
-
-    &:hover {
-      color: #08618a !important;
-      border: 1px solid #869aa3;
+    img {
+      width: 40px;
     }
   }
 
@@ -214,7 +171,6 @@ export const TextArea = styled.div`
     }
   }
 
-
   @media (max-width: 480px) {
       width: 95%;
       height: 30vh;
@@ -262,55 +218,264 @@ export const TextArea = styled.div`
 
       input#img {
         height: 10%;
+        border: none;
+        background-color: transparent;
+      }
+
+      label#imge {
+        display: flex;
+        background-color: transparent;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 5px;
+        font-size: 7px;
+
+        img {
+          width: 30px;
+          background-color: transparent;
+        }
+      }        
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+      width: 100%;
+
+      select {
+        padding: 1px;
+        width: 40%;
+      }
+
+      textarea {
+        width: 100%;
+        height: 70%;
+        font-size: 10px;
+
+        &::placeholder {
+          font-size: 10px;
+        }
+      }
+
+      label {
+        display: none;
+      }
+
+      div {
+        height: 13%;
+      }
+
+      div.title-descript {
+        height: 8%;
+      }
+
+      button {
+        padding: 9px 7px;
+        font-size: 10px;
+      }
+
+      button.clear {
+        padding: 9px 7px;
+      }
+
+      input {
+        width: 90%;
+        font-size: 10px;
+        background-color: transparent;
+      }
+
+      input#img {
+        height: 10%;
       }
 
       label#imge {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center;        
         padding: 5px 5px;
         font-size: 7px;
-        content: none !important;
-        &:before {
-          content: 'Imagem' !important;
+
+        img {
+          width: 30px;
+          height: 30px;
         }
-      }        
+      }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 82%;
+
+    select {
+      padding: 1px;
+      width: 20%;
     }
 
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
+    textarea {
+      width: 100%;
+      height: 68%;
+      font-size: 10px;
+
+      &::placeholder {
+        font-size: 10px;
+      }
     }
 
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
+    label {
+      display: none;
     }
 
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
+    div {
+      height: 20%;
     }
 
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
+    div.title-descript {
+      height: 12%;
     }
 
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
+    button {
+      padding: 10px;
+      font-size: 10px;
     }
 
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
+    input {
+      width: 90%;
+      font-size: 10px;
+      background-color: transparent;
     }
 
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
+    input#img {
+      height: 10%;
     }
+
+    label#imge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 5px;
+      font-size: 7px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1400px) {
+    width: 82%;
+
+    select {
+      padding: 1px;
+      width: 20%;
+    }
+
+    textarea {
+      width: 100%;
+      height: 68%;
+      font-size: 10px;
+
+      &::placeholder {
+        font-size: 10px;
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    div {
+      height: 20%;
+    }
+
+    div.title-descript {
+      height: 12%;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 10px;
+    }
+
+    input {
+      width: 90%;
+      font-size: 10px;
+      background-color: transparent;
+    }
+
+    input#img {
+      height: 10%;
+    }
+
+    label#imge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 5px;
+      font-size: 7px;
+
+        img {
+          width: 45px;
+          height: 45px;
+        }
+    }
+  }
+
+  @media (min-width: 1401px) and (max-width: 1599px) {
+    width: 82%;
+
+    select {
+      width: 20%;
+    }
+
+    textarea {
+      width: 100%;
+      height: 68%;
+      font-size: 10px;
+
+      &::placeholder {
+        font-size: 10px;
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    div {
+      height: 17%;
+    }
+
+    div.title-descript {
+      height: 12%;
+    }
+
+    button {
+      padding: 1em;
+      font-size: 1em;
+    }
+
+    input {
+      width: 90%;
+      font-size: 10px;
+      background-color: transparent;
+    }
+
+    input#img {
+      height: 10%;
+    }
+
+    label#imge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 5px;
+      font-size: 7px;
+
+        img {
+          width: 3vw;
+          height: 6vh;
+        }
+    }
+  }
 `;
 
 export const DivDataNewevent = styled.div`
@@ -388,46 +553,11 @@ export const HomeContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 65vw;
-  margin-top: 10.5vh;
+  margin-top: 11.5vh;
 
-  @media (max-width: 480px) {
-      width: 100%;
-    }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    }
+  @media (max-width: 1024px) {
+    width: 95vw;
+  }
 `;
 
 export const SearchCardContainer = styled.div`
@@ -440,45 +570,9 @@ export const SearchCardContainer = styled.div`
   width: 55vw;
   padding: 20px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
       padding: 5px;
       width: 95%;
-    }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    
   }
 `;
 
@@ -507,39 +601,8 @@ export const SearchInfoSection = styled.div`
       display: none;
     }
 
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
+    @media (min-width: 481px) and (max-width: 768px) {
+      display: none;
     }
 `;
 
@@ -586,39 +649,11 @@ export const NewsCardContainer = styled.div`
       }
     }
 
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
+    @media (min-width: 481px) and (max-width: 768px) {
+      width: 100%;
+      span {
+        font-size: 8px;
+      }    
     }
 `;
 

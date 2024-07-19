@@ -24,6 +24,15 @@ export const Container = styled.div`
     padding: 4px;
     border-bottom: 1px solid #ccc;
   }
+
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 12px;
+      width: 100%;
+    }
+
+    width: 100%;
+  }
 `;
 
 export const Table = styled.table`
@@ -31,6 +40,11 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
 `;
 
 export const TableHead = styled.thead`
@@ -41,6 +55,10 @@ export const TableHead = styled.thead`
   th {
     text-align: center;
     padding: 12px 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
   }
 `;
 
@@ -103,7 +121,20 @@ export const TableCell = styled.td`
       font-weight: bolder;
     }
   }
+
+
+
+  @media (max-width: 1200px) {
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 5px;
+    &.mobile {
+      display: none;
+    }
+  }
 `;
+
+// AsideLeft and AsideRight are not used in this component
 
 export const InstrutorContainer = styled.div`
   background-color: #fcfcfc;
@@ -184,6 +215,7 @@ export const FormCadastroPlano = styled.form`
   gap: 10px;
 
   h2 {
+    color: var(--text-h1-color);
     font-size: 20px;
     margin-bottom: 20px;
   }
@@ -205,7 +237,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #b19103;
+      outline: 1px solid var(--input-cadastro-border-color);
     }
 
     &.btn {
@@ -219,7 +251,37 @@ export const FormCadastroPlano = styled.form`
     margin-top: 5px;
     border-radius: 5px;
     border: none;
-    outline: 1px solid #be9c02;
+    outline: 1px solid var(--input-cadastro-border-color);
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    font-size: 8px;
+    gap: 5px;
+
+    h2 {
+      font-size: 12px;
+    }
+
+    input {
+      font-size: 8px;
+      height: 20px !important;
+    }
+
+    label {
+      font-size: 9px !important;
+    }
+
+    select {
+      padding: 4px !important;
+      height: 22px !important;
+      font-size: 10px;
+    }
+
+    button {
+      padding: 7px !important;
+      font-size: 10px !important;
+    }
   }
 `;
 

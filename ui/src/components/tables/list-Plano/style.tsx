@@ -38,7 +38,7 @@ export const Table = styled.table`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 480px) {
-    width: 10%;
+    width: 95%;
     font-size: 7px;
   }
 `;
@@ -74,12 +74,17 @@ export const TableHead = styled.thead`
       &:hover {
         transform: rotate(90deg);
       }
+      }
     }
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 768px){
     th {
       padding: 0px 0px;
+
+      &.clientList {
+        display: none;
+      }
     }
       
     &.clientList {
@@ -155,7 +160,7 @@ export const TableCell = styled.td`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 768px) {
     &.descript {
       p {
         font-size: 7px;
@@ -200,6 +205,10 @@ export const ContentCadastroPlano = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 10px;
+
+  @media (max-width: 480px) {
+    margin-top: 10vh;
+  }
 `;
 
 export const FormCadastroPlano = styled.form`
@@ -215,6 +224,7 @@ export const FormCadastroPlano = styled.form`
   font-weight: 400;
 
   h1 {
+    color: var(--text-h1-color);
     font-size: 20px;
     margin-bottom: 10px;
   }
@@ -237,7 +247,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #be9c02;
+      outline: 1px solid var(--input-cadastro-border-color);
     }
 
     textarea {
@@ -247,7 +257,7 @@ export const FormCadastroPlano = styled.form`
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #be9c02;
+      outline: 1px solid var(--input-cadastro-border-color);
       resize: none;
     }
 
@@ -275,5 +285,42 @@ export const FormCadastroPlano = styled.form`
 
   select {
     outline: 1px solid #be9c02;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    font-size: 8px;
+
+    label {
+      font-size: 9px !important;
+      margin-bottom: 3px !important;
+    }
+
+    h1 {
+      font-size: 12px;
+      color: #be9c02;
+    }
+
+    input {
+      padding: 3px;
+      height: 22px !important;
+      margin-top: 2px !important;
+    }
+
+    select {
+      padding: 4px !important;
+      height: 22px !important;
+    }
+
+    button {
+      height: 30px;
+      width: 40%;
+      padding: 5px !important;
+      font-size: 10px !important;
+    }
+
+    div {
+      margin: 5px;
+    }
   }
 `;

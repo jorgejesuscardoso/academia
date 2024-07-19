@@ -19,6 +19,7 @@ body {
   --text-color-error-2: #a50000;
   --text-color-black-1: #4400e4;
   --text-color-black-1-hover: #16004b;
+  --text-h1-color: #9c820b;
   --lista-text-color: rgb(0, 0, 170);
   --menu-button-text-color-2: #ebebeb;
   --menu-button-background-red: #ff4848;
@@ -40,6 +41,7 @@ body {
 
 
   --input-login-outline: rgb(81, 220, 255);
+  --input-cadastro-border-color: #afa784;
 
 
   --menu-button-background: rgb(37, 78, 211);

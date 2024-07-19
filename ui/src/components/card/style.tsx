@@ -28,7 +28,7 @@ export const Card = styled.div`
       }
     }
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     width: 48%;
     img {
       width: 15px !important;
@@ -44,7 +44,7 @@ export const CardContainer = styled.div`
   width: 100%;
   gap: 8px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     width: 100%;
     margin: 0 auto;
   }
@@ -76,6 +76,7 @@ export const CarParagraph = styled.p`
 
 export const Strong = styled.strong`
   color: #333;
+
   @media (max-width: 480px) {
     font-size: 0.7em;
   }

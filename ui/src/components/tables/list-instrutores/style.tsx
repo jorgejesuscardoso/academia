@@ -25,7 +25,7 @@ export const Container = styled.div`
     border-bottom: 1px solid #ccc;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 480px) and (max-width: 1024px){
     h1 {
       font-size: 12px;
     }
@@ -112,11 +112,16 @@ export const TableCell = styled.td`
     }
   }
 
-  @media (max-width: 480px) {
-    font-size: 8px;
+  @media (min-width: 480px) and (max-width: 1024px) {
+    font-size: 12px;
     &.mobile {
       display: none;
     }
+  }
+
+  @media (max-width: 1599px) {
+    font-size: 12px;
+    padding: 10px 5px;
   }
 `;
 
@@ -156,6 +161,10 @@ export const InstrutorContainer = styled.div`
     table {
       font-size: 8px;
     }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 8px;
   }
 `;
 
@@ -244,7 +253,7 @@ export const FormCadastroDeInstrutores = styled.form`
   h2 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #343a40;
+    color: var(--text-h1-color);;
   }
 
   div {
@@ -263,7 +272,7 @@ export const FormCadastroDeInstrutores = styled.form`
       padding: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #be9c02;
+      outline: 1px solid var(--input-cadastro-border-color);
     }
 
     select {
@@ -272,7 +281,31 @@ export const FormCadastroDeInstrutores = styled.form`
       padding: 5px;
       border-radius: 5px;
       border: none;
-      outline: 1px solid #be9c02;
+      outline: 1px solid var(--input-cadastro-border-color);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 95%;
+    font-size: 10px;
+
+    h1 {
+      font-size: 12px;
+    }
+
+    input {
+      padding: 3px;
+      height: 22px !important;
+    }
+
+    select {
+      padding: 4px !important;
+      height: 22px !important;
+    }
+
+    button {
+      padding: 3px !important;
+      font-size: 10px !important;
     }
   }
 `;

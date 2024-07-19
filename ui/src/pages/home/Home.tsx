@@ -382,7 +382,8 @@ const Home = () => {
                   </select>
 
                   <label htmlFor="img" id='imge'>
-                  {image && image.name || ''}
+                  {image && image.name || <img src="send_image.png" alt="Adicionar imagem" />}
+                  
                   </label>
                     <input
                       type="file"

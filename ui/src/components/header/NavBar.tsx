@@ -125,15 +125,22 @@ const Navbar = () => {
     }
   };
 
+  const handlerefresh = () => {
+    window.location.reload();
+  }
+
   return (
     <HeaderContainer
     >
-      {getWindowSize < 480 && (
+      {getWindowSize < 1023 && (
         <NavMobile>
           <img
             src="academiaLogo2.png"
             alt="Logo da academia"
-            onClick={() => navigate('/home')}
+            onClick={() => {
+              navigate('/home');
+              handlerefresh();
+            }}
           />
           <SearchForm
             onSubmit={(e) => {
@@ -146,7 +153,7 @@ const Navbar = () => {
               onChange={(e) => setTipoDeBusca(e.target.value)}
               value={tipoDeBusca}
             >
-              <option value="Tipo de Busca" hidden>Buscar em</option>
+              <option value="Tipo de Busca" hidden>Buscar</option>
               <option value="plano">Planos</option>
               <option value="cliente">Clientes</option>
               <option value="instrutor">Instrutores</option>
@@ -161,7 +168,7 @@ const Navbar = () => {
               value={ondeBuscar}
               disabled={tipoDeBusca === '' || tipoDeBusca === 'publicacao' || tipoDeBusca === 'evento' || tipoDeBusca === 'lembrete'}
             >
-              <option value="O que Buscar" hidden>Buscar por</option>
+              <option value="O que Buscar" hidden>Por</option>
               <option value="nome">Nome</option>
               <option
                 value="email"

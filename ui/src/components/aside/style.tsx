@@ -21,45 +21,29 @@ export const AsideLeftContainersL = styled.div`
 
     }
   
-    /* Telefone Pequeno */
     @media (max-width: 480px) {
       display: none;
     }
 
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
+    @media (min-width: 481px) and (max-width: 768px) {
+      display: none;
     }
 
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      display: none;
     }
 
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      width: 23vw;
     }
 
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
+    @media (min-width: 1201px) and (max-width: 1400px) {
+      width: 22vw;
     }
 
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
+    @media (min-width: 1401px) and (max-width: 1599px) {
+      width: 21vw;
     }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    }  
 `;
 
 export const AsideLeftContent = styled.div`
@@ -218,39 +202,24 @@ export const AsideRightContainers = styled.div`
       display: none;
     }
 
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
+    @media (min-width: 481px) and (max-width: 768px) {
+      display: none;
     }
 
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      display: none;
     }
 
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      width: 23vw;
     }
 
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
+    @media (min-width: 1201px) and (max-width: 1400px) {
+      width: 22vw;
     }
 
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
+    @media (min-width: 1401px) and (max-width: 1599px) {
+      width: 21vw;
     }
 `;
 

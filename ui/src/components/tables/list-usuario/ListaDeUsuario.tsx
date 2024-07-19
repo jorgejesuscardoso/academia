@@ -38,31 +38,31 @@ const ListaDeUsuario = () => {
 
   return (
     <Container>
-      <h1>Gerênciamento de usuários</h1>
+      <h1>Lista de usuários</h1>
       <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Nome de usuário</TableCell>
-          <TableCell>Nome do Funcionário</TableCell>
-          <TableCell>Telefone</TableCell>
-          <TableCell>Email</TableCell>
-          <TableCell>Turno</TableCell>
-          <TableCell>Role</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {Array.isArray(usuarios) && usuarios.map((usuario) => (
-          <TableRow key={usuario.id}>
-            <TableCell>{usuario.username}</TableCell>
-            <TableCell>{usuario.nome}</TableCell>
-            <TableCell>{usuario.telefone}</TableCell>
-            <TableCell>{usuario.email}</TableCell>
-            <TableCell>{usuario.turno}</TableCell>
-            <TableCell>{usuario.role}</TableCell>
+        <TableHead>
+          <TableRow>
+            <TableCell>Nome de usuário</TableCell>
+            <TableCell>Nome do Funcionário</TableCell>
+            <TableCell>Telefone</TableCell>
+            <TableCell className='mobile'>Email</TableCell>
+            <TableCell>Turno</TableCell>
+            <TableCell>Role</TableCell>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {Array.isArray(usuarios) && usuarios.map((usuario) => (
+            <TableRow key={usuario.id}>
+              <TableCell>{usuario.username}</TableCell>
+              <TableCell>{usuario.nome}</TableCell>
+              <TableCell>{usuario.telefone}</TableCell>
+              <TableCell className='mobile'>{usuario.email}</TableCell>
+              <TableCell>{usuario.turno}</TableCell>
+              <TableCell>{usuario.role}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     <AsideLeft />
     <AsideRight />
   </Container>
