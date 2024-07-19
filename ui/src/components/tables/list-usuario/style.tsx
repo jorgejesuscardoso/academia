@@ -41,8 +41,8 @@ export const Table = styled.table`
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
-  @media (max-width: 480px) {
-    width: 100%;
+  @media (max-width: 440px) {
+    font-size: 12px;
   }
 
 `;
@@ -57,7 +57,7 @@ export const TableHead = styled.thead`
     padding: 12px 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 320px) {
     font-size: 10px;
   }
 `;
@@ -121,8 +121,6 @@ export const TableCell = styled.td`
       font-weight: bolder;
     }
   }
-
-
 
   @media (max-width: 1200px) {
     border: 1px solid #ccc;

@@ -55,6 +55,7 @@ export const Nav = styled.nav`
   }
 
   img {
+    cursor: pointer;
     width: 7vh;  
   }    
 

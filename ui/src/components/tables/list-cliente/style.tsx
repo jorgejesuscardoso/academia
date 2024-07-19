@@ -73,7 +73,7 @@ export const TableHead = styled.thead`
     padding: 12px 15px;
   }
 
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 1200px) {
     font-size: 10px;
     padding: 5px;
     th.mobile {
@@ -184,7 +184,7 @@ export const TableCell = styled.td`
       }
     }
 
-    @media (min-width: 480px) and (max-width: 1024px) {
+    @media (min-width: 320px) and (max-width: 1200px) {
       font-size: 12px;
       &.mobile {
         display: none;

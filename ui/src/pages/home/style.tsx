@@ -119,10 +119,11 @@ export const TextArea = styled.div`
     background-color: #ffffff;
     color: dodgerblue;
     font-weight: bold;
+    font-size: 1em;
     border: 1px solid dodgerblue;
     border-radius: 5px;
     margin: 0 5px;
-    padding: 8px 15px;
+    padding: 1.2em;
     height: 80%;
     cursor: pointer;
 
@@ -140,7 +141,6 @@ export const TextArea = styled.div`
     border: 1px solid #a34646;
     border-radius: 5px;
     margin: 0 5px;
-    padding: 8px 15px;
     height: 80%;
     cursor: pointer;
 
@@ -202,8 +202,8 @@ export const TextArea = styled.div`
       }
 
       button {
-        padding: 7px 5px;
-        font-size: 7px;
+        padding: 10px;
+        font-size: 12px;
       }
 
       button.clear {
@@ -269,8 +269,8 @@ export const TextArea = styled.div`
       }
 
       button {
-        padding: 9px 7px;
-        font-size: 10px;
+        padding: 10px 13px;
+        font-size: 14px;
       }
 
       button.clear {
@@ -295,8 +295,8 @@ export const TextArea = styled.div`
         font-size: 7px;
 
         img {
-          width: 30px;
-          height: 30px;
+          width: 38px;
+          height: 40px;
         }
       }
   }
@@ -332,8 +332,8 @@ export const TextArea = styled.div`
     }
 
     button {
-      padding: 10px;
-      font-size: 10px;
+      padding: 12px;
+      font-size: 16px;
     }
 
     input {
@@ -350,12 +350,12 @@ export const TextArea = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 5px 5px;
+      padding: 7px 7px;
       font-size: 7px;
 
         img {
-          width: 40px;
-          height: 40px;
+          width: 55px;
+          height: 55px;
         }
     }
   }
@@ -391,8 +391,7 @@ export const TextArea = styled.div`
     }
 
     button {
-      padding: 10px;
-      font-size: 10px;
+      font-size: 15px;
     }
 
     input {
@@ -413,8 +412,8 @@ export const TextArea = styled.div`
       font-size: 7px;
 
         img {
-          width: 45px;
-          height: 45px;
+          width: 55px;
+          height: 55px;
         }
     }
   }

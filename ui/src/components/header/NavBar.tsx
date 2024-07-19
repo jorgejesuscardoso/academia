@@ -191,7 +191,15 @@ const Navbar = () => {
       )}
       <Nav>
         <div>
-          <img src="academiaLogo2.png" alt="Logo da academia" />
+          <img
+              src="academiaLogo2.png"
+              alt="Logo da academia"
+              onClick={() => {
+                navigate('/home');
+                handlerefresh();
+              }}
+              id='logo'
+            />
         </div>
 
         <SearchForm

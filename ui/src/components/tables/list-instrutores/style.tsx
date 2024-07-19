@@ -25,7 +25,7 @@ export const Container = styled.div`
     border-bottom: 1px solid #ccc;
   }
 
-  @media (min-width: 480px) and (max-width: 1024px){
+  @media (min-width: 320px) and (max-width: 1023px){
     h1 {
       font-size: 12px;
     }
@@ -112,14 +112,14 @@ export const TableCell = styled.td`
     }
   }
 
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 1200px) {
     font-size: 12px;
     &.mobile {
       display: none;
     }
   }
 
-  @media (max-width: 1599px) {
+  @media (min-width: 1201px) and (max-width: 1599px) {
     font-size: 12px;
     padding: 10px 5px;
   }

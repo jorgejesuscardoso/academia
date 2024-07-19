@@ -22,7 +22,13 @@ export const Container = styled.div`
     border-bottom: 1px solid #ccc;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 1200px) {
     h1 {
       font-size: 12px;
     }
@@ -32,14 +38,20 @@ export const Container = styled.div`
 export const Table = styled.table`
   background-color: #ffffff;
   width: 60%;
-  font-size: 13px;
+  font-size: 16px;
   border-collapse: collapse;
   border: 1px solid #343a40;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 480px) {
-    width: 95%;
-    font-size: 7px;
+  @media (max-width: 1023px) {
+    width: 95% ;
+    font-size: 13px;
+  }
+
+  @media (min-width: 1024) and (max-width: 1200px) {
+    width: 80%;
+    border: 1px solid red;
+    font-size: 12px;
   }
 `;
 
@@ -78,7 +90,7 @@ export const TableHead = styled.thead`
     }
   }
 
-  @media (min-width: 480px) and (max-width: 768px){
+  @media (min-width: 320px) and (max-width: 1100px){
     th {
       padding: 0px 0px;
 
@@ -160,10 +172,10 @@ export const TableCell = styled.td`
     }
   }
 
-  @media (min-width: 480px) and (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 1100px) {
     &.descript {
       p {
-        font-size: 7px;
+        font-size: 14px;
         padding: 3px;
       }
     }
