@@ -89,7 +89,7 @@ export const TextArea = styled.div`
     cursor: pointer;
 
     img {
-      width: 40px;
+      width: 30px;
     }
   }
 
@@ -119,11 +119,11 @@ export const TextArea = styled.div`
     background-color: #ffffff;
     color: dodgerblue;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
     border: 1px solid dodgerblue;
     border-radius: 5px;
     margin: 0 5px;
-    padding: 1.2em;
+    padding: 1em;
     height: 80%;
     cursor: pointer;
 

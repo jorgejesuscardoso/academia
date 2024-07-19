@@ -114,7 +114,10 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if (toggleMenu.type) setFloatMenuNav(false);
+    if (toggleMenu.type) {
+      setFloatMenuNav(false);
+      setFloatMenu(false);
+    };
   }, [toggleMenu]);
 
   return (

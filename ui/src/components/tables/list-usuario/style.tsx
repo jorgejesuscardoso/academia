@@ -20,14 +20,14 @@ export const Container = styled.div`
     width: 100%;
     border-radius: 5px 5px 0 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 25px;
     padding: 4px;
     border-bottom: 1px solid #ccc;
   }
 
   @media (max-width: 1024px) {
     h1 {
-      font-size: 12px;
+      font-size: 16px;
       width: 100%;
     }
 

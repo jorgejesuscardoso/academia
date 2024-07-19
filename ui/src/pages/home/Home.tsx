@@ -299,6 +299,7 @@ const Home = () => {
     <Container
       onClick={() => {
         dispatch(toggleMobileMenu());
+        
       }}
     >
       <SearchInfoSection>

@@ -17,20 +17,20 @@ export const Container = styled.div`
     width: 60%;
     border-radius: 5px 5px 0 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 25px;
     padding: 4px;
     border-bottom: 1px solid #ccc;
   }
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 12px;
+      font-size: 18px !important;
     }
   }
 
   @media (max-width: 1200px) {
     h1 {
-      font-size: 12px;
+      font-size: 20px;
     }
   }
 `;
@@ -206,7 +206,6 @@ export const ContainerCadastroPlano = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 90vh;
   padding: 10px;
 `;
 
@@ -217,10 +216,7 @@ export const ContentCadastroPlano = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 10px;
-
-  @media (max-width: 480px) {
-    margin-top: 10vh;
-  }
+  margin-top: 10vh;
 `;
 
 export const FormCadastroPlano = styled.form`

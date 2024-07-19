@@ -21,13 +21,14 @@ export const Container = styled.div`
     border-radius: 5px 5px 0 0;
     text-align: center;
     padding: 4px;
-    font-size: 18px;
+    font-size: 25px;
     border-bottom: 1px solid #ccc;
   }
 
   @media (min-width: 320px) and (max-width: 1023px){
     h1 {
-      font-size: 12px;
+      margin-top: 0vh;
+      font-size: 18px;
     }
     width: 100%;
   }
@@ -231,8 +232,7 @@ export const MainCadastroDeInstrutores = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  height: 90vh;
+  width: 100%;  
   padding: 10px;
   font-size: 15px;
   font-weight: 400;
@@ -246,6 +246,7 @@ export const FormCadastroDeInstrutores = styled.form`
   flex-direction: column;
   width: 30%;
   padding: 10px;
+  margin-top: 10vh;
   font-size: 15px;
   font-weight: 400;
   border-radius: 10px;

@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 16px;
 
   h1 {
     margin-top: 7vh;
@@ -17,14 +17,14 @@ export const Container = styled.div`
     border-radius: 5px 5px 0 0;
     text-align: center;
     padding: 4px;
-    font-size: 18px;
+    font-size: 25px;
     border-bottom: 1px solid #ccc;
   }
 
   @media (min-width: 320px) and (max-width: 1024px) {
     h1 {
       width: 100%;
-      font-size: 12px;
+      font-size: 16px;
     }
   }
 `;
@@ -58,7 +58,7 @@ export const DivOverFlowTable = styled.div`
 
   @media (min-width: 320px) and (max-width: 1024px){
     width: 100%;
-    height: 50vh;
+    height: 67vh;
   }
 `;
 
