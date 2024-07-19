@@ -24,6 +24,13 @@ export const Container = styled.div`
     font-size: 18px;
     border-bottom: 1px solid #ccc;
   }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 12px;
+    }
+    width: 100%;
+  }
 `;
 
 export const Table = styled.table`
@@ -104,6 +111,13 @@ export const TableCell = styled.td`
       font-weight: bolder;
     }
   }
+
+  @media (max-width: 480px) {
+    font-size: 8px;
+    &.mobile {
+      display: none;
+    }
+  }
 `;
 
 export const InstrutorContainer = styled.div`
@@ -127,6 +141,21 @@ export const InstrutorContainer = styled.div`
   table {
     width: 30%;
     border-collapse: collapse;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 3px;
+    padding: 5px;
+    gap: 5px;
+
+    h2 {
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+    
+    table {
+      font-size: 8px;
+    }
   }
 `;
 
@@ -178,6 +207,11 @@ export const DivOverFlowTable = styled.div`
 
   &::-webkit-scrollbar-track {
     background-color: #969595;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 1px;
+    height: 67vh;
   }
 `;
 

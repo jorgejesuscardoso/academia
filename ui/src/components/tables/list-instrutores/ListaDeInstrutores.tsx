@@ -58,7 +58,7 @@ const ListaDeInstrutores = () => {
             <TableCell>ID</TableCell>
             <TableCell>Nome</TableCell>
             <TableCell>Telefone</TableCell>
-            <TableCell>Email</TableCell>
+            <TableCell className='mobile'>Email</TableCell>
             <TableCell>Turno</TableCell>
           </TableRow>
         </TableHead>
@@ -68,7 +68,7 @@ const ListaDeInstrutores = () => {
               <TableCell>{instrutor.id}</TableCell>
               <TableCell>{instrutor.nome}</TableCell>
               <TableCell>{instrutor.telefone}</TableCell>
-              <TableCell>{instrutor.email}</TableCell>
+              <TableCell className='mobile'>{instrutor.email}</TableCell>
               <TableCell>{instrutor.turno}</TableCell>
             </TableRow>
           ))}
