@@ -197,11 +197,10 @@ export const FloatMenuMobile = styled.div`
   background-color: var(--float-menu);
   position: absolute;
   border-bottom: 1px solid transparent;
-  font-size: 8px;
+  font-size: 13px;
   top: 7vh;
   right: 0.5vw;
-  width: 25vw;
-  gap: 0;
+  width: 35vw;
   z-index: 1000 !important;
 
   ul {
@@ -212,11 +211,17 @@ export const FloatMenuMobile = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid transparent;
-    height: 18px;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    height: 30px;
   }
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
     color: #fff;
     text-decoration: none;
   }

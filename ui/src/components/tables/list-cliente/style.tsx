@@ -21,7 +21,7 @@ export const Container = styled.div`
     border-bottom: 1px solid #ccc;
   }
 
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 1024px) {
     h1 {
       width: 100%;
       font-size: 12px;
@@ -56,7 +56,7 @@ export const DivOverFlowTable = styled.div`
     background-color: #969595;
   }
 
-  @media (min-width: 480px) and (max-width: 1024px){
+  @media (min-width: 320px) and (max-width: 1024px){
     width: 100%;
     height: 50vh;
   }
@@ -338,7 +338,7 @@ export const SummaryContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -348,7 +348,7 @@ export const SummaryTitle = styled.h2`
   font-size: 14px;
   color: #343a40;
 
-  @media (max-width: 480px) {
+  @media (max-width: 320px) {
     text-align: center;
     font-size: 10px;
   }
@@ -417,7 +417,7 @@ export const ClientsContainer = styled.div`
     color: #343a40;
   }
 
-  @media (min-width: 480px) and (max-width: 768px){
+  @media (min-width: 320px) and (max-width: 768px){
     flex-direction: column;
     width: 50%;
     font-size: 8px;

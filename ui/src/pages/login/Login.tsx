@@ -24,6 +24,8 @@ const Login = () => {
         });
         return;
       }
+
+      setLoading('Logando...');
       const login = await LoginApi({ username, senha: password });
       
       if (login.error) {

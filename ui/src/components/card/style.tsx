@@ -62,7 +62,7 @@ export const CardTitle = styled.h1`
 export const CarParagraph = styled.p`
   margin: 8px 0;
   
-  @media (max-width: 480px) {
+  @media (max-width: 320px) {
     font-size: 0.7em;
 
     &.mail {

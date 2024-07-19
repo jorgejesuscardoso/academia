@@ -660,109 +660,39 @@ export const NewsCardContainer = styled.div`
 export const CardTitle = styled.h2`
   text-align: center;
   color: #333333;
-  font-size: 18px;
+  font-size: 25px;
   max-width: 95%;
   margin: 20px 0 10px 0;
 
-  @media (max-width: 480px) {
-    font-size: 11px;
-  }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 
 export const CardAuthor = styled.h4`
   color: #666666;
   font-size: 12px;
-  padding-bottom: 7px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
 
-  @media (max-width: 480px) {
-    font-size: 6px;
+  @media (max-width: 1200px) {
+    font-size: 8px;
   }
-
-    /* Telefone Médio e Grande */
-    @media (min-width: 481px) and (max-width: 800px) {
-      /* Estilos para telefones médios e grandes */
-    }
-
-    /* Tablet em modo retrato */
-    @media (min-width: 601px) and (max-width: 800px) {
-      /* Estilos para tablets em modo retrato */
-    }
-
-    /* Tablet em modo paisagem */
-    @media (min-width: 801px) and (max-width: 1280px) {
-      /* Estilos para tablets em modo paisagem */
-    }
-
-    /* Laptop e Desktop Pequeno */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      /* Estilos para laptops e desktops pequenos */
-    }
-
-    /* Desktop Médio */
-    @media (min-width: 1281px) and (max-width: 1440px) {
-      /* Estilos para desktops médios */
-    }
-
-    /* Desktop Grande */
-    @media (min-width: 1441px) and (max-width: 2560px) {
-      /* Estilos para desktops grandes */
-    }
-
-    /* 4K e Ultra-Wide */
-    @media (min-width: 2561px) {
-      /* Estilos para telas 4K e ultra-wide */
-    }
 `;
 
 export const CardContent = styled.p`
   color: #555;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.6;
   max-width: 100%;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 0 3%;
+  margin-bottom: 20px;
 
-  @media (max-width: 480px) {
-    font-size: 7px;
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -791,8 +721,8 @@ export const CardLink = styled.a`
     color: #007bff;
   }
 
-  @media (max-width: 480px) {
-    font-size: 8px;
+  @media (max-width: 320px) {
+    font-size: 10px;
   }
 `;
 
@@ -810,8 +740,8 @@ export const CardPublishedAt = styled.p`
     color: #777;
   }
 
-  @media (max-width: 480px) {
-    font-size: 6px;
+  @media (max-width: 768px) {
+    font-size: 10px;
     margin-top: 10px;
     width: 100%;
   }
@@ -832,10 +762,15 @@ export const CardSpanContainer = styled.div`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
+    
+    span {
+      font-size: 10px;
+    }
+
     img {
-      width: 12px;
-      height: 12px;
+      width: 17px;
+      height: 17px;
     }
   }
 `;

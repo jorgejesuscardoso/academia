@@ -28,7 +28,7 @@ export const Container = styled.main`
     align-items: center;
     background-color: #fff;
     border-radius: 10px;
-    width: 30vw;
+    width: 20vw;
     height: 60vh;
 
     input {
@@ -60,7 +60,6 @@ export const Container = styled.main`
       border-bottom: 1px solid #aaa;
 
       label {
-        width: 20%;
         text-align: start;
         color: #777;
       } 
@@ -88,7 +87,7 @@ export const Container = styled.main`
   @media (max-width: 640px) {
     form {
       width: 90vw !important;
-      height: 70vh;
+      height: 65vh !important;
 
       img {
         width: 50%;
@@ -97,12 +96,64 @@ export const Container = styled.main`
       button {
         width: 70%;
       }
+
+      input {
+        width: 100%;
+      }
+
+      label {
+        font-size: 0.85rem;
+      }
+
+      div {
+        width: 70%;
+      }
     }
   }
 
   @media (max-width: 1024px) {
     form {
-      width: 50vw;
+      width: 60vw;
+      height: 47vh;
+
+      button {
+        width: 70%;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      label {
+        font-size: 0.85rem;
+      }
+
+      div {
+        width: 70%;
+      }
+    }
+  }
+
+  @media (max-width: 1599px) {
+    form {
+      width: 35vw;
+      height: 55vh;
+
+      button {
+        width: 70%;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      label {
+        font-size: 0.85rem;
+      }
+
+      div {
+        width: 70%;
+      }
     }
   }
 `;
