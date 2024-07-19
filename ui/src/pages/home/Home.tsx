@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NewsCardContainer, CardLink, CardTitle, Container, HomeContent, Labels, SearchInfoSection, Value, SearchCardContainer, CardAuthor, CardPublishedAt, CardContent, TextArea, DivDataNewevent, CardContentImg, CardSpanContainer, CardContentAligned } from './style';
 import CardSearch from '../../components/card/SearchCard';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import Swal from 'sweetalert2';
 import { criarPublicacao, listarPublicacoes } from '../../service/publicacaoApi';
 import { GetLocalStorage } from '../../utils/localStorage';
@@ -12,8 +12,10 @@ import ConfigPublicacao from '../../components/menus/publicacao/ConfigPublicacao
 import { createEvento } from '../../service/eventoApi';
 import { createLembrete } from '../../service/lembrete';
 import { URL_DEPLOY_OR_HOST } from '../../utils/URL_DEPLOY_OR_HOST';
+import { toggleMobileMenu } from '../../redux/actions/searchAction';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const searchQuery = useSelector((state: any) => state.typeSearchRedux);
   const searchSelector = useSelector((state: any) => state.searchRedux as any[] );
   const [feed, setFeed] = useState<any>([]);
@@ -291,8 +293,14 @@ const Home = () => {
   const handleImageClick = (e: any) => {
     e.classList.toggle('fullscreen');
   }
+
+
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        dispatch(toggleMobileMenu());
+      }}
+    >
       <SearchInfoSection>
         <div>
           <Labels>Local de pesquisa:</Labels> 

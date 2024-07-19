@@ -200,7 +200,7 @@ export const FloatMenuMobile = styled.div`
   font-size: 13px;
   top: 7vh;
   right: 0.5vw;
-  width: 35vw;
+  width: 40vw;
   z-index: 1000 !important;
 
   ul {
@@ -213,7 +213,7 @@ export const FloatMenuMobile = styled.div`
     justify-content: center;
     border-top: 1px solid #ccc;
     width: 100%;
-    height: 30px;
+    height: 100%;
   }
 
   a {
@@ -221,7 +221,7 @@ export const FloatMenuMobile = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 30px;
+    height: 40px;
     color: #fff;
     text-decoration: none;
   }

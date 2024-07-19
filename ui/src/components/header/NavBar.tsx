@@ -1,42 +1,26 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FloatMenu, FloatMenuMobile, HeaderContainer, MenuMobile, Nav, NavMobile, SearchForm } from './style';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RemoveLocalStorage } from '../../utils/localStorage';
 import Swal from 'sweetalert2';
 import { searchApi, searchApiFeed } from '../../service/searchApi';
-import { useDispatch } from 'react-redux';
 import { searchAction, typeSearchAction } from '../../redux/actions/searchAction';
-
+import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const referer = useRef(null);
+  const navigate = useNavigate();
+  const toggleMenu = useSelector((state: any) => state.NavMobile);
 
   const params = useLocation().pathname.split('/')[1];
   const paramsCadastro = useLocation().pathname.split('/')[2];
+
   const [floatMenu, setFloatMenu] = useState(false);
   const [tipoDeBusca, setTipoDeBusca] = useState('');
   const [ondeBuscar, setOndeBuscar] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [getWindowSize] = useState(window.innerWidth);
-  const [floatMenuNav, setFloatMenuNav] = useState(false);
-
-
-  useEffect(() => {
-    const closeMenu = () => {
-      setFloatMenu(false);
-      if (floatMenuNav) {
-        setFloatMenuNav(false);
-      }
-    };
-    
-    document.addEventListener('click', closeMenu);
-
-    return () => {
-      document.removeEventListener('click', closeMenu);
-    };
-  }, []);
+  const [floatMenuNav, setFloatMenuNav] = useState(toggleMenu);
 
   const handleSearch = async () => {
     try {
@@ -128,6 +112,10 @@ const Navbar = () => {
   const handlerefresh = () => {
     window.location.reload();
   }
+
+  useEffect(() => {
+    if (toggleMenu.type) setFloatMenuNav(false);
+  }, [toggleMenu]);
 
   return (
     <HeaderContainer
@@ -320,7 +308,6 @@ const Navbar = () => {
 
       {floatMenuNav && (
         <FloatMenuMobile
-          ref={referer}
           onMouseLeave={() => setFloatMenuNav(false)}
         >
           <ul className="float-menu">
