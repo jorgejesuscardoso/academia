@@ -85,9 +85,18 @@ export const Container = styled.main`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     form {
-      width: 80vw;
+      width: 90vw !important;
+      height: 70vh;
+
+      img {
+        width: 50%;
+      }
+
+      button {
+        width: 70%;
+      }
     }
   }
 
