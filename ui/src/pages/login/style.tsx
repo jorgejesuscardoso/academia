@@ -84,4 +84,16 @@ export const Container = styled.main`
       width: 35%;
     }
   }
+
+  @media (max-width: 768px) {
+    form {
+      width: 80vw;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    form {
+      width: 50vw;
+    }
+  }
 `;
