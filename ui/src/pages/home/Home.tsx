@@ -278,6 +278,8 @@ const Home = () => {
     }
   }
 
+  // Serve para publicar uma nova publicação, evento ou lembrete.
+
   const handleSubmit = () => {
     try {
       if (newPublication.conteudo === '' || newPublication.titulo === '') {

@@ -70,7 +70,7 @@ const AsideLeft = () => {
           </div>
         </div>
         <div>
-          <h3 className='video'><Link to=''>Últimos vídeos</Link></h3>
+          <h3 className='video'><Link to='/videos'>Últimos vídeos</Link></h3>
           <iframe
             src="https://www.youtube.com/embed/VJSJiMFcVQ8?si=__rwlQqL3HR5mRKQ"
             allowFullScreen
