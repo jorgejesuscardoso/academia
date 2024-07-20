@@ -28,6 +28,12 @@ export const Card = styled.div`
       }
     }
 
+  @media (max-width: 520px) {
+    max-width: 100%;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
   @media (max-width: 1024px) {
     width: 48%;
     img {
@@ -44,7 +50,13 @@ export const CardContainer = styled.div`
   width: 100%;
   gap: 8px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 510px) {
+    flex-direction: column !important;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 511px) and (max-width: 1024px) {
     width: 100%;
     margin: 0 auto;
   }

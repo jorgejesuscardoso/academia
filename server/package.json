@@ -1,5 +1,5 @@
 {
-  "name": "ae",
+  "name": "academia",
   "version": "1.0.0",
   "description": "App de gerenciamento dos clientes da academia",
   "main": "src/main.ts",

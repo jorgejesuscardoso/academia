@@ -569,6 +569,8 @@ export const SearchCardContainer = styled.div`
   width: 55vw;
   padding: 20px;
 
+  
+
   @media (max-width: 1024px) {
       padding: 5px;
       width: 95%;
