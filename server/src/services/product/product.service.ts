@@ -32,13 +32,13 @@ class ProductServices {
     });
 
     // Mapear os resultados para o formato DTO
-    const productDTOs = productsDetail.map(product => ({
+    const productDTOs = productsDetail.map((product: any) => ({
       id: product.id,
       name: product.name,
       price: product.price,
       stored: product.stored,
       brand: product.brand,
-      purchases: product.purchases.map(purchase => ({
+      purchases: product.purchases.map((purchase: PurchaseDTO) => ({
         id: purchase.id,
         clientId: purchase.clientId,
         productId: purchase.productId,
