@@ -12,6 +12,7 @@ import CadastrarUsuario from './components/tables/list-usuario/Cadastrar';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/login/Login';
 import NotFound from './pages/notfound/NotFound';
+import { Shop } from './pages/shopping/Shop';
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
 
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/usuarios/cadastro" element={<CadastrarUsuario />} />
+
+        <Route path="/shop" element={<Shop />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

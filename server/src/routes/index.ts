@@ -7,6 +7,7 @@ import search from './search';
 import publicacao from './publicacao';
 import evento from './evento';
 import lembretes from './lembrete';
+import product from './product';
 
 const router = express.Router();
 
@@ -18,5 +19,6 @@ router.use(search);
 router.use(publicacao);
 router.use(evento)
 router.use(lembretes);
+router.use(product);
 
 export default router; 

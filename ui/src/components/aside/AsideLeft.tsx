@@ -48,8 +48,8 @@ const AsideLeft = () => {
                 </Link>
                 <Link to='/update'>
                   <li>
-                    <img src="reset.png" alt="About" />                  
-                    Atualizar dados.
+                    <img src="ico_suport.png" alt="About" />                  
+                    Suporte DevLab.
                   </li>
                 </Link>
                 <Link to='/address'>

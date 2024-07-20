@@ -75,6 +75,7 @@ model Cliente {
   plano       Plano    @relation(fields: [planoId], references: [id], onDelete: Cascade)
   status      String   @default("Ativo")
   planoId     Int      
+  purchased   Purchase[]
 }
 
 model Instrutor {
@@ -93,3 +94,24 @@ model Plano {
   clientes    Cliente[]
 }
 
+model Product {
+  id         Int         @id @default(autoincrement())
+  name       String
+  price      Float
+  stored   Int
+  brand      String?
+  category   String?
+  thumbnail  String?
+  description String?
+  purchases  Purchase[] 
+}
+
+model Purchase {
+  id         Int       @id @default(autoincrement())
+  clientId   Int
+  productId  Int
+  client     Cliente    @relation(fields: [clientId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
+  qtd_saled   Int
+  createdAt  DateTime  @default(now())
+}

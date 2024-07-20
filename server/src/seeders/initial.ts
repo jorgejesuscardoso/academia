@@ -3275,6 +3275,587 @@ async function main() {
       status: 'Ativo'
     }
   });
+
+  const products = [
+    { 
+      name: 'Proteína Whey Isolada', 
+      price: 150.0, 
+      stored: 50, 
+      brand: 'NutriMax', 
+      category: 'suplemento', 
+      thumbnail: 'https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/gsn/media/uploads/produtos/foto/sbwsjhzv/whey-gold-isolate-2280g.jpg', 
+      description: 'Proteína Whey Isolada de alta qualidade, com 90% de proteína pura por dose. Ideal para recuperação muscular e ganho de massa magra. Livre de lactose e com baixo teor de carboidratos.' 
+    },
+    { 
+      name: 'Creatina Monohidratada', 
+      price: 80.0, 
+      stored: 100, 
+      brand: 'PowerBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://meumundofit.com.br/wp-content/uploads/creatina-monohidratada-150g-black-skull.jpg', 
+      description: 'Creatina Monohidratada pura para aumentar a força e a performance durante os treinos. Aumenta a capacidade muscular e melhora a recuperação entre as sessões de exercício.' 
+    },
+    { 
+      name: 'BCAA 2:1:1', 
+      price: 120.0, 
+      stored: 60, 
+      brand: 'UltraFit', 
+      category: 'suplemento', 
+      thumbnail: 'https://www.gsuplementos.com.br/upload/produto/imagem/bcaa-5-1-1-200g-em-p-growth-supplements-3.jpg', 
+      description: 'Complexo de aminoácidos essenciais com proporção de 2:1:1. Ajuda na recuperação muscular, reduz a fadiga e previne a degradação muscular durante treinos intensos.' 
+    },
+    { 
+      name: 'Pré-Treino X', 
+      price: 90.0, 
+      stored: 30, 
+      brand: 'EnergyPlus', 
+      category: 'suplemento', 
+      thumbnail: 'https://a-static.mlcdn.com.br/450x450/pre-treino-x-pre-workout-450g-atlhetica-nutrition/lojacentraldocorpo1/921669/bfac551b586f6751dd68c869e6bd796c.jpeg', 
+      description: 'Suplemento pré-treino com formulação avançada para aumentar a energia, foco e resistência. Contém cafeína, beta-alanina e citrulina para um desempenho máximo.' 
+    },
+    { 
+      name: 'Glutamina', 
+      price: 70.0, 
+      stored: 40, 
+      brand: 'VitalStrength', 
+      category: 'suplemento', 
+      thumbnail: 'https://m.media-amazon.com/images/I/61cVJweezRL._AC_UF350,350_QL50_.jpg', 
+      description: 'Glutamina pura para suporte ao sistema imunológico e recuperação muscular. Ideal para ajudar a reparar os músculos e reduzir o tempo de recuperação após treinos pesados.' 
+    },
+    { 
+      name: 'Cinta Abdominal', 
+      price: 50.0, 
+      stored: 20, 
+      brand: 'FitGear', 
+      category: 'acessório', 
+      thumbnail: 'https://www.medicalfarma.com.br/site/wp-content/uploads/2020/10/Cinta-Abdominal.jpg', 
+      description: 'Cinta abdominal de alta compressão que ajuda a definir a cintura e melhorar a postura durante os exercícios. Feita com material resistente e confortável.' 
+    },
+    { 
+      name: 'Colchonete Fitness', 
+      price: 45.0, 
+      stored: 25, 
+      brand: 'GymMat', 
+      category: 'acessório', 
+      thumbnail: 'https://cdn.awsli.com.br/600x450/1686/1686615/produto/147587602/8619e426d5.jpg', 
+      description: 'Colchonete de espuma com superfície antiderrapante, ideal para exercícios de alongamento, yoga e pilates. Proporciona conforto e estabilidade durante a prática.' 
+    },
+    { 
+      name: 'Halter 5kg', 
+      price: 35.0, 
+      stored: 15, 
+      brand: 'IronLift', 
+      category: 'equipamento', 
+      thumbnail: 'https://decathlonpro.vtexassets.com/arquivos/ids/3944231/-halter-pintado-5kg-2x25kg1.jpg?v=637723368388400000', 
+      description: 'Halter de 5kg com acabamento ergonômico e resistente. Ideal para treinos de força e resistência, proporcionando um ótimo suporte para exercícios variados.' 
+    },
+    { 
+      name: 'Rolo de Espuma', 
+      price: 60.0, 
+      stored: 35, 
+      brand: 'FlexRoll', 
+      category: 'acessório', 
+      thumbnail: 'https://images.ctfassets.net/ea2tosc1qg3k/BR-67J4C9pPCPp5V8o0F266eU/3bf6960466496878e95de68e1c7e3b56/bat-5-art-66-hero-mobi.jpg?w=800&q=50', 
+      description: 'Rolo de espuma para liberação miofascial e alívio de tensões musculares. Ideal para recuperação pós-treino e aumento da flexibilidade. Feito de espuma de alta densidade para maior durabilidade e eficácia.' 
+    },
+    { 
+      name: 'Massa Muscular Gainer', 
+      price: 200.0, 
+      stored: 10, 
+      brand: 'MassBuilder', 
+      category: 'suplemento', 
+      thumbnail: 'https://www.drogariaminasbrasil.com.br/media/product/773/mega-mass-gainer-baunilha-3kg-health-labs-4ae.jpg', 
+      description: 'Suplemento em pó para ganho de massa muscular, com uma mistura de proteínas e carboidratos de rápida absorção. Contém vitaminas e minerais essenciais para maximizar o crescimento muscular e a recuperação.' 
+    },
+    { 
+      name: 'Saco de Boxe', 
+      price: 180.0, 
+      stored: 12, 
+      brand: 'PunchPro', 
+      category: 'equipamento', 
+      thumbnail: 'https://images-americanas.b2w.io/produtos/75345499/imagens/kit-saco-pancada-grande-profissional-160-cm-boxe-muay-thai-luva-equipamento-treino-original-gorilla/75345497_1_large.jpg', 
+      description: 'Saco de boxe robusto e durável, ideal para treinamento de boxe e artes marciais. Feito de material resistente com enchimento que proporciona um impacto firme e realista. Vem com cadeado e corrente para fácil instalação.' 
+    },
+    { 
+      name: 'Barra de Triceps', 
+      price: 40.0, 
+      stored: 25, 
+      brand: 'TricepBar', 
+      category: 'equipamento', 
+      thumbnail: 'https://watsongym.co.uk/wp-content/uploads/2023/03/lateral-tricep-bar-03-2.jpg', 
+      description: 'Barra de triceps em aço inoxidável para exercícios de isolamento e força. Ergonomicamente projetada para proporcionar um melhor controle e conforto durante os treinos. Compatível com a maioria dos suportes de barras.' 
+    },
+    { 
+      name: 'Suplemento de Vitamina C', 
+      price: 25.0, 
+      stored: 75, 
+      brand: 'HealthBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://www.gsuplementos.com.br/upload/produto/imagem/vitamina-c-120-caps-growth-supplements-1.webp', 
+      description: 'Suplemento de Vitamina C com alta absorção para fortalecer o sistema imunológico e promover a saúde geral. Cada dose fornece a quantidade diária recomendada de Vitamina C.' 
+    },
+    { 
+      name: 'Bola de Pilates', 
+      price: 30.0, 
+      stored: 20, 
+      brand: 'PilatesPro', 
+      category: 'acessório', 
+      thumbnail: 'https://down-br.img.susercontent.com/file/10dceaaa789442971868519aaace1e58', 
+      description: 'Bola de Pilates resistente e antiderrapante, ideal para exercícios de core e alongamento. Ajuda a melhorar a postura, flexibilidade e força do tronco. Inclui bomba para fácil inflagem.' 
+    },
+    { 
+      name: 'Elastic Bands', 
+      price: 20.0, 
+      stored: 50, 
+      brand: 'FlexBands', 
+      category: 'acessório', 
+      thumbnail: 'https://www.yyvertical.com/cdn/shop/products/YY_ElasticsBand_1080-1080.jpg?v=1673358940', 
+      description: 'Faixas elásticas para treinamento de força e resistência. Disponível em várias intensidades para exercícios variados. Leves e portáteis, perfeitas para treinos em casa ou na academia.' 
+    },
+    { 
+      name: 'Roupas de Treino', 
+      price: 60.0, 
+      stored: 40, 
+      brand: 'GymWear', 
+      category: 'vestuário', 
+      thumbnail: 'https://m.media-amazon.com/images/I/41XntOXqrEL._AC_SY1000_.jpg', 
+      description: 'Roupas de treino confortáveis e estilosas, projetadas para melhorar o desempenho durante atividades físicas. Feitas com tecidos respiráveis e de secagem rápida. Disponível em diferentes tamanhos e cores.' 
+    },
+    { 
+      name: 'Pesos Ankle', 
+      price: 45.0, 
+      stored: 18, 
+      brand: 'AnkleWeights', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/61evRLCDNgL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Pesos para tornozelo ajustáveis, ideais para aumentar a intensidade de treinos de pernas e glúteos. Feitos com material resistente e acolchoado para máximo conforto. Cada par pode ser ajustado para diferentes pesos.' 
+    },
+    { 
+      name: 'Ab Roller', 
+      price: 55.0, 
+      stored: 30, 
+      brand: 'AbRoller', 
+      category: 'equipamento', 
+      thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW8A02GUtMxfp37y8kjq0aJKRRpehhOwAfbhRDt4sy-04QlXxjDQ5t78HNS87WELCAI3E&usqp=CAU', 
+      description: 'Ab Roller para treino de core e abdômen. Possui rodas de alta resistência e empunhadura confortável para estabilidade e controle durante os exercícios. Ideal para fortalecer e definir a região abdominal.' 
+    },
+    { 
+      name: 'Shaker Protein', 
+      price: 15.0, 
+      stored: 100, 
+      brand: 'ShakeFit', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/61NDnGFuVrL._AC_UF894,1000_QL80_.jpg', 
+      description: 'Shaker resistente com capacidade de 700ml, ideal para misturar proteínas e outros suplementos de forma eficiente. Possui rede misturadora para uma mistura homogênea e tampa segura para evitar vazamentos.' 
+    },
+    { 
+      name: 'Máquina de Exercício', 
+      price: 1200.0, 
+      stored: 5, 
+      brand: 'GymMachine', 
+      category: 'equipamento', 
+      thumbnail: 'https://ae01.alicdn.com/kf/S4b292c1c143647d99d8b31caf7f4442dr.jpg_640x640Q90.jpg_.webp', 
+      description: 'Máquina de exercício multifuncional para treinos completos. Equipamento robusto e durável, com diversas opções de ajuste para diferentes exercícios de força e resistência.' 
+    },
+    { 
+      name: 'Puxador de Corda', 
+      price: 75.0, 
+      stored: 22, 
+      brand: 'RopePull', 
+      category: 'equipamento', 
+      thumbnail: 'https://m.media-amazon.com/images/I/51J+ztPkC+L._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Puxador de corda de alta qualidade para exercícios de tração. Ideal para treinos de costas, bíceps e tríceps, proporcionando um treino eficiente e confortável.' 
+    },
+    { 
+      name: 'Suplemento de Ômega 3', 
+      price: 65.0, 
+      stored: 40, 
+      brand: 'OmegaBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://integralmedica.vtexassets.com/arquivos/ids/165844-800-auto?v=638316036287300000&width=800&height=auto&aspect=true', 
+      description: 'Suplemento de Ômega 3 com alta concentração de EPA e DHA, essenciais para a saúde cardiovascular e cerebral. Cada dose oferece uma quantidade adequada de ácidos graxos essenciais.' 
+    },
+    { 
+      name: 'Bands Fit Pump', 
+      price: 95.0, 
+      stored: 28, 
+      brand: 'ChestPump', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/414-fTLDApL._AC_UF894,1000_QL80_.jpg', 
+      description: 'Para treino de peito para aumentar a definição e a força muscular. Ideal para treinos de peito e braços, com ajuste fácil e material resistente para maior durabilidade.' 
+    },
+    { 
+      name: 'Suplemento de Ferro', 
+      price: 35.0, 
+      stored: 50, 
+      brand: 'IronBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://images-americanas.b2w.io/produtos/5423452471/imagens/suplemento-alimentar-ferro-acido-folico-com-vitamina-b-12-60/5423452471_1_large.jpg', 
+      description: 'Suplemento de ferro para ajudar na prevenção de anemia e melhorar a energia e resistência. Cada cápsula fornece a quantidade diária recomendada de ferro de forma eficaz.' 
+    },
+    { 
+      name: 'Corda de Pular', 
+      price: 25.0, 
+      stored: 60, 
+      brand: 'JumpRope', 
+      category: 'acessório', 
+      thumbnail: 'https://t34114.vtexassets.com/arquivos/ids/170489-800-auto?v=637943757535270000&width=800&height=auto&aspect=true', 
+      description: 'Corda de pular ajustável com empunhadura confortável. Ideal para exercícios cardiovasculares e melhorar a coordenação e resistência. Feita de material durável e resistente ao desgaste.' 
+    },
+    { 
+      name: 'Tênis de Treino', 
+      price: 220.0, 
+      stored: 20, 
+      brand: 'FitSneakers', 
+      category: 'vestuário', 
+      thumbnail: 'https://underarmourbr.vtexassets.com/arquivos/ids/276146/3027500-001-01.jpg?v=638065491984000000', 
+      description: 'Tênis de treino com suporte ergonômico e solado antiderrapante. Oferece conforto e estabilidade durante atividades físicas intensas, ideal para corrida e treinos na academia.' 
+    },
+    { 
+      name: 'Bola de Ginástica', 
+      price: 40.0, 
+      stored: 45, 
+      brand: 'GymBall', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/710F10P3wnL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Bola de ginástica resistente e antideslizante, perfeita para exercícios de fortalecimento do core, alongamento e reabilitação. Inclui bomba para inflar facilmente.' 
+    },
+    { 
+      name: 'Halter 10kg', 
+      price: 70.0, 
+      stored: 15, 
+      brand: 'HeavyLift', 
+      category: 'equipamento', 
+      thumbnail: 'https://vollo.vtexassets.com/arquivos/ids/159403/VGC-H10-Halteres-Vollo-Imagem-02-1200px.jpg?v=638042818760370000', 
+      description: 'Halter de 10kg com acabamento ergonômico e durável. Ideal para treinos de força e resistência, proporcionando um ótimo suporte para exercícios de levantamento e musculação.' 
+    },
+    { 
+      name: 'Cadeira Extensora', 
+      price: 350.0, 
+      stored: 10, 
+      brand: 'LegExtender', 
+      category: 'equipamento', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/450774/cadeira_extensora_ultrawod_1276_1_6fe9b0394e79c1d4f21e13609cdfc85d.jpg', 
+      description: 'Cadeira extensora de alta qualidade para treinos de quadríceps. Equipamento ajustável e robusto, projetado para proporcionar conforto e eficiência durante os exercícios.' 
+    },
+    { 
+      name: 'Protetor Bucal', 
+      price: 20.0, 
+      stored: 75, 
+      brand: 'MouthGuard', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/71KgGb9sNYL.__AC_SX300_SY300_QL70_ML2_.jpg', 
+      description: 'Protetor bucal de alta proteção para esportes de contato. Feito de material flexível e durável, garante conforto e segurança durante atividades físicas intensas.' 
+    },
+    { 
+      name: 'Suplemento de Zinco', 
+      price: 45.0, 
+      stored: 55, 
+      brand: 'ZincBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://dooqle.com/pub/media/catalog/product/cache/5e70ae0b84b934aa046c948511aec3c8/p/r/protetor-bucal-shock-doctor-aparelho-odontologico-superior-single-braces-1.png', 
+      description: 'Suplemento de Zinco essencial para fortalecer o sistema imunológico e melhorar a saúde geral. Cada dose fornece a quantidade adequada de zinco para suporte nutricional.' 
+    },
+    { 
+      name: 'Camiseta Dry Fit', 
+      price: 35.0, 
+      stored: 40, 
+      brand: 'CoolWear', 
+      category: 'vestuário', 
+      thumbnail: 'https://img.ws.mms.shopee.com.br/6f7a103333857fb9a880f63ab4f10720', 
+      description: 'Camiseta Dry Fit com tecnologia de absorção de suor, ideal para manter-se seco e confortável durante os treinos. Feita de material leve e respirável.' 
+    },
+    { 
+      name: 'Calça Legging Fitness', 
+      price: 55.0, 
+      stored: 30, 
+      brand: 'FitLeg', 
+      category: 'vestuário', 
+      thumbnail: 'https://www.useange.com.br/app/assets/images/dinamica/produto/1430/cor_0/lg18229-calca-legging-fitness-be-you-110221-73abc2.jpg?1689599246', 
+      description: 'Calça legging fitness com ajuste perfeito e tecido elástico. Proporciona suporte e conforto durante atividades físicas, com design que valoriza o corpo e facilita a movimentação.' 
+    },
+    { 
+      name: 'Garrafão de Água 2L', 
+      price: 25.0, 
+      stored: 50, 
+      brand: 'HydroJug', 
+      category: 'acessório', 
+      thumbnail: 'https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/1053/galao-2litros-growth-supplements.png', 
+      description: 'Garrafão de água com capacidade de 2 litros, ideal para manter-se hidratado durante os treinos. Feito de plástico resistente e com tampa hermética para evitar vazamentos.' 
+    },
+    { 
+      name: 'Tapete de Yoga', 
+      price: 40.0, 
+      stored: 35, 
+      brand: 'YogaMat', 
+      category: 'acessório', 
+      thumbnail: 'https://d1fitness.com.br/cdn/shop/products/imagem-tapete-yoga-d1fitness_1024x1024.png?v=1695292486', 
+      description: 'Tapete de yoga antiderrapante com espessura ideal para conforto e estabilidade durante as posturas. Feito de material de alta qualidade e fácil de limpar.' 
+    },
+    { 
+      name: 'Agasalho de Treino', 
+      price: 80.0, 
+      stored: 25, 
+      brand: 'SportSet', 
+      category: 'vestuário', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/498725/agasalho_e_calca_de_treino_holanda_2021_conjunto_de_treino_8937_1_3409a20ca59a96852efc4cb95ae304e6.jpg', 
+      description: 'Agasalho de treino confortável e resistente, perfeito para aquecer antes e depois dos treinos. Feito com tecido leve e respirável para manter a temperatura ideal.' 
+    },
+    { 
+      name: 'Luvas de Musculação', 
+      price: 20.0, 
+      stored: 60, 
+      brand: 'GripGloves', 
+      category: 'acessório', 
+      thumbnail: 'https://m.media-amazon.com/images/I/51ztnAF3gAL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Luvas de musculação com suporte para os pulsos e material antideslizante. Oferece proteção e conforto durante os treinos de levantamento de peso e exercícios de força.' 
+    },
+    { 
+      name: 'Kit de Faixas Elásticas', 
+      price: 50.0, 
+      stored: 40, 
+      brand: 'BandSet', 
+      category: 'acessório', 
+      thumbnail: 'https://a-static.mlcdn.com.br/450x450/kit-5-faixas-elasticas-thera-band-com-5-niveis-exercicios-ab-midia/knimport/81-3/615478eea413e4134997cfb9b59e2b0f.jpeg', 
+      description: 'Kit de faixas elásticas com diferentes resistências para uma ampla gama de exercícios. Ideal para treinos de força, flexibilidade e reabilitação. Inclui bolsa para transporte.' 
+    },
+    { 
+      name: 'Monitor de Frequência Cardíaca', 
+      price: 120.0, 
+      stored: 15, 
+      brand: 'HeartTrack', 
+      category: 'acessório', 
+      thumbnail: 'https://d3qoj2c6mu9s8x.cloudfront.net/Custom/Content/Products/37/85/37851_monitor-polar-frequencia-cardiaca-rcx3m-preto_m1_636851338000280770.jpg', 
+      description: 'Monitor de frequência cardíaca com display fácil de ler e funções avançadas para monitorar seu desempenho durante os treinos. Compatível com aplicativos de fitness e atividades externas.' 
+    },
+    { 
+      name: 'Suplemento de Colágeno', 
+      price: 60.0, 
+      stored: 45, 
+      brand: 'CollagenPlus', 
+      category: 'suplemento', 
+      thumbnail: 'https://drogariasp.vteximg.com.br/arquivos/ids/634578-1000-1000/765147---Suplemento-Alimentar-Renova-Be-Colageno-com-acido-Hialuronico-216g-1.jpg?v=637873031609070000', 
+      description: 'Suplemento de colágeno para suporte à saúde das articulações, pele e cabelo. Cada dose contém colágeno hidrolisado para melhor absorção e eficácia.' 
+    },{ 
+      name: 'Elíptico', 
+      price: 700.0, 
+      stored: 5, 
+      brand: 'CardioStride', 
+      category: 'equipamento', 
+      thumbnail: 'https://http2.mlstatic.com/D_NQ_NP_923721-MLU72062911411_102023-O.webp', 
+      description: 'Elíptico com resistência ajustável e monitor de desempenho integrado. Ideal para treinos cardiovasculares de baixo impacto, proporcionando um exercício eficiente e confortável para todo o corpo.' 
+    },
+    { 
+      name: 'Rolo de Liberação Miofascial', 
+      price: 45.0, 
+      stored: 35, 
+      brand: 'MyofascialRoll', 
+      category: 'acessório', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/671591/rolo_de_massagem_liberacao_miofascial_texturizado_y_eva_pvc_33x14cm_09104_13827_1_71ba0037f30e4c11ca68477b39543961_20220519185509.jpg', 
+      description: 'Rolo de liberação miofascial para aliviar tensão muscular e melhorar a recuperação. Feito de material resistente com textura para massagem profunda, ideal para uso pós-treino.' 
+    },
+    { 
+      name: 'Kettlebell 8kg', 
+      price: 55.0, 
+      stored: 20, 
+      brand: 'KettlePower', 
+      category: 'equipamento', 
+      thumbnail: 'https://http2.mlstatic.com/D_NQ_NP_772017-MLU71708209014_092023-O.webp', 
+      description: 'Kettlebell de 8kg com design ergonômico para uma pegada confortável. Ideal para treinos de força, resistência e explosão, proporcionando um treino completo e eficiente.' 
+    },
+    { 
+      name: 'Tênis de Corrida', 
+      price: 130.0, 
+      stored: 22, 
+      brand: 'RunFast', 
+      category: 'vestuário', 
+      thumbnail: 'https://img.band.uol.com.br/image/2023/12/21/conheca-as-melhores-marcas-e-modelos-para-praticar-a-corrida-de-rua-181652_800x450.webp', 
+      description: 'Tênis de corrida com amortecimento avançado e solado antiderrapante. Oferece conforto e suporte durante a corrida, com design leve e respirável para melhor desempenho.' 
+    },
+    { 
+      name: 'Suplemento de Vitamina D', 
+      price: 40.0, 
+      stored: 50, 
+      brand: 'SunBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://www.gsuplementos.com.br/upload/produto/layout/176/vitamina-d-75caps-growth-supplements-v2.webp', 
+      description: 'Suplemento de vitamina D essencial para a saúde óssea e imunológica. Cada dose fornece a quantidade recomendada de vitamina D para suportar a saúde geral e bem-estar.' 
+    },
+    { 
+      name: 'BCAA 4:1:1', 
+      price: 130.0, 
+      stored: 55, 
+      brand: 'MaxRecovery', 
+      category: 'suplemento', 
+      thumbnail: 'https://blackskullusa.vtexassets.com/arquivos/ids/159084-800-auto?v=638458525257730000&width=800&height=auto&aspect=true', 
+      description: 'Suplemento BCAA com proporção 4:1:1 para recuperação muscular otimizada. Contém aminoácidos essenciais para suporte durante e após o treino, ajudando a reduzir a fadiga e acelerar a recuperação.' 
+    },
+    { 
+      name: 'Roda Abdominal', 
+      price: 35.0, 
+      stored: 30, 
+      brand: 'CoreRoller', 
+      category: 'equipamento', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/671591/roda_abdominal_wheel_stability_09076_5817_1_20220519183935.jpg', 
+      description: 'Roda abdominal para treinos eficazes de core. Possui empunhaduras antiderrapantes e um design robusto para garantir estabilidade e conforto durante os exercícios de fortalecimento do abdômen.' 
+    },
+    { 
+      name: 'Blender Portátil', 
+      price: 50.0, 
+      stored: 25, 
+      brand: 'BlendPro', 
+      category: 'acessório', 
+      thumbnail: 'https://zemelo.com.br/wp-content/uploads/2022/04/Linha-Oster-Liquidificador-Portatil-com-Autorizacao-do-inmetro-2-Copos-com-Tampa-Possui-acessorios-individuais-que-possam-ser-Trocados-Laminas-Tampas-Copos-Material-Livre-de-BPA-3.jpeg', 
+      description: 'Blender portátil compacto e eficiente para preparar shakes e smoothies. Com lâminas afiadas e bateria recarregável, é ideal para uso em casa ou na academia.' 
+    },
+    { 
+      name: 'Manguito de Compressão', 
+      price: 15.0, 
+      stored: 40, 
+      brand: 'CompFit', 
+      category: 'vestuário', 
+      thumbnail: 'https://acdn.mitiendanube.com/stores/001/867/184/products/380d7080a34e3954585cda4e9dd4ad50-e938b9193ac803bb0116778786588879-640-0.jpg', 
+      description: 'Manguito de compressão para suporte adicional e melhora na circulação sanguínea durante os treinos. Feito de material elástico e confortável, ideal para atividades de alta intensidade.' 
+    },
+    { 
+      name: 'Caneleira de Peso', 
+      price: 25.0, 
+      stored: 35, 
+      brand: 'WeightAnkle', 
+      category: 'acessório', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/450774/caneleiras_de_peso_12kg_ultrawod_par_905_1_10a3648daf1d16269729f1c27bdde805.jpg', 
+      description: 'Caneleira de peso ajustável para intensificar treinos de pernas e glúteos. Feita de material durável e confortável, com fechamento de velcro para ajuste seguro.' 
+    },
+    { 
+      name: 'Balança Digital', 
+      price: 60.0, 
+      stored: 20, 
+      brand: 'FitScale', 
+      category: 'acessório', 
+      thumbnail: 'https://casaevideonewio.vtexassets.com/arquivos/ids/193841/Balanca-Digital-de-Vidro-G-Tech-Glass10-com-Capacidade-de-150kg-1483498.jpg?v=636782294292770000', 
+      description: 'Balança digital com display LCD e capacidade para medir até 180kg. Fornece medições precisas de peso com design elegante e fácil de usar.' 
+    },
+    { 
+      name: 'Bola de Medicina 4kg', 
+      price: 45.0, 
+      stored: 30, 
+      brand: 'MedBall', 
+      category: 'equipamento', 
+      thumbnail: 'https://casadofitness.fbitsstatic.net/img/p/medicine-ball-starke-4kg-75191/261897-2.jpg?w=900&h=900&v=no-change&qs=ignore', 
+      description: 'Bola de medicina de 4kg para exercícios de força e explosão. Feita de material resistente com superfície texturizada para melhor aderência e durabilidade.' 
+    },
+    { 
+      name: 'Suplemento de Magnésio', 
+      price: 35.0, 
+      stored: 45, 
+      brand: 'MagBoost', 
+      category: 'suplemento', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/1224488/magnesio_forte_60_cap_dimalato_25mg_quelato_50mg_cloreto_25mg_11_1_0d7faf912969b93cc39472d8dd0eab51.jpg', 
+      description: 'Suplemento de magnésio para suportar a função muscular e nervosa. Cada dose contém a quantidade recomendada de magnésio para melhorar a recuperação e reduzir cãibras.' 
+    },
+    { 
+      name: 'Mochila de Treino', 
+      price: 80.0, 
+      stored: 25, 
+      brand: 'TrainPack', 
+      category: 'acessório', 
+      thumbnail: 'https://integralmedica.vtexassets.com/arquivos/ids/159072/mochilabattle.png?v=637436357808530000', 
+      description: 'Mochila de treino espaçosa e resistente com vários compartimentos. Ideal para transportar equipamentos e roupas de treino, com design ergonômico e confortável.' 
+    },
+    { 
+      name: 'Cadeira Abdominal', 
+      price: 90.0, 
+      stored: 10, 
+      brand: 'AbChair', 
+      category: 'equipamento', 
+      thumbnail: 'https://m.media-amazon.com/images/I/61AkIsIVsJL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Cadeira abdominal para treinos focados em fortalecimento do core. Equipamento robusto e ajustável, projetado para proporcionar suporte e conforto durante os exercícios.' 
+    },
+    { 
+      name: 'Calça Térmica', 
+      price: 60.0, 
+      stored: 20, 
+      brand: 'ThermoPants', 
+      category: 'vestuário', 
+      thumbnail: 'https://cdn.awsli.com.br/600x700/1725/1725094/produto/91746633/80cbd0a8c3.jpg', 
+      description: 'Calça térmica com tecnologia de isolamento para manter a temperatura corporal. Ideal para treinos ao ar livre em climas frios, feita de material leve e confortável.' 
+    },
+    { 
+      name: 'Bicicleta Ergométrica', 
+      price: 500.0, 
+      stored: 8, 
+      brand: 'ErgoBike', 
+      category: 'equipamento', 
+      thumbnail: 'https://m.media-amazon.com/images/I/61EYaGP-bTL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Bicicleta ergométrica com resistência ajustável e monitor de desempenho. Ideal para treinos cardiovasculares, proporcionando um exercício eficiente e baixo impacto.' 
+    },
+    { 
+      name: 'Suplemento Multivitamínico', 
+      price: 65.0, 
+      stored: 60, 
+      brand: 'VitaMax', 
+      category: 'suplemento', 
+      thumbnail: 'https://m.media-amazon.com/images/I/518-wkOsZDL._AC_UF1000,1000_QL80_.jpg', 
+      description: 'Suplemento multivitamínico completo para suportar a saúde geral. Cada dose fornece uma combinação equilibrada de vitaminas e minerais essenciais para o bem-estar diário.' 
+    },
+    { 
+      name: 'Protetor de Pulso', 
+      price: 20.0, 
+      stored: 55, 
+      brand: 'WristGuard', 
+      category: 'acessório', 
+      thumbnail: 'https://acdn.mitiendanube.com/stores/001/118/077/products/design-sem-nome-681-fd47a520bd9498111716304182574939-1024-1024.png', 
+      description: 'Protetor de pulso com suporte e acolchoamento para proteção durante atividades de alta intensidade. Ideal para esportes e treinos que exigem suporte adicional para os pulsos.' 
+    },
+    { 
+      name: 'Creatina Hardcore', 
+      price: 55.0, 
+      stored: 70, 
+      brand: 'CreatinePower', 
+      category: 'suplemento', 
+      thumbnail: 'https://dw0jruhdg6fis.cloudfront.net/producao/31440372/G/cratina_150g.png', 
+      description: 'Pó de creatina para aumento de força e desempenho. Cada dose fornece creatina de alta pureza para melhorar a potência muscular e acelerar a recuperação.' 
+    }    
+  ];
+
+  for (const product of products) {
+    await prisma.product.create({
+      data: product
+    });
+  }
+
+  
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const purchases = [];
+  
+  // Iterar sobre todos os clientes (IDs de 1 a 200)
+  for (let clientId = 1; clientId <= 200; clientId++) {
+    // Selecionar um número aleatório de produtos para o cliente (entre 1 e 50)
+    const numberOfProducts = getRandomInt(1, 60); 
+
+    for (let i = 0; i < numberOfProducts; i++) {
+      // Selecionar um produto aleatório (IDs de 1 a 50)
+      const productId = getRandomInt(1, 50); 
+      // Quantidade comprada aleatória (entre 1 e 10)
+      const quantity = getRandomInt(1, 10); 
+
+      // Adicionar a compra à lista
+      purchases.push({
+        clientId: clientId,
+        productId: productId,
+        qtd_saled: quantity,
+        createdAt: new Date()
+      });
+    }
+  }
+
+  // Inserir compras na tabela
+  await prisma.purchase.createMany({
+    data: purchases
+  });
   
 }
 
