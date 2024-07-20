@@ -12,43 +12,59 @@ const AsideLeft = () => {
             <h3>Usuário</h3>
             <AsideLeftWithBorder>
               <ul>
-                <li>
-                  <img src="ico_profile_1.png" alt="About" />                  
-                  Perfil.
-                </li>
-                <li>
-                  <img src="ico_about_black.png" alt="About" />                  
-                  Perguntas frequentes.
-                </li>
-                <li>
-                  <img src="config_black.png" alt="About" />                  
-                  Configurações.
-                </li>
-                <li>
-                  <img src="ico_contact_black.png" alt="About" />                  
-                  Cartões de acesso.
-                </li>
-                <li className='verMais'>ver mais</li>
+                <Link to='/perfil'>
+                  <li>
+                    <img src="ico_profile_1.png" alt="About" />                  
+                    Perfil.
+                  </li>
+                </Link>
+                <Link to='/faq'>
+                  <li>
+                    <img src="ico_about_black.png" alt="About" />                  
+                    Perguntas frequentes.
+                  </li>
+                </Link>
+                <Link to='/config'>
+                  <li>
+                    <img src="config_black.png" alt="About" />                  
+                    Configurações.
+                  </li>
+                </Link>
+                <Link to='/cards'>
+                  <li>
+                    <img src="ico_contact_black.png" alt="About" />                  
+                    Cartões de acesso.
+                  </li>
+                </Link>
+                <Link to='/user_menu'><li className='verMais'>ver mais</li></Link>
               </ul>
               <h3>Geral</h3>
               <ul>
-                <li>
-                  <img src="pngwing.com.png" alt="About" />                  
-                  Shopping XYZ.
-                </li>
-                <li>
-                  <img src="reset.png" alt="About" />                  
-                  Atualizar dados.
-                </li>
-                <li>
-                  <img src="ico_home_black.png" alt="About" />                  
-                  Endereços XYZ.
-                </li>
-                <li>
-                  <img src="ico_project_black.png" alt="About" />                  
-                  Estátisticas.
-                </li>
-                <li className='verMais'>ver mais</li>
+                <Link to='/shop'>
+                  <li>
+                    <img src="pngwing.com.png" alt="About" />                  
+                    Shopping XYZ.
+                  </li>
+                </Link>
+                <Link to='/update'>
+                  <li>
+                    <img src="reset.png" alt="About" />                  
+                    Atualizar dados.
+                  </li>
+                </Link>
+                <Link to='/address'>
+                  <li>
+                    <img src="ico_home_black.png" alt="About" />                  
+                    Endereços XYZ.
+                  </li>
+                </Link>
+                <Link to='/statistic'>
+                  <li>
+                    <img src="ico_project_black.png" alt="About" />                  
+                    Estátisticas.
+                  </li>
+                </Link>
+                <Link to='/general_menu'><li className='verMais'>ver mais</li></Link>
               </ul>
             </AsideLeftWithBorder>
           </div>

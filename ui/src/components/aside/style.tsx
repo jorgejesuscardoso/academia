@@ -57,17 +57,19 @@ export const AsideLeftContent = styled.div`
   gap: 10px;
 
   h3 {
-  border-top:1px solid #6b5c37;
-  border-bottom:1px solid #6b5c37;
-  color: #6b5c37;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 0;
-  padding: 2px;
+    border-top:1px solid #6b5c37;
+    border-bottom:1px solid #6b5c37;
+    color: #6b5c37;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0;
+    padding: 2px;
   }
 
   h3.video {
+    text-align: center;
+    width: 100%;
     background-color: #6b5c37;
     border-radius: 0.35rem;
     border: 1px solid transparent;
@@ -75,6 +77,8 @@ export const AsideLeftContent = styled.div`
     transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
 
     a {
+      display: flex;
+      width: 100%;
       color: #fff !important;
     }
 
@@ -83,6 +87,7 @@ export const AsideLeftContent = styled.div`
       border: 1px solid #6b5c37;
 
       a {
+        width: 100%;
         color: #6b5c37 !important;
       }
     }
@@ -102,14 +107,13 @@ export const AsideLeftContent = styled.div`
     width: 100%;
     list-style: none;
     padding: 1rem;
-    gap: 0.75rem;
 
     li {
       display: flex;
       align-items: center;
       color: #00366d;
       cursor: pointer;
-      width: 80%;
+      width: 100%;
       margin-left: 2rem;
       gap: 1rem;
 
@@ -128,11 +132,10 @@ export const AsideLeftContent = styled.div`
   li.verMais {
     display: inline-block;
     border: 1px solid #cf980b;
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
     padding: 3px;
     margin-top: 10px;
-    text-align: center;
     font-weight: bold;
     border-radius: 5px;
     color: #b48100;
@@ -154,6 +157,7 @@ export const AsideLeftContent = styled.div`
   }
 
   a {
+    width: 100%;
     color: #fff !important;
     text-decoration: none;
   }

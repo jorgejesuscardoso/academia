@@ -54,6 +54,21 @@ export const updateUser = async (user: any) => {
   }
 }
 
+export const SendPhoto = async (formData: FormData, id: number) => {
+  try {
+    const response = await fetch(`${URL}/foto/${id}`, {
+      method: 'POST',
+      body: formData
+    });
+    
+    const data = await response.json()
+    return data;
+
+  } catch (error) {
+    console.error('Error sending photo', error);
+  }
+};
+
 export const deleteUser = async (id: number) => {
   try {
     const response = await fetch(`${URL}/${id}`, {

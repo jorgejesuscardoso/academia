@@ -113,6 +113,14 @@ const Home = () => {
 
     try {
 
+      Swal.fire({
+        icon: 'info',
+        title: 'Criando publicação...',
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      });
+
       const newPub = await criarPublicacao(data);
       
       setNewPublication({
@@ -125,6 +133,15 @@ const Home = () => {
       setImage(null);
 
       GetFeed();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Feito!',
+        text: 'Publicação criada com sucesso!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       return newPub;
 
     } catch (error) {
@@ -139,6 +156,7 @@ const Home = () => {
   };
 
   const handleNewEvent = async () => {
+
     const storedUser = GetLocalStorage('user');
     if (newPublication.titulo === '' || newData.data === '') {
       Swal.fire({
@@ -161,8 +179,16 @@ const Home = () => {
     formData.append('imagem', image);
 
     try {
-      const datas = await createEvento(formData);
-      console.log(datas);
+      Swal.fire({
+        icon: 'info',
+        title: 'Criando evento...',
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      
+      await createEvento(formData);
+      
       setNewPublication({
         titulo: '',
         conteudo: '',
@@ -174,6 +200,14 @@ const Home = () => {
       });
 
       GetFeed();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Feito!',
+        text: 'Evento criado com sucesso!',
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -207,6 +241,13 @@ const Home = () => {
     formData.append('imagem', image);
 
     try {
+      Swal.fire({
+        icon: 'info',
+        title: 'Criando lembrete...',
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      });
       await createLembrete(formData);
 
       setNewPublication({

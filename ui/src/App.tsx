@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import LayOut from './components/layout/LayOut';
-import Login from './pages/login/Login';
 import { Client } from './pages/client/Client';
 import CadastroDeClientes from './pages/client/CadastroDeCliente';
 import Planos from './pages/plans/Planos';
@@ -10,6 +9,9 @@ import Instrutores from './pages/instrutores/Instrutores';
 import Usuarios from './pages/users/Usuarios';
 import CadastroDeInstrutores from './components/tables/list-instrutores/CadastroDeInstrutores';
 import CadastrarUsuario from './components/tables/list-usuario/Cadastrar';
+import Perfil from './pages/perfil/perfil';
+import Login from './pages/login/Login';
+import NotFound from './pages/notfound/NotFound';
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
       <Route path="/" element={ <Login /> } />
       <Route element={<LayOut />} >
         <Route path='/home' element={<Home />} />
+        <Route path='/perfil' element={<Perfil />} />
 
         <Route path="/clientes" element={<Client />} />
         <Route path="/clientes/cadastro" element={ <CadastroDeClientes /> } />
@@ -30,6 +33,8 @@ function App() {
 
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/usuarios/cadastro" element={<CadastrarUsuario />} />
+
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

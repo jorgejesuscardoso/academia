@@ -17,6 +17,7 @@ model User {
   senha    String
   turno    String
   role     String
+  foto     String?
   lembretes Lembrete[]
   eventos   Evento[]
   publicacoes Publicacao[]

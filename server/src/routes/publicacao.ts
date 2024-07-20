@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import PublicacaoController from '../controllers/publicacao/PublicacaoController';
 import multer = require('multer');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs'); 
 
 const express = require('express');
 

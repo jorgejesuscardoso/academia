@@ -39,6 +39,20 @@ class AuthService {
     return newUser;
   }
 
+  async sendPhoto(id: number, foto: string) {
+
+    const user = await this.prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        foto,
+      },
+    });
+
+    return user;
+  }
+
   async getUserToLogin(data: { username: string, senha: string }) {
     const username = data.username.toLowerCase();
 

@@ -12,4 +12,5 @@ export interface UserDTO {
   senha: string;
   turno: string;
   role: string;
+  foto?: string;
 }

@@ -24,6 +24,22 @@ class AuthController {
     return res.status(200).json(hasUser);
   }
 
+  async foto(req: Request, res: Response) {
+    const id = req.params.id;
+    const fotos = req.file;
+    const hasUser = await this.user.getUserById(+id);
+
+    const foto = fotos && fotos.path ? fotos.filename : null;
+    
+    if (!hasUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    const user = await this.user.sendPhoto(+id, String(foto));
+
+    return res.status(200).json(user);
+  };
+
   async register(req: Request, res: Response) {
     const data = req.body;
     if (!data) {
