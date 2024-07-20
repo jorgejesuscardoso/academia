@@ -11,7 +11,7 @@
     "build": "tsc -p .",
     "electron": "electron .",
     "migrate": "cd server && cd src && npx prisma migrate dev --name init",
-    "db:reset": "cd server && cd src && npx prisma db push --force-reset && node seeders/initial.ts",
+    "db:reset": "cd server && cd src && npx prisma db push --force-reset && ts-node seeders/initial.ts",
     "pkg-win": "pkg . -t node18-win-x64 -o start.exe",
     "package-mac": "pkg . -t node18-macos-x64 -o dist/academia",
     "package-linux": "pkg . -t node18-linux-x64 -o dist/academia"
