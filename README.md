@@ -20,85 +20,126 @@ Este repositório contém o código-fonte para o backend da Academia XYZ. O back
 5. Inicie o backend: `npm start`
 6. O backend estará disponível em `http://localhost:3030`
 
-
 ## Esquema do Banco de Dados
 
-O banco de dados utilizado pela Academia `XYZ` possui varias tabelas.
-1. **cliente:** Armazena os dados dos alunos da academia.
-2. **instrutor:** Armazena os dados dos personal(instrutores) da academia.
-3. **planos:** Armazena os dados de todos os planos fornecido pela academia.
-4. **usuario:** Armazena os dados dos usuários do sistema.
-5. **store:** Armazena os dados dos produtos vendidos na academia.
-6. **publicacao:** Armazena as publicações feita por um usuário do sistema.
-7. **eventos:** Armazena todos os eventos postado por um usuário do sistema.
-8. **lembretes:** Armazena todos os lembretes criado por um usuário do sistema(Apenas os usuarios de alto nivel(roles: admin, gerente, funcionarios), tem acesso.
+O banco de dados utilizado pela Academia XYZ possui várias tabelas:
 
-   Em breve sera feita um feat para que todos os clientes tenha um acesso ao sistema e possa ver essas publicações e eventos.
+1. **cliente**: Armazena os dados dos alunos da academia.
+2. **instrutor**: Armazena os dados dos instrutores da academia.
+3. **plano**: Armazena os dados dos planos oferecidos pela academia.
+4. **usuario**: Armazena os dados dos usuários do sistema.
+5. **produto**: Armazena os dados dos produtos vendidos na academia.
+6. **publicacao**: Armazena as publicações feitas por usuários do sistema.
+7. **evento**: Armazena todos os eventos postados por usuários do sistema.
+8. **lembrete**: Armazena todos os lembretes criados por usuários do sistema (apenas usuários de alto nível, como admin, gerente e funcionários, têm acesso).
 
-### Tabela: Cliente
-
-- **id_cliente** (INT, PK): Identificador único do cliente.
-- **nome** (VARCHAR): Nome do cliente.
-- **email** (VARCHAR): Endereço de email do cliente.
-- **telefone** (VARCHAR): Número de telefone do cliente.
-- **data_matricula** (DATE): Data de matrícula do cliente na academia.
-- **data_vencimento** (DATE): Data de vencimento do plano do cliente.
-- **data_nascimento** (DATE): Data de nascimento do cliente.
-- **endereco** (VARCHAR): Endereço do cliente.
-
-### Tabela: Instrutor
-
-- **id_instrutor** (INT, PK): Identificador único do instrutor.
-- **nome** (VARCHAR): Nome do instrutor.
-- **email** (VARCHAR): Endereço de email do instrutor.
-- **telefone** (VARCHAR): Número de telefone do instrutor.
-
-## Relacionamentos
-
-Não há relacionamentos entre as tabelas Cliente e Instrutor neste esquema.
+Em breve, será implementada uma funcionalidade para que todos os clientes possam acessar o sistema e visualizar publicações e eventos.
 
 ## SQL
 
 ```sql
+CREATE TABLE User (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    telefone VARCHAR(255),
+    username VARCHAR(255),
+    senha VARCHAR(255) NOT NULL,
+    turno VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    foto VARCHAR(255),
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Lembrete (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    data DATETIME NOT NULL,
+    conteudo TEXT NOT NULL,
+    concluido BOOLEAN NOT NULL,
+    imagem VARCHAR(255),
+    usuarioId INTEGER NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updatedBy VARCHAR(255),
+    FOREIGN KEY (usuarioId) REFERENCES User(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Evento (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    conteudo TEXT NOT NULL,
+    imagem VARCHAR(255),
+    usuarioId INTEGER NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updatedBy VARCHAR(255),
+    FOREIGN KEY (usuarioId) REFERENCES User(id)
+);
+
+CREATE TABLE Publicacao (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    conteudo TEXT NOT NULL,
+    usuarioId INTEGER NOT NULL,
+    imagem VARCHAR(255),
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updatedBy VARCHAR(255),
+    FOREIGN KEY (usuarioId) REFERENCES User(id)
+);
+
+
 CREATE TABLE Cliente (
-    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    telefone VARCHAR(20),
-    data_matricula DATE NOT NULL,
-    data_vencimento DATE NOT NULL,
-    data_nascimento DATE,
-    endereco VARCHAR(200)
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    telefone VARCHAR(255),
+    dataNascimento DATETIME NOT NULL,
+    dataInicio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    vencimento DATETIME,
+    status VARCHAR(255) DEFAULT 'Ativo',
+    planoId INTEGER NOT NULL,
+    FOREIGN KEY (planoId) REFERENCES Plano(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Instrutor (
-    id_instrutor INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    telefone VARCHAR(20),
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    telefone VARCHAR(255),
+    turno VARCHAR(255) NOT NULL
 );
-```
 
-## Funcionamento das APIs
+CREATE TABLE Plano (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(255) UNIQUE NOT NULL,
+    valor FLOAT NOT NULL,
+    descricao TEXT
+);
 
-O backend da Academia `XYZ` possui as seguintes APIs:
+CREATE TABLE Product (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL,
+    price FLOAT NOT NULL,
+    stored INTEGER NOT NULL,
+    brand VARCHAR(255),
+    category VARCHAR(255),
+    thumbnail VARCHAR(255),
+    description TEXT
+);
 
-### Clientes
+CREATE TABLE Purchase (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    clientId INTEGER NOT NULL,
+    productId INTEGER NOT NULL,
+    qtd_saled INTEGER NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (clientId) REFERENCES Cliente(id),
+    FOREIGN KEY (productId) REFERENCES Product(id)
+);
 
-- **POST /clientes**: Cria um novo cliente com os dados fornecidos.
-- **GET /clientes**: Retorna a lista de todos os clientes cadastrados.
-- **GET /clientes/{id}**: Retorna os detalhes de um cliente específico.
-- **PUT /clientes/{id}**: Atualiza os dados de um cliente específico.
-- **DELETE /clientes/{id}**: Remove um cliente específico do banco de dados.
-
-### Instrutores
-
-- **POST /instrutores**: Cria um novo instrutor com os dados fornecidos.
-- **GET /instrutores**: Retorna a lista de todos os instrutores cadastrados.
-- **GET /instrutores/{id}**: Retorna os detalhes de um instrutor específico.
-- **PUT /instrutores/{id}**: Atualiza os dados de um instrutor específico.
-- **DELETE /instrutores/{id}**: Remove um instrutor específico do banco de dados.
-
-## Swagger
-
-A documentação completa das APIs pode ser acessada através do Swagger em `http://localhost:3030/docs`.
