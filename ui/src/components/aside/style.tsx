@@ -128,25 +128,7 @@ export const AsideLeftContent = styled.div`
       }
     }
   }
-    
-  li.verMais {
-    display: inline-block;
-    border: 1px solid #cf980b;
-    width: 100%;
-    margin: 0 auto;
-    padding: 3px;
-    margin-top: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    color: #b48100;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #aa8118;
-      color: #ffffff;
-    }
-  }
-
+  
   div {
     display: flex;
     flex-direction: column;

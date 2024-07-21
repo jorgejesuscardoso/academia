@@ -119,10 +119,13 @@ export const ProductCard = styled.div`
     border: none;
     border-radius: 5px;
     background-color: #00af17;
+    border: 1px solid transparent;
     cursor: pointer;
 
     &:hover {
-      background-color: #00970a;
+      background-color: #fff;
+      color: #00970a;
+      border: 1px solid #00970a;
     }
 
     &:active {

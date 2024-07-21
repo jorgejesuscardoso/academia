@@ -36,14 +36,19 @@ const AsideLeft = () => {
                     Cartões de acesso.
                   </li>
                 </Link>
-                <Link to='/user_menu'><li className='verMais'>ver mais</li></Link>
+                <Link to='/logout'>
+                  <li>
+                    <img src="escuro.png" alt="About" />                  
+                    Sair.
+                  </li>
+                </Link>
               </ul>
               <h3>Geral</h3>
               <ul>
                 <Link to='/shop'>
                   <li>
                     <img src="cart.png" alt="About" />                  
-                    Shopping XYZ.
+                    Shopping - XYZ.
                   </li>
                 </Link>
                 <Link to='/update'>
@@ -64,13 +69,18 @@ const AsideLeft = () => {
                     Estátisticas.
                   </li>
                 </Link>
-                <Link to='/general_menu'><li className='verMais'>ver mais</li></Link>
+                <Link to='/about'>
+                  <li>
+                    <img src="ico_about_black.png" alt="About" />                  
+                    Sobre.
+                  </li>
+                </Link>
               </ul>
             </AsideLeftWithBorder>
           </div>
         </div>
         <div>
-          <h3 className='video'><Link to='/videos'>Últimos vídeos</Link></h3>
+          <h4>Assista ao vídeo</h4>
           <iframe
             src="https://www.youtube.com/embed/VJSJiMFcVQ8?si=__rwlQqL3HR5mRKQ"
             allowFullScreen
