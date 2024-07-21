@@ -3553,7 +3553,7 @@ async function main() {
       stored: 55, 
       brand: 'ZincBoost', 
       category: 'suplemento', 
-      thumbnail: 'https://dooqle.com/pub/media/catalog/product/cache/5e70ae0b84b934aa046c948511aec3c8/p/r/protetor-bucal-shock-doctor-aparelho-odontologico-superior-single-braces-1.png', 
+      thumbnail: 'https://images.tcdn.com.br/img/img_prod/461120/zma_zinco_magnesio_vitamina_b6_60_capsulas_naturesnow_11359_1_d802f4ef5385b3c9d570545d732f2d92.jpg', 
       description: 'Suplemento de Zinco essencial para fortalecer o sistema imunológico e melhorar a saúde geral. Cada dose fornece a quantidade adequada de zinco para suporte nutricional.' 
     },
     { 

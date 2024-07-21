@@ -27,9 +27,18 @@ export const Content = styled.div`
   height: 82.8vh;
   width: 64%;
   overflow-y: auto;
+  overflow-x: hidden;
 
   h1 {
     margin: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 100%;
   }
 `;
 
@@ -40,6 +49,11 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   width: 95%;
   margin: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ProductCard = styled.div`
@@ -54,6 +68,7 @@ export const ProductCard = styled.div`
   padding: 1rem;
   height: 30rem;
   width: 24%;
+  max-width: 300px;
 
   h3 {
     text-align: center;
@@ -71,6 +86,7 @@ export const ProductCard = styled.div`
 
   img {
     width: 10rem;
+    max-width: 200px;
     height: 10rem;
     object-fit: cover;
   }
@@ -95,6 +111,18 @@ export const ProductCard = styled.div`
   }
   span {
     margin-top: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 48%;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    width: 30%;
   }
 `;
 
@@ -122,6 +150,10 @@ export const PageButtonContainer = styled.div`
       color: #ffffff;
       border: 1px solid #c4c4c4;
     }
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 `;
 

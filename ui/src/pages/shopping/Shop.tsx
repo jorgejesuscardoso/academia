@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AsideLeft from '../../components/aside/AsideLeft';
 import AsideRight from '../../components/aside/AsideRight';
 import { Container, Content, CardContainer, ProductCard, SpanShop, PageButton, PageButtonContainer } from './styled';
@@ -15,6 +15,7 @@ type Product = {
 };
 
 export const Shop = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [pagination, setPagination] = useState({
     page: 1,
@@ -29,13 +30,19 @@ export const Shop = () => {
 
     fetchProducts();
   }, [pagination]);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo(0, 0);
+    }
+  }, [products]);
   
   return (
     <Container>
         <SpanShop>
           Exibindo: {products.length} produtos.
         </SpanShop>
-      <Content>
+      <Content ref={contentRef}>
         <CardContainer>
           {products.map((product) => (
             <ProductCard key={product.id}>

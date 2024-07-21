@@ -322,6 +322,7 @@ const Navbar = () => {
           onMouseLeave={() => setFloatMenuNav(false)}
         >
           <ul className="float-menu">
+            <Link to="/shop"><li>Loja - XYZ</li></Link>
             <Link to="/home"><li>Home</li></Link>
             <Link to="/planos"><li>Planos</li></Link>
             <Link to="/clientes"><li>Clientes</li></Link>
