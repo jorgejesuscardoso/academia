@@ -1,16 +1,22 @@
 # Documentação do Backend da Academia XYZ
+
 **Status:** Em desenvolvimento.
-**Feating:** Paginas de suporte, perfil de usuário, implementação do gateway para compras online, carrinho de compras e FAQ.
-  
-Este repositório contém o código-fonte para o backend da Academia XYZ. O backend foi desenvolvido utilizando TypeScript e NodeJs com banco de dados SQLite com ORM Prisma e fornece APIs para gerenciar clientes, instrutores e suas interações com o sistema de academia.
+
+**Funcionalidades Futuras:** Páginas de suporte, perfil de usuário, implementação do gateway para compras online, carrinho de compras e FAQ.
+
+Este repositório contém o código-fonte para o backend da Academia XYZ. O backend foi desenvolvido utilizando TypeScript e Node.js, com banco de dados SQLite e ORM Prisma. Este backend oferece APIs para gerenciar clientes, instrutores, planos, produtos e interações diversas dentro do sistema da academia.
+
+### Objetivo do Projeto
+
+O objetivo principal deste backend é fornecer uma interface robusta e eficiente para a gestão dos diversos aspectos do sistema da academia, incluindo o gerenciamento de clientes, instrutores e produtos, além de permitir a criação e visualização de eventos, publicações e lembretes.
 
 ## Deployment
 
-- **Frontend**: O frontend deste projeto está hospedado no Netlify. Você pode acessá-lo [aqui](https://academiaxyz.netlify.app). Utilize as seguintes credenciais para acessar a área de testes:
-  - **Username**: visitante
-  - **Senha**: senhaVisitante
+- **Frontend:** O frontend deste projeto está hospedado no Netlify. Você pode acessá-lo [aqui](https://academiaxyz.netlify.app). Utilize as seguintes credenciais para acessar a área de testes:
+  - **Username:** visitante
+  - **Senha:** senhaVisitante
 
-- **Backend**: O backend está atualmente hospedado no Railway. No entanto, o deploy será desligado em breve, 01/08/2024. Para continuar testando o projeto se o servidor estiver offline, siga as instruções abaixo para rodar o backend localmente.
+- **Backend:** O backend está atualmente hospedado no Railway. No entanto, o deploy será desligado em breve, 01/08/2024. Para continuar testando o projeto, caso o servidor esteja offline, você pode rodar o backend localmente seguindo as instruções abaixo.
 
 ## Rodando o Backend Localmente
 
@@ -20,6 +26,7 @@ Este repositório contém o código-fonte para o backend da Academia XYZ. O back
 4. Configure as variáveis de ambiente conforme descrito na seção de configuração.
 5. Inicie o backend: `npm start`
 6. O backend estará disponível em `http://localhost:3030`
+
 
 ## Esquema do Banco de Dados
 
