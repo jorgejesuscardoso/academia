@@ -11,6 +11,19 @@ export const HeaderContainer = styled.header`
   padding: 0 20px;
   color: #fff;
   z-index: 100;
+
+  a.cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 30px;
+    cursor: pointer;
+
+    img {
+      width: 100%;    
+    }
+  }
 `;
 
 export const Nav = styled.nav`

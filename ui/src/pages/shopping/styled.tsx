@@ -50,8 +50,13 @@ export const CardContainer = styled.div`
   width: 95%;
   margin: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    flex-direction: row;
     align-items: center;
   }
 `;
@@ -66,28 +71,35 @@ export const ProductCard = styled.div`
   margin-bottom: 1rem;
   border-radius: 5px;
   padding: 1rem;
-  height: 30rem;
-  width: 24%;
-  max-width: 300px;
+  height: 20rem;
+  width: 20%;
+  max-width: 185px;
 
   h3 {
     text-align: center;
-  }
-
-  p {
-    margin: 0.2rem;
-  }
-
-  p.descript {
-    text-align: justify;
-    margin: 0.2rem;
     font-size: 0.8rem;
   }
 
+  p {
+    font-size: 0.8rem;
+  }
+
+  p.descript {
+    display: block;
+    text-align: justify;
+    margin: 0.2rem;
+    font-size: 0.75rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
+
   img {
-    width: 10rem;
-    max-width: 200px;
-    height: 10rem;
+    width: 50%;
+    max-width: 150px;
     object-fit: cover;
   }
 
@@ -113,8 +125,15 @@ export const ProductCard = styled.div`
     margin-top: 0.3rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     width: 90%;
+    max-width: 90%;
+    height: 25rem;
+  }
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: 47%;
+    max-width: 90%;
+    height: 25rem;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {

@@ -262,6 +262,7 @@ const Navbar = () => {
           </button>
         </SearchForm>
 
+          <Link to="/cart" className='cart'><img src="cart_white.png" alt="carrinho de compras" /></Link>
         <ul>
           <Link to="/home">
             <li className={params === 'home' ? 'active' : ''}>Home</li>
@@ -323,6 +324,7 @@ const Navbar = () => {
         >
           <ul className="float-menu">
             <Link to="/shop"><li>Loja - XYZ</li></Link>
+            <Link to="/cart"><li>Carrinho</li></Link>
             <Link to="/home"><li>Home</li></Link>
             <Link to="/planos"><li>Planos</li></Link>
             <Link to="/clientes"><li>Clientes</li></Link>

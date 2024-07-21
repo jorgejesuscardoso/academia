@@ -42,7 +42,7 @@ const AsideLeft = () => {
               <ul>
                 <Link to='/shop'>
                   <li>
-                    <img src="pngwing.com.png" alt="About" />                  
+                    <img src="cart.png" alt="About" />                  
                     Shopping XYZ.
                   </li>
                 </Link>
