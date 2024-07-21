@@ -93,14 +93,22 @@ export const ProductCard = styled.div`
     overflow-x: hidden;
 
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 0px;
     }
   }
 
+  p.price {
+    color: #03539e;
+    margin: 0.5rem;
+    font-weight: bold;
+  }
+
   img {
-    width: 50%;
-    max-width: 150px;
-    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    margin: 0.5rem;
+    transition: transform 0.5s;
+    cursor: zoom-in;
   }
 
   button {
