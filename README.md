@@ -1,10 +1,10 @@
-# Documentação do Backend da Academia XYZ
+# Documentação do Projeto da Academia XYZ
 
 **Status:** Em desenvolvimento.
 
 **Funcionalidades Futuras:** Páginas de suporte, perfil de usuário, implementação do gateway para compras online, carrinho de compras e FAQ.
 
-Este repositório contém o código-fonte para o backend da Academia XYZ. O backend foi desenvolvido utilizando TypeScript e Node.js, com banco de dados SQLite e ORM Prisma. Este backend oferece APIs para gerenciar clientes, instrutores, planos, produtos e interações diversas dentro do sistema da academia.
+Este repositório contém o código-fonte para o backend e o frontend da Academia XYZ. O backend foi desenvolvido utilizando TypeScript e Node.js, com banco de dados SQLite e ORM Prisma. Ele fornece APIs para gerenciar clientes, instrutores, planos, produtos e interações diversas dentro do sistema da academia.
 
 ### Objetivo do Projeto
 
@@ -16,16 +16,37 @@ O objetivo principal deste backend é fornecer uma interface robusta e eficiente
   - **Username:** visitante
   - **Senha:** senhaVisitante
 
-- **Backend:** O backend está atualmente hospedado no Railway. No entanto, o deploy será desligado em breve, 01/08/2024. Para continuar testando o projeto, caso o servidor esteja offline, você pode rodar o backend localmente seguindo as instruções abaixo.
+  O acesso ao frontend será limitado, não permitindo operações de CRUD nos dados de teste, registro de novos usuários ou modificação de usuários existentes.
+
+  Os dados exibidos na interface do projeto são fictícios e foram gerados por IA (Copilot, Amazon Q Developer, GPT-3). As imagens e ícones utilizados foram obtidos de fontes como `https://icons8.com.br/`, `https://www.shutterstock.com/`, `https://pixabay.com` e `https://br.pexels.com`. Se você encontrar alguma imagem ou ícone de sua autoria e não autorizou o uso, por favor, entre em contato pelo e-mail: `bushido.devlab@gmail.com`. Após confirmação dos direitos autorais, farei a remoção no prazo de 24 horas.
+
+- **Backend:** O backend está atualmente hospedado no Railway. No entanto, o deploy será desligado em breve, no dia 01/08/2024. Para continuar testando o projeto, caso o servidor esteja offline, você pode rodar o backend localmente seguindo as instruções abaixo.
 
 ## Rodando o Backend Localmente
 
 1. Clone este repositório: `git clone <url-do-repositorio>`
-2. Navegue até a pasta do backend: `cd backend`
+2. Navegue até a pasta do backend: `cd server`
 3. Instale as dependências: `npm install`
-4. Configure as variáveis de ambiente conforme descrito na seção de configuração.
-5. Inicie o backend: `npm start`
-6. O backend estará disponível em `http://localhost:3030`
+4. Inicie o backend: `npm start`
+5. O backend estará disponível em `http://localhost:3030`
+
+## Rodando o Frontend Localmente
+
+1. Clone este repositório: `git clone <url-do-repositorio>`, ignore esta etapa se já tiver feito para o backend.
+2. Navegue até a pasta do frontend: `cd ui`, se estiver na pasta do backend, use `cd .. && cd ui`.
+3. Instale as dependências: `npm install`
+4. Inicie o frontend: `npm run dev`
+5. O frontend estará disponível em `http://localhost:5050`. Caso o seu navegador padrão não abra automaticamente, provavelmente isso ocorreu devido a algumas configurações para rodar offline no Windows. Abra o seu navegador e digite a URL manualmente.
+
+## Opção para Rodar no Windows com Instalador do Projeto (.exe)
+
+1. Clone este repositório: `git clone <url-do-repositorio>`, ignore esta etapa se já tiver feito para o backend.
+2. Procure pelo instalador: `GymManagerInstaller.exe`.
+3. Execute o instalador e escolha o local de instalação de sua preferência; por padrão, é instalado em `C:`.
+4. Procure pelo ícone do projeto na sua tela inicial; ele terá o nome `GymManager`.
+5. Dê dois cliques no ícone e divirta-se.
+
+   O programa irá rodar localmente o backend e o frontend do projeto sem a necessidade de instalar nenhuma dependência, pois tudo está incluso no instalador (`GymManagerInstaller.exe`). Também será possível acessar o projeto pelo navegador através das URLs: frontend (ui): `http://localhost:5050` e backend (server): `http://localhost:3030`.
 
 
 ## Esquema do Banco de Dados
