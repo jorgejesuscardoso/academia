@@ -5,7 +5,7 @@ import { NotFoundMain } from './styled';
 const NotFound = () => {
   return (
     <NotFoundMain>
-      <h1>404 Not Found</h1>
+      <h1>Página em construção!</h1>
       <AsideLeft />
       <AsideRight />
     </NotFoundMain>

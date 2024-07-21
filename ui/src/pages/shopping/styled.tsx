@@ -137,11 +137,21 @@ export const ProductCard = styled.div`
     width: 90%;
     max-width: 90%;
     height: 25rem;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
   }
   @media (min-width: 481px) and (max-width: 768px) {
     width: 47%;
     max-width: 90%;
     height: 25rem;
+
+    img {
+      width: 120px;
+      height: 120px;
+    }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {

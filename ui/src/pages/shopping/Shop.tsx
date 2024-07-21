@@ -40,12 +40,28 @@ export const Shop = () => {
 
   const handleScale = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     const element = e.currentTarget;
-    element.style.transform = 'scale(4)';
-    element.style.cursor = 'zoom-out';
+    const windowWidth = window.innerWidth;
+    
     if (scale) {
       element.style.transform = 'scale(1)';
       element.style.cursor = 'zoom-in';
+      setScale(false);
+      return;
     }
+    
+    if (windowWidth < 768) {
+      element.style.transform = 'scale(2)';
+      element.style.cursor = 'zoom-out';
+    }
+
+    if (windowWidth >= 768 && windowWidth < 1024) {
+      element.style.transform = 'scale(3)';
+      element.style.cursor = 'zoom-out';
+    } else {
+      element.style.transform = 'scale(4)';
+      element.style.cursor = 'zoom-out';
+    }
+
     setTimeout(() => {
       element.style.transform = 'scale(1)';
       element.style.cursor = 'zoom-in';
