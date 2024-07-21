@@ -1,7 +1,8 @@
 # Documentação do Backend da Academia XYZ
 **Status:** Em desenvolvimento.
+**Feating:** Paginas de suporte, perfil de usuário, implementação do gateway para compras online, carrinho de compras e FAQ.
   
-Este repositório contém o código-fonte para o backend da Academia XYZ. O backend foi desenvolvido utilizando [tecnologia específica, por exemplo, AdonisJS ou Laravel] e fornece APIs para gerenciar clientes, instrutores e suas interações com o sistema de academia.
+Este repositório contém o código-fonte para o backend da Academia XYZ. O backend foi desenvolvido utilizando TypeScript e NodeJs com banco de dados SQLite com ORM Prisma e fornece APIs para gerenciar clientes, instrutores e suas interações com o sistema de academia.
 
 ## Deployment
 
