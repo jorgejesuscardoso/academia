@@ -43,7 +43,8 @@ const Login = () => {
   
         setTimeout(() => {
           navigate('/home');
-        }, 3000)
+        }, 3000)        
+        setLoading('')
       } else {
         Swal.fire({
           icon: 'error',
@@ -52,6 +53,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1000
         });
+        setLoading('')
       }
     } catch (error) {
       Swal.fire({
@@ -61,6 +63,8 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1000
         });
+      
+     setLoading('')
     }
   };
 
