@@ -17,7 +17,13 @@ class App {
     }
 
     private config(): void {
-        this.app.use(cors());
+        this.app.use(cors(
+            {
+                origin: '*',
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                allowedHeaders: ['Content-Type', 'Authorization'],
+            },
+        ));
         this.app.use(express.json());
         this.app.use('/usuarios/img', express.static('uploads/foto'));
         this.app.use('/publicacaos/img', express.static('uploads/publicacao'));
